@@ -3,4 +3,9 @@
 
 <mapper namespace="com.grabme.mappers.UserMapper">
 
+	<!-- insert user -->
+	<insert id="insertUser">
+		insert into user(name,phone,status) value(#{name},#{phone},#{status})
+	</insert>
+
 </mapper>
