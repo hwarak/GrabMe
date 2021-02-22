@@ -167,6 +167,19 @@
 		    <artifactId>springfox-swagger-ui</artifactId>
 		    <version>2.9.2</version>
 		</dependency>     
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-s3</artifactId>
+		    <version>1.11.959</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.wildfly.swarm/jca -->
+		<dependency>
+		    <groupId>org.wildfly.swarm</groupId>
+		    <artifactId>jca</artifactId>
+		    <version>2018.5.0</version>
+		</dependency>
+				
 	</dependencies>
     <build>
         <plugins>
