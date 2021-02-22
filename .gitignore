@@ -23,7 +23,7 @@ local.properties
 .loadpath
 .recommenders
 config.properties
-application.properties
+config2.properties
 
 # External tool builders
 .externalToolBuilders/
