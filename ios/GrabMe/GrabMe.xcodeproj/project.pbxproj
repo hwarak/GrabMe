@@ -99,13 +99,13 @@
 		EA1EBE9325E50E5E0083C27D /* GrabMe */ = {
 			isa = PBXGroup;
 			children = (
-				EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */,
-				EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */,
-				EA1EBE9825E50E5E0083C27D /* ViewController.swift */,
-				EA1EBE9A25E50E5E0083C27D /* Main.storyboard */,
-				EA1EBE9D25E50E620083C27D /* Assets.xcassets */,
-				EA1EBE9F25E50E620083C27D /* LaunchScreen.storyboard */,
-				EA1EBEA225E50E620083C27D /* Info.plist */,
+				EA1EBED425E5274C0083C27D /* Supportings */,
+				EA1EBED325E527420083C27D /* Utils */,
+				EA1EBECC25E526F20083C27D /* Sources */,
+				EA1EBECB25E526D70083C27D /* Services */,
+				EA1EBEC925E526B80083C27D /* Resources */,
+				EA1EBEC825E526A00083C27D /* Network */,
+				EA1EBEC725E526860083C27D /* Extensions */,
 			);
 			path = GrabMe;
 			sourceTree = "<group>";
@@ -126,6 +126,118 @@
 				EA1EBEB825E50E630083C27D /* Info.plist */,
 			);
 			path = GrabMeUITests;
+			sourceTree = "<group>";
+		};
+		EA1EBEC725E526860083C27D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EA1EBEC825E526A00083C27D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EA1EBEC925E526B80083C27D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EA1EBE9D25E50E620083C27D /* Assets.xcassets */,
+				EA1EBECA25E526C80083C27D /* Storyboards */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EA1EBECA25E526C80083C27D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EA1EBE9A25E50E5E0083C27D /* Main.storyboard */,
+				EA1EBE9F25E50E620083C27D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EA1EBECB25E526D70083C27D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EA1EBECC25E526F20083C27D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EA1EBED225E527340083C27D /* Models */,
+				EA1EBED125E5272C0083C27D /* ViewModels */,
+				EA1EBECF25E527170083C27D /* Views */,
+				EA1EBECE25E5270F0083C27D /* Applications */,
+				EA1EBECD25E526FA0083C27D /* ViewControllers */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EA1EBECD25E526FA0083C27D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA1EBE9825E50E5E0083C27D /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EA1EBECE25E5270F0083C27D /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		EA1EBECF25E527170083C27D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA1EBED025E5271E0083C27D /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EA1EBED025E5271E0083C27D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */,
+				EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EA1EBED125E5272C0083C27D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EA1EBED225E527340083C27D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EA1EBED325E527420083C27D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EA1EBED425E5274C0083C27D /* Supportings */ = {
+			isa = PBXGroup;
+			children = (
+				EA1EBEA225E50E620083C27D /* Info.plist */,
+			);
+			path = Supportings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,7 +550,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68663464K3;
-				INFOPLIST_FILE = GrabMe/Info.plist;
+				INFOPLIST_FILE = GrabMe/Supportings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68663464K3;
-				INFOPLIST_FILE = GrabMe/Info.plist;
+				INFOPLIST_FILE = GrabMe/Supportings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
