@@ -22,29 +22,33 @@ public class SwaggerConfiguration extends WebMvcConfigurationSupport{
 	private String title;
 
 	@Bean
-	public Docket apiV1() {
+	public Docket apiUser() {
 		version = "V1";
-		title = "victolee API " + version;
+		title = "grabMe API " + version;
 
 		return new Docket(DocumentationType.SWAGGER_2)
                 .useDefaultResponseMessages(false)
                 .groupName(version)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.grabme.web"))
-                .paths(PathSelectors.ant("/user/**"))
+                .paths(PathSelectors.ant("/api/**"))
                 .build()
                 .apiInfo(apiInfo(title, version));
 	}
 
 //	@Bean
-//	public Docket apiV2() {
-//		version = "V2";
-//		title = "victolee API " + version;
+//	public Docket apiShop() {
+//		group = "shop";
+//		title = "grabMe API of" + group;
 //
-//		return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).groupName(version).select()
-//				.apis(RequestHandlerSelectors.basePackage("com.calendarapp.web.UsersContorller"))
-//				.paths(PathSelectors.ant("/v2/api/**")).build().apiInfo(apiInfo(title, version));
-//
+//		return new Docket(DocumentationType.SWAGGER_2)
+//                .useDefaultResponseMessages(false)
+//                .groupName(group)
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.grabme.web"))
+//                .paths(PathSelectors.ant("/shop/**"))
+//                .build()
+//                .apiInfo(apiInfo(title, group));
 //	}
 
 	@Override

@@ -16,11 +16,22 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(tags= {"2","User"})
-@RequestMapping("/api/user")
-public class UserController {
-	
+@Api(tags= {"1","Sign"})
+@RequestMapping("/api/sign")
+public class SignController {
+
 	@Autowired
 	UserService user_service;
 
+	@ApiOperation(value = "회원 등록", notes = "회원의 정보를 입력받아 등록한다.")
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public String insertUser(HttpServletRequest request, @PathVariable("name") String name,
+			@PathVariable("phone") String phone, @PathVariable("status") int status) {
+
+		user_service.insertUser(name, phone, status);
+		
+		return "{\"result\":\"ok\"}";
+
+	}
 }
