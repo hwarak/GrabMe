@@ -10,28 +10,42 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grabme.service.MessageService;
 import com.grabme.service.UserService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(tags= {"1","Sign"})
-@RequestMapping("/api/sign")
+@Api("SignController")
+@RequestMapping("/sign")
 public class SignController {
 
 	@Autowired
 	UserService user_service;
 
-	@ApiOperation(value = "회원 등록", notes = "회원의 정보를 입력받아 등록한다.")
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	@ResponseStatus(value = HttpStatus.OK)
-	public String insertUser(HttpServletRequest request, @PathVariable("name") String name,
-			@PathVariable("phone") String phone, @PathVariable("status") int status) {
+	@Autowired
+	MessageService message_service;
 
-		user_service.insertUser(name, phone, status);
-		
-		return "{\"result\":\"ok\"}";
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String phoneNum(@PathVariable("number") String number) {
+
+		//message_service.sendMessage(number);
+
+		//return "{\"result\":\"ok\"}";
+		return "{\"result\":\""+number+"}";
 
 	}
+
+//	@ApiOperation(value = "회원 등록", notes = "회원의 정보를 입력받아 등록한다.")
+//	@RequestMapping(value = "/", method = RequestMethod.POST)
+//	@ResponseStatus(value = HttpStatus.OK)
+//	public String insertUser(HttpServletRequest request, @PathVariable("name") String name,
+//			@PathVariable("phone") String phone, @PathVariable("status") int status) {
+//
+//		user_service.insertUser(name, phone, status);
+//
+//		return "{\"result\":\"ok\"}";
+//
+//	}
 }

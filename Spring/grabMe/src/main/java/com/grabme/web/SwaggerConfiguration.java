@@ -31,7 +31,7 @@ public class SwaggerConfiguration extends WebMvcConfigurationSupport{
                 .groupName(version)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.grabme.web"))
-                .paths(PathSelectors.ant("/api/**"))
+                .paths(PathSelectors.ant("/**"))
                 .build()
                 .apiInfo(apiInfo(title, version));
 	}

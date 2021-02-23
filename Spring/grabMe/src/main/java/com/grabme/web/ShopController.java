@@ -19,26 +19,27 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(tags= {"3","Shop"})
-@RequestMapping("/api/shop")
+@Api("ShopController")
+@RequestMapping("/shop")
 public class ShopController {
 
 	@Autowired
-	ShopService service_shop;
+	ShopService shop_service;
 
 	@Autowired
-	S3Service s3Service;
+	S3Service s3_service;
 
 	@ApiOperation(value = "가게 등록", notes = "가게 정보를 등록한다")
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public String requestupload1(MultipartHttpServletRequest mtfRequest, @PathVariable("user_idx") int user_idx,
 			@PathVariable("category_idx") int category_idx, @PathVariable("title") String title,
-			@PathVariable("address") String address, @PathVariable("introduction") String introduction) throws IOException {
+			@PathVariable("address") String address, @PathVariable("introduction") String introduction)
+			throws IOException {
 
 		MultipartFile mf = mtfRequest.getFile("file");
-		String filePath = s3Service.upload(mf);
-		service_shop.insertShop(1, 1, filePath, "올타임피트니스", "경기도 괴안동", "헬스장입니다");
+		String filePath = s3_service.upload(mf);
+		shop_service.insertShop(1, 1, filePath, "올타임피트니스", "경기도 괴안동", "헬스장입니다");
 
 		return "{\"result\":\"ok\"}";
 
