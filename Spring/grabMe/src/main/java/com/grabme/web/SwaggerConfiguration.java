@@ -58,7 +58,7 @@ public class SwaggerConfiguration extends WebMvcConfigurationSupport{
 	}
 
 	private ApiInfo apiInfo(String title, String version) {
-		return new ApiInfo(title, "Swagger로 생성한 API Docs", version, "www.example.com",
+		return new ApiInfo(title, "Swagger API Docs", version, "www.example.com",
 				new Contact("Contact Me", "www.example.com", "foo@example.com"), "Licenses",
 
 				"www.example.com",

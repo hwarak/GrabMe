@@ -29,7 +29,7 @@ public class ShopController {
 	@Autowired
 	S3Service s3_service;
 
-	@ApiOperation(value = "°¡°Ô µî·Ï", notes = "°¡°Ô Á¤º¸¸¦ µî·ÏÇÑ´Ù")
+	@ApiOperation(value = "ê°€ê²Œ ë“±ë¡", notes = "ê°€ê²Œ ì •ë³´ë¥¼ ì…ë ¥ë°›ì•„ ë°ì´í„°ë² ì´ìŠ¤ì— ì €ì¥í•œë‹¤")
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public String requestupload1(MultipartHttpServletRequest mtfRequest, @PathVariable("user_idx") int user_idx,
@@ -39,7 +39,7 @@ public class ShopController {
 
 		MultipartFile mf = mtfRequest.getFile("file");
 		String filePath = s3_service.upload(mf);
-		shop_service.insertShop(1, 1, filePath, "¿ÃÅ¸ÀÓÇÇÆ®´Ï½º", "°æ±âµµ ±«¾Èµ¿", "Çï½ºÀåÀÔ´Ï´Ù");
+		shop_service.insertShop(1, 1, filePath, "ã…ã…ã…", "ã„´ã„´ã„´", "ã„¹ã„¹ã„¹");
 
 		return "{\"result\":\"ok\"}";
 
