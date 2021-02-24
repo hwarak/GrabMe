@@ -3,9 +3,17 @@
 
 <mapper namespace="com.grabme.mappers.UserMapper">
 
+
+	<!-- Check phone in database -->
+	<select id="checkPhone" resultType="Integer">
+		select count(*) from user where phone=#{phone}
+	</select>
+	
 	<!-- insert user -->
 	<insert id="insertUser">
 		insert into user(name,phone,status) value(#{name},#{phone},#{status})
 	</insert>
+
+
 
 </mapper>

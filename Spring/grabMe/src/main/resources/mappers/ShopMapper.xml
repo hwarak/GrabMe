@@ -3,5 +3,11 @@
 
 <mapper namespace="com.grabme.mappers.ShopMapper">
 
+	<!-- insert shop -->
+	<insert id="insertShop">
+		insert into shop(user_idx,category_idx,thumbnail,title,address,introduction)
+		value(#{user_idx},#{category_idx},#{thumbnail},#{title},#{address},#{introduction})
+	</insert>
+
 
 </mapper>
