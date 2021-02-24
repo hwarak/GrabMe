@@ -11,6 +11,12 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	SqlSession sqlSession;
 
+	// Check phone in database
+	@Override
+	public int checkPhone(String phone) {
+		return sqlSession.selectOne("com.grabme.mappers.UserMapper.checkPhone", phone);
+	}
+
 	// insert user
 	@Override
 	public void insertUser(String name, String phone, int status) {
@@ -20,7 +26,6 @@ public class UserDAOImpl implements UserDAO {
 		map.put("status", status);
 
 		sqlSession.insert("com.grabme.mappers.UserMapper.insertUser", map);
-
 	}
 
 }

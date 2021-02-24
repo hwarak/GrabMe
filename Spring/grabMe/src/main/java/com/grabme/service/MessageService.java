@@ -28,7 +28,7 @@ public class MessageService {
 		params.put("to", toNumber);
 		params.put("from", from_number);
 		params.put("type", "SMS");
-		params.put("text", "Coolsms Testing Message!");
+		params.put("text", "grabMe 인증번호 입니다 : 9999");
 		params.put("app_version", "test app 1.2"); // application name and version
 
 		try {
