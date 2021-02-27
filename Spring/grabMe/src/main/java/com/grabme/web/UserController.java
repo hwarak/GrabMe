@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.grabme.service.UserService;
 
 import io.swagger.annotations.Api;
+import lombok.RequiredArgsConstructor;
 
+
+@Api(tags = { "2. User" })
+@RequiredArgsConstructor
 @RestController
-@Api("UserController" )
 @RequestMapping("/user")
 public class UserController {
 

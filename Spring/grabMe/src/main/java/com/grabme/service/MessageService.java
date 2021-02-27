@@ -20,7 +20,7 @@ public class MessageService {
 	@Value("${coolsms.devHee.fromnumber}")
 	private String from_number;
 
-	public void sendMessage(String toNumber) {
+	public void sendMessage(String toNumber, String randomNumber) {
 
 		Message coolsms = new Message(api_key, api_secret);
 
@@ -28,7 +28,7 @@ public class MessageService {
 		params.put("to", toNumber);
 		params.put("from", from_number);
 		params.put("type", "SMS");
-		params.put("text", "grabMe 인증번호 입니다 : 9999");
+		params.put("text", "[grabMe] 인증번호 "+randomNumber+" 를 입력하세요.");
 		params.put("app_version", "test app 1.2"); // application name and version
 
 		try {

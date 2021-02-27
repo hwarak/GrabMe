@@ -4,9 +4,9 @@
 <mapper namespace="com.grabme.mappers.UserMapper">
 
 
-	<!-- Check phone in database -->
-	<select id="checkPhone" resultType="Integer">
-		select count(*) from user where phone=#{phone}
+	<!-- Check user in database -->
+	<select id="checkUser" resultType="Integer">
+		select count(*) from user where phone=#{phone} and status=#{status}
 	</select>
 	
 	<!-- insert user -->
@@ -14,6 +14,10 @@
 		insert into user(name,phone,status) value(#{name},#{phone},#{status})
 	</insert>
 
+	<!-- select user idx -->
+	<select id="selectUserIdx" resultType="Integer">
+		select idx from user where phone=#{phone} and status=#{status}
+	</select>
 
 
 </mapper>

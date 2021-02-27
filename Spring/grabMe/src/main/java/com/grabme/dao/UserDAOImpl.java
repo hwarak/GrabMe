@@ -11,10 +11,13 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	SqlSession sqlSession;
 
-	// Check phone in database
+	// Check user in database
 	@Override
-	public int checkPhone(String phone) {
-		return sqlSession.selectOne("com.grabme.mappers.UserMapper.checkPhone", phone);
+	public int checkUser(String phone, int status) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("phone", phone);
+		map.put("status", status);
+		return sqlSession.selectOne("com.grabme.mappers.UserMapper.checkUser", map);
 	}
 
 	// insert user
@@ -26,6 +29,15 @@ public class UserDAOImpl implements UserDAO {
 		map.put("status", status);
 
 		sqlSession.insert("com.grabme.mappers.UserMapper.insertUser", map);
+	}
+
+	// select user idx
+	@Override
+	public int selectUserIdx(String phone, int status) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("phone", phone);
+		map.put("status", status);
+		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectUserIdx", map);
 	}
 
 }
