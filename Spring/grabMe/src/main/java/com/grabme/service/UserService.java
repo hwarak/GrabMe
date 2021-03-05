@@ -1,5 +1,7 @@
 package com.grabme.service;
 
+import com.grabme.vo.UserVO;
+
 public interface UserService {
 
 	// Check user in database
@@ -13,5 +15,8 @@ public interface UserService {
 
 	// insert user
 	public void insertUser(String name, String phone, int status);
+
+	// select user
+	public UserVO selectUser(int idx);
 
 }

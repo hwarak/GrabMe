@@ -1,6 +1,6 @@
-package com.grabme.dao;
+package com.grabme.service;
 
-public interface ExternalChannelDAO {
+public interface ExternalChannelService {
 
 	// insert shop url
 	public void insertURL(int shop_idx, String openkatalkURL, String instaURL);

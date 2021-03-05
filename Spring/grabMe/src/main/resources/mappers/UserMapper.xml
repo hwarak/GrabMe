@@ -19,5 +19,9 @@
 		select idx from user where phone=#{phone} and status=#{status}
 	</select>
 
+	<!-- select user -->
+	<select id="selectUser" resultType="com.grabme.vo.UserVO">
+		select * from user where idx=#{idx}
+	</select>
 
 </mapper>

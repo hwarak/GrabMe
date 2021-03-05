@@ -3,4 +3,9 @@
 
 <mapper namespace="com.grabme.mappers.CategoryMapper">
 
+	<!-- select Category idx -->
+	<select id="selectIdx" resultType="Integer">
+		select idx from category where category=#{category}
+	</select>
+
 </mapper>

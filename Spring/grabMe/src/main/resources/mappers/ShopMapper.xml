@@ -9,5 +9,14 @@
 		value(#{user_idx},#{category_idx},#{thumbnail},#{title},#{address},#{introduction})
 	</insert>
 
+	<!-- select shop idx -->
+	<select id="selectShopIdx" resultType="Integer">
+		select idx from shop where user_idx=#{user_idx};
+	</select>
+	
+	<!-- check shop -->
+	<select id="checkShop" resultType="Integer">
+		select count(*) from shop where user_idx=#{user_idx}
+	</select>
 
 </mapper>

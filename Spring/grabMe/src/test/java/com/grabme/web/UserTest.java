@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.grabme.dao.UserDAO;
+import com.grabme.vo.UserVO;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -47,6 +48,14 @@ public class UserTest {
 
 		dao.insertUser(name, phone, status); // 데이터베이스 등록
 		System.out.println(dao.selectUserIdx(phone, status));// 등록한 유저 idx 반환
+	}
+
+	@Test
+	public void testSelectUser() throws Exception {
+		// idx로 유저 정보 가져오기
+		UserVO uvo = dao.selectUser(1);
+
+		System.out.println(uvo.getName());
 	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grabme.dao.UserDAO;
+import com.grabme.vo.UserVO;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -45,5 +46,13 @@ public class UserServiceImpl implements UserService {
 		dao.insertUser(name, phone, status);
 
 	}
+	
+	// select user
+	@Override
+	public UserVO selectUser(int idx) {
+		return dao.selectUser(idx);
+	}
+	
+	
 
 }

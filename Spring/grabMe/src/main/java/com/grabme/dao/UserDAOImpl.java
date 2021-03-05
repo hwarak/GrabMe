@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.grabme.vo.UserVO;
+
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
@@ -38,6 +40,12 @@ public class UserDAOImpl implements UserDAO {
 		map.put("phone", phone);
 		map.put("status", status);
 		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectUserIdx", map);
+	}
+
+	// select user
+	@Override
+	public UserVO selectUser(int idx) {
+		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectUser",idx);
 	}
 
 }

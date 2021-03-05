@@ -1,5 +1,17 @@
 package com.grabme.dao;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class CategoryDAOImpl implements CategoryDAO {
+
+	@Autowired
+	SqlSession sqlSession;
+
+	// select category idx
+	@Override
+	public int selectIdx(String category) {
+		return sqlSession.selectOne("com.grabme.mappers.CategoryMapper.selectIdx", category);
+	}
 
 }

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <form name="fileForm" action="shop/insert" method="post" enctype="multipart/form-data">
+    <form name="fileForm" action="insert" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
         <input type="submit" value="전송" />
     </form>

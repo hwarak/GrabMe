@@ -13,11 +13,11 @@ public class CategoryVO {
 		this.idx = idx;
 	}
 
-	public String getCategory() {
+	public String getcategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setcategory(String category) {
 		this.category = category;
 	}
 

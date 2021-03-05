@@ -11,6 +11,7 @@ public class ShopDAOImpl implements ShopDAO {
 	@Autowired
 	SqlSession sqlsession;
 
+	// insert shop
 	@Override
 	public void insertShop(int user_idx, int category_idx, String thumbnail, String title, String address,
 			String introduction) {
@@ -24,6 +25,20 @@ public class ShopDAOImpl implements ShopDAO {
 
 		sqlsession.insert("com.grabme.mappers.ShopMapper.insertShop", map);
 
+	}
+
+	// select shop idx
+	@Override
+	public int selectShopIdx(int user_idx) {
+		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopIdx", user_idx);
+	}
+
+	// check Shop
+	@Override
+	public int checkShop(int user_idx) {
+		// 가게 존재하는지 확인
+		// 입력받은 유저아이디로 생성된 가게가 없으면 0을 반환
+		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.checkShop", user_idx);
 	}
 
 }
