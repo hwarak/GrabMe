@@ -1,5 +1,7 @@
 package com.grabme.web;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.grabme.dao.ExternalChannelDAO;
 import com.grabme.dao.ShopDAO;
+import com.grabme.vo.ShopAllVO;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,5 +45,12 @@ public class ShopTest {
 		System.out.println(dao.checkShop(1));
 	}
 	
-
+	@Test
+	public void testAllInfo() throws Exception{
+		// 가게의 모든 정보를 입력한다
+		List<ShopAllVO> list = dao.selectShopAllinfo(4);
+		for(ShopAllVO tmp : list) {
+			System.out.println(tmp.getTitle());
+		}
+	}
 }

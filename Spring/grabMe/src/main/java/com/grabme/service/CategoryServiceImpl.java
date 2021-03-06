@@ -17,4 +17,10 @@ public class CategoryServiceImpl implements CategoryService {
 		return dao.selectIdx(category);
 	}
 
+	// select category name
+	@Override
+	public String selectName(int idx) {
+		return dao.selectName(idx);
+	}
+
 }

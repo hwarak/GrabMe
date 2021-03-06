@@ -1,10 +1,13 @@
 package com.grabme.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.grabme.vo.ShopAllVO;
 
 public class ShopDAOImpl implements ShopDAO {
 
@@ -39,6 +42,13 @@ public class ShopDAOImpl implements ShopDAO {
 		// 가게 존재하는지 확인
 		// 입력받은 유저아이디로 생성된 가게가 없으면 0을 반환
 		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.checkShop", user_idx);
+	}
+
+	// select Shop All Info
+	@Override
+	public List<ShopAllVO> selectShopAllinfo(int user_idx) {
+		return sqlsession.selectList("com.grabme.mappers.ShopMapper.selectShopAllinfo", user_idx);
+
 	}
 
 }

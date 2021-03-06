@@ -14,4 +14,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 		return sqlSession.selectOne("com.grabme.mappers.CategoryMapper.selectIdx", category);
 	}
 
+	// select category name
+	@Override
+	public String selectName(int idx) {
+		return sqlSession.selectOne("com.grabme.mappers.CategoryMapper.selectName", idx);
+	}
+
 }

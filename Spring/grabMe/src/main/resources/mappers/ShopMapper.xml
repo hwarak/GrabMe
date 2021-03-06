@@ -18,5 +18,14 @@
 	<select id="checkShop" resultType="Integer">
 		select count(*) from shop where user_idx=#{user_idx}
 	</select>
+	
+	<select id="selectShopAllinfo" resultType="com.grabme.vo.ShopAllVO">
+		select shop.category_idx, shop.thumbnail, shop.title, shop.address, shop.introduction, 
+		externalChannel.openkatalkURL, externalChannel.instaURL
+		from shop left join externalChannel on shop.idx = externalChannel.shop_idx 
+		where shop.user_idx = #{user_idx}
+	</select>
+	
+
 
 </mapper>

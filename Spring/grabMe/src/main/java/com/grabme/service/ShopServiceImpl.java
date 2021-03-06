@@ -1,9 +1,12 @@
 package com.grabme.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grabme.dao.ShopDAO;
+import com.grabme.vo.ShopAllVO;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -28,6 +31,12 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public int checkShop(int user_idx) {
 		return dao.checkShop(user_idx);
+	}
+
+	// select Shop All Info
+	@Override
+	public List<ShopAllVO> selectShopAllinfo(int user_idx) {
+		return dao.selectShopAllinfo(user_idx);
 	}
 	
 	

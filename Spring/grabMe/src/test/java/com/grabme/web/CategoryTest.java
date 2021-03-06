@@ -19,7 +19,14 @@ public class CategoryTest {
 
 	@Test
 	public void testSelectIdx() throws Exception {
+		// 카테고리 이름으로 카테고리 번호 반환
 		System.out.println(dao.selectIdx("노래방"));
 
+	}
+
+	@Test
+	public void testSelectName() throws Exception {
+		// 카테고리 번호로 이름 반환
+		System.out.println(dao.selectName(1));
 	}
 }

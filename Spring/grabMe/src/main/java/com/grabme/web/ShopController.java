@@ -1,6 +1,8 @@
 package com.grabme.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,7 @@ import com.grabme.service.S3Service;
 import com.grabme.service.ShopService;
 import com.grabme.vo.CategoryVO;
 import com.grabme.vo.ExternalChannelVO;
+import com.grabme.vo.ShopAllVO;
 import com.grabme.vo.ShopVO;
 
 import io.swagger.annotations.Api;
@@ -52,6 +55,7 @@ public class ShopController {
 	public String shopInfoGet(@RequestParam int user_idx) {
 
 		JsonObject obj = new JsonObject();
+		List<ShopAllVO> list = shop_service.selectShopAllinfo(user_idx);
 
 		int cn = shop_service.checkShop(user_idx);
 		// 유저 번호로 등록된 가게가 있는지 확인
@@ -63,6 +67,15 @@ public class ShopController {
 			// 등록된 가게 있음
 			// 가게 정보 보여주기
 			obj.addProperty("message", "ok");
+			for (ShopAllVO tmp : list) {
+				obj.addProperty("category", category_service.selectName(Integer.parseInt(tmp.getCategory_idx())));
+				obj.addProperty("thumbnail", tmp.getThumbnail());
+				obj.addProperty("title", tmp.getTitle());
+				obj.addProperty("address", tmp.getAddress());
+				obj.addProperty("introduction", tmp.getIntroduction());
+				obj.addProperty("openkatalkURL", tmp.getOpenkatalkURL());
+				obj.addProperty("instaURL", tmp.getInstaURL());
+			}
 		}
 		return obj.toString();
 	}
