@@ -1,13 +1,13 @@
 package com.grabme.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -52,7 +52,7 @@ public class ShopController {
 	@ApiOperation(value = "가게 정보", notes = "가게 정보를 가져온다.")
 	@GetMapping
 	@ResponseBody
-	public String shopInfoGet(@RequestParam int user_idx) {
+	public String shopInfoGet(@ApiParam(value = "유저 번호", required = true) @RequestParam int user_idx) {
 
 		JsonObject obj = new JsonObject();
 		List<ShopAllVO> list = shop_service.selectShopAllinfo(user_idx);
@@ -62,13 +62,13 @@ public class ShopController {
 
 		if (cn == 0) {
 			// 등록된 가게가 없다
-			obj.addProperty("message", "no");
+			obj.addProperty("result", "no");
 		} else {
 			// 등록된 가게 있음
 			// 가게 정보 보여주기
-			obj.addProperty("message", "ok");
+			obj.addProperty("result", "ok");
 			for (ShopAllVO tmp : list) {
-				obj.addProperty("category", category_service.selectName(Integer.parseInt(tmp.getCategory_idx())));
+				obj.addProperty("category", category_service.selectName(tmp.getCategory_idx()));
 				obj.addProperty("thumbnail", tmp.getThumbnail());
 				obj.addProperty("title", tmp.getTitle());
 				obj.addProperty("address", tmp.getAddress());
@@ -107,7 +107,7 @@ public class ShopController {
 		System.out.println(evo.getOpenkatalkURL() + "/" + evo.getInstaURL());
 
 		JsonObject obj = new JsonObject();
-		obj.addProperty("message", "ok");
+		obj.addProperty("result", "ok");
 
 		return obj.toString();
 	}
@@ -115,7 +115,15 @@ public class ShopController {
 	@ApiOperation(value = "가게 업데이트", notes = "가게 정보를 업데이트한다.")
 	@PutMapping
 	@ResponseBody
-	public void shopInfoPut() {
+	public String shopInfoPut(@ApiParam(value = "업데이트 할 가게 정보", required = true) @RequestBody ShopAllVO savo,
+			@ApiParam(value = "가게 번호", required = true) @RequestParam int shop_idx) {
 		// 가게 정보를 업데이트 한다
+		shop_service.updateShopAllinfo(shop_idx, savo.getCategory_idx(), savo.getThumbnail(), savo.getTitle(),
+				savo.getAddress(), savo.getIntroduction(), savo.getOpenkatalkURL(), savo.getInstaURL());
+
+		JsonObject obj = new JsonObject();
+		obj.addProperty("result", "ok");
+
+		return obj.toString();
 	}
 }

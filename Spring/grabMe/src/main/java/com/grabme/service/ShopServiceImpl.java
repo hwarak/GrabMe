@@ -26,7 +26,6 @@ public class ShopServiceImpl implements ShopService {
 		return dao.selectShopIdx(user_idx);
 	}
 
-	
 	// check Shop
 	@Override
 	public int checkShop(int user_idx) {
@@ -38,7 +37,12 @@ public class ShopServiceImpl implements ShopService {
 	public List<ShopAllVO> selectShopAllinfo(int user_idx) {
 		return dao.selectShopAllinfo(user_idx);
 	}
-	
-	
+
+	// update Shop All Info
+	@Override
+	public void updateShopAllinfo(int idx, int category_idx, String thumbnail, String title, String address,
+			String introduction, String openkatalkURL, String instaURL) {
+		dao.updateShopAllinfo(idx, category_idx, thumbnail, title, address, introduction, openkatalkURL, instaURL);
+	}
 
 }

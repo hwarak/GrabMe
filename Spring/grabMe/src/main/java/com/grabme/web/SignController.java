@@ -43,11 +43,11 @@ public class SignController {
 			// 데이터베이스에 존재하지 않음, 가입 가능
 			String cn = user_service.randomNumber(); // cn = 인증번호
 			// message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
-			obj.addProperty("message", "ok");
+			obj.addProperty("result", "ok");
 			obj.addProperty("code", cn); // 클라이언트단에도 인증번호 전송
 		} else {
 			// 데이터베이스에 이미 존재함, 가입 불가능
-			obj.addProperty("message", "no");
+			obj.addProperty("result", "no");
 		}
 		return obj.toString();
 	}
@@ -63,7 +63,7 @@ public class SignController {
 
 		JsonObject obj = new JsonObject();
 
-		obj.addProperty("message", "ok");
+		obj.addProperty("result", "ok");
 		obj.addProperty("idx", userIdx);
 		obj.addProperty("name", uvo2.getName());
 		obj.addProperty("phone", uvo2.getPhone());
@@ -86,7 +86,7 @@ public class SignController {
 
 		if (result == 0) {
 			// 데이터베이스에 존재하지 않음, 가입해야함
-			obj.addProperty("message", "no");
+			obj.addProperty("result", "no");
 		} else {
 			// 데이터베이스에 존재함, 로그인 가능
 			int userIdx = user_service.selectUserIdx(uvo.getPhone(), uvo.getStatus()); // 유저 idx
@@ -96,7 +96,7 @@ public class SignController {
 
 			// message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
 
-			obj.addProperty("message", "ok");
+			obj.addProperty("result", "ok");
 			obj.addProperty("code", cn); // 클라이언트단에도 인증번호 전송
 			obj.addProperty("idx", userIdx);
 			obj.addProperty("name", uvo2.getName());

@@ -18,4 +18,8 @@ public interface ShopService {
 
 	// select Shop All Info
 	public List<ShopAllVO> selectShopAllinfo(int user_idx);
+
+	// update Shop All Info
+	public void updateShopAllinfo(int idx, int category_idx, String thumbnail, String title, String address,
+			String introduction, String openkatalkURL, String instaURL);
 }
