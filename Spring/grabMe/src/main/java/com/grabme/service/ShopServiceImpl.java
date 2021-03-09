@@ -12,7 +12,7 @@ import com.grabme.vo.ShopAllVO;
 public class ShopServiceImpl implements ShopService {
 
 	@Autowired
-	ShopDAO dao;
+	private ShopDAO dao;
 
 	@Override
 	public void insertShop(int user_idx, int category_idx, String thumbnail, String title, String address,

@@ -12,7 +12,7 @@ import com.grabme.vo.ShopAllVO;
 public class ShopDAOImpl implements ShopDAO {
 
 	@Autowired
-	SqlSession sqlsession;
+	private SqlSession sqlsession;
 
 	// insert shop
 	@Override

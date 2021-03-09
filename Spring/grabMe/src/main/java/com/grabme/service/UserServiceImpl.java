@@ -12,7 +12,7 @@ import com.grabme.vo.UserVO;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserDAO dao;
+	private UserDAO dao;
 
 	// Check user in database
 	@Override

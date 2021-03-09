@@ -37,16 +37,16 @@ import lombok.RequiredArgsConstructor;
 public class ShopController {
 
 	@Autowired
-	S3Service s3_service;
+	private S3Service s3_service;
 
 	@Autowired
-	ShopService shop_service;
+	private ShopService shop_service;
 
 	@Autowired
-	CategoryService category_service;
+	private CategoryService category_service;
 
 	@Autowired
-	ExternalChannelService exchannel_service;
+	private ExternalChannelService exchannel_service;
 
 	// 가게 정보를 가져온다
 	@ApiOperation(value = "가게 정보", notes = "가게 정보를 가져온다.")

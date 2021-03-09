@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ExternalChannelDAOImpl implements ExternalChannelDAO {
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 	// insert shop url
 	@Override

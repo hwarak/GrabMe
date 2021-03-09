@@ -4,7 +4,6 @@ public class ReservationVO {
 
 	private int idx;
 	private int user_idx;
-	private int shop_idx;
 	private int time_idx;
 
 	public int getIdx() {
@@ -21,14 +20,6 @@ public class ReservationVO {
 
 	public void setUser_idx(int user_idx) {
 		this.user_idx = user_idx;
-	}
-
-	public int getShop_idx() {
-		return shop_idx;
-	}
-
-	public void setShop_idx(int shop_idx) {
-		this.shop_idx = shop_idx;
 	}
 
 	public int getTime_idx() {

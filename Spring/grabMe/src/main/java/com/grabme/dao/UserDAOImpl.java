@@ -11,7 +11,7 @@ import com.grabme.vo.UserVO;
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 	// Check user in database
 	@Override

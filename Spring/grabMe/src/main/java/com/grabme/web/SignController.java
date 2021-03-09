@@ -24,10 +24,10 @@ import lombok.RequiredArgsConstructor;
 public class SignController {
 
 	@Autowired
-	UserService user_service;
+	private UserService user_service;
 
 	@Autowired
-	MessageService message_service;
+	private MessageService message_service;
 
 	@ApiOperation(value = "유저 번호 확인", notes = "유저 번호와 상태를 입력받아 중복 확인 후 인증번호를 발송한다.")
 	@PostMapping(value = "/check")

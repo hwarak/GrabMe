@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 	// select category idx
 	@Override
