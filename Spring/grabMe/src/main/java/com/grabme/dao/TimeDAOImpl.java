@@ -25,13 +25,29 @@ public class TimeDAOImpl implements TimeDAO {
 
 	}
 
+	// update time
+	@Override
+	public void updateTime(String time, int idx) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("time", time);
+		map.put("idx", idx);
+		sqlSession.update("com.grabme.mappers.TimeMapper.updateTime", map);
+	}
+
+	// delete time
+	@Override
+	public void deleteTime(int idx) {
+		sqlSession.delete("com.grabme.mappers.TimeMapper.deleteTime", idx);
+
+	}
+
 	// update time status
 	@Override
 	public void updateTimeStatus(int idx) {
 		sqlSession.update("com.grabme.mappers.TimeMapper.updateTimeStatus", idx);
 	}
 
-	// select date
+	// select date -> list
 	@Override
 	public List<TimeVO> selectDate(int shop_idx, String date) {
 		Map<String, Object> map = new HashMap<String, Object>();

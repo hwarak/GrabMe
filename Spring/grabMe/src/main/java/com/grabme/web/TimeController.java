@@ -7,8 +7,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,5 +75,50 @@ public class TimeController {
 
 		return new Gson().toJsonTree(list).toString();
 	}
-	
+
+	// 시간 테이블 업데이트 하기
+
+	// (1) 시간 추가
+	@ApiOperation(value = "날짜별 예약시간 보기", notes = "날짜를 받으면 예약시간들을 보여준다.")
+	@PostMapping("/change")
+	@ResponseBody
+	public String insertTime(@ApiParam(value = "시간 정보", required = true) @RequestBody TimeVO tvo) {
+
+		time_service.insertTime(tvo.getShop_idx(), tvo.getDate(), tvo.getTime());
+
+		JsonObject obj = new JsonObject();
+		obj.addProperty("result", "ok");
+
+		return obj.toString();
+	}
+
+	// (2) 시간 삭제
+	@ApiOperation(value = "날짜별 예약시간 보기", notes = "날짜를 받으면 예약시간들을 보여준다.")
+	@DeleteMapping("/change")
+	@ResponseBody
+	public String deleteTime(@ApiParam(value = "시간 번호", required = true) @RequestParam int idx) {
+
+		time_service.deleteTime(idx);
+
+		JsonObject obj = new JsonObject();
+		obj.addProperty("result", "ok");
+
+		return obj.toString();
+	}
+
+	// (3) 시간 업데이트
+	@ApiOperation(value = "날짜별 예약시간 보기", notes = "날짜를 받으면 예약시간들을 보여준다.")
+	@PutMapping("/change")
+	@ResponseBody
+	public String updateTime(@ApiParam(value = "시간", required = true) @RequestParam String time,
+			@ApiParam(value = "시간 번호", required = true) @RequestParam int idx) {
+
+		time_service.updateTime(time, idx);
+
+		JsonObject obj = new JsonObject();
+		obj.addProperty("result", "ok");
+
+		return obj.toString();
+	}
+
 }

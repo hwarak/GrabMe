@@ -19,12 +19,23 @@ public class TimeServiceImpl implements TimeService {
 	public void insertTime(int shop_idx, String date, String time) {
 		dao.insertTime(shop_idx, date, time);
 	}
-	
-	// select date
+
+	// update time
+	@Override
+	public void updateTime(String time, int idx) {
+		dao.updateTime(time, idx);
+	}
+
+	// delete time
+	@Override
+	public void deleteTime(int idx) {
+		dao.deleteTime(idx);
+	}
+
+	// select date -> list
 	@Override
 	public List<TimeVO> selectDate(int shop_idx, String date) {
 		return dao.selectDate(shop_idx, date);
 	}
-	
-	
+
 }

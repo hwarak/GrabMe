@@ -19,22 +19,32 @@ public class TimeTest {
 
 	@Autowired
 	private TimeDAO dao;
-	
+
 	@Test
-	public void testIsertTime() throws Exception{
+	public void testIsertTime() throws Exception {
 		// 예약 날짜/시간 등록하기
 		dao.insertTime(4, "2021-03-09", "10:30");
 	}
-	
-	
+
 	@Test
-	public void testSelectDate() throws Exception{
+	public void testUpdateTime() throws Exception {
+		// 시간 업데이트하기
+		dao.updateTime("9:00", 6);
+	}
+
+	@Test
+	public void testDeleteTime() throws Exception {
+		// 시간 삭제하기
+		dao.deleteTime(7);
+	}
+
+	@Test
+	public void testSelectDate() throws Exception {
 		// 해당 날짜의 예약 시간들을 보여준다
 		List<TimeVO> list = dao.selectDate(4, "2021-03-11");
-		for(TimeVO tmp : list) {
+		for (TimeVO tmp : list) {
 			System.out.println(tmp.getTime());
 		}
 	}
-	
 
 }
