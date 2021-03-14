@@ -54,9 +54,4 @@ public class ShopTest {
 		}
 	}
 
-	@Test
-	public void testUpdateShop() throws Exception {
-		// 가게 정보 업데이트 한다
-		dao.updateShopAllinfo(4, 3, "썸네일3", "가게이름4", "가게주소4", "가게소개4", "카톡주소22", "인스타주소22");
-	}
 }

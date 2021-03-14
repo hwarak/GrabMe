@@ -53,17 +53,16 @@ public class ShopDAOImpl implements ShopDAO {
 
 	// update Shop All Info
 	@Override
-	public void updateShopAllinfo(int idx, int category_idx, String thumbnail, String title, String address,
-			String introduction, String openkatalkURL, String instaURL) {
+	public void updateShopAllinfo(ShopAllVO savo) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("idx", idx);
-		map.put("category_idx", category_idx);
-		map.put("thumbnail", thumbnail);
-		map.put("title", title);
-		map.put("address", address);
-		map.put("introduction", introduction);
-		map.put("openkatalkURL", openkatalkURL);
-		map.put("instaURL", instaURL);
+		map.put("idx", savo.getShop_idx());
+		map.put("category_idx", savo.getCategory_idx());
+		map.put("thumbnail", savo.getThumbnail());
+		map.put("title", savo.getTitle());
+		map.put("address", savo.getAddress());
+		map.put("introduction", savo.getIntroduction());
+		map.put("openkatalkURL", savo.getOpenkatalkURL());
+		map.put("instaURL", savo.getInstaURL());
 
 		sqlsession.insert("com.grabme.mappers.ShopMapper.updateShopAllInfo", map);
 

@@ -40,9 +40,27 @@ public class ShopServiceImpl implements ShopService {
 
 	// update Shop All Info
 	@Override
-	public void updateShopAllinfo(int idx, int category_idx, String thumbnail, String title, String address,
-			String introduction, String openkatalkURL, String instaURL) {
-		dao.updateShopAllinfo(idx, category_idx, thumbnail, title, address, introduction, openkatalkURL, instaURL);
+	public void updateShopAllinfo(ShopAllVO savo) {
+		dao.updateShopAllinfo(savo);
+	}
+
+	// check empty
+	@Override
+	public ShopAllVO checkEmpty(ShopAllVO savo) {
+
+		if (savo.getOpenkatalkURL().isEmpty()) {
+			savo.setOpenkatalkURL("default");
+		}
+
+		if (savo.getInstaURL().isEmpty()) {
+			savo.setInstaURL("default");
+		}
+
+		if (savo.getIntroduction().isEmpty()) {
+			savo.setIntroduction("등록된 소개가 없습니다");
+		}
+
+		return savo;
 	}
 
 }

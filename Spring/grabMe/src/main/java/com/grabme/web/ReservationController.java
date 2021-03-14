@@ -70,9 +70,9 @@ public class ReservationController {
 	@ApiOperation(value = "예약 삭제하기", notes = "예약번호를 가져와 예약을 삭제한다")
 	@DeleteMapping
 	@ResponseBody
-	public String reservationDelete(@ApiParam(value = "예약 번호", required = true) @RequestParam int idx) {
+	public String reservationDelete(@ApiParam(value = "예약 정보", required = true) @RequestBody ReservationVO rvo) {
 
-		reservation_service.deleteReservation(idx);
+		reservation_service.deleteReservation(rvo.getIdx());
 
 		JsonObject obj = new JsonObject();
 		obj.addProperty("result", "ok");

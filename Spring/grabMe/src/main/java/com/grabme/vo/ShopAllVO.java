@@ -2,6 +2,8 @@ package com.grabme.vo;
 
 public class ShopAllVO {
 
+	private int user_idx;
+	private int shop_idx;
 	private int category_idx;
 	private String thumbnail;
 	private String title;
@@ -9,6 +11,22 @@ public class ShopAllVO {
 	private String introduction;
 	private String openkatalkURL;
 	private String instaURL;
+
+	public int getUser_idx() {
+		return user_idx;
+	}
+
+	public void setUser_idx(int user_idx) {
+		this.user_idx = user_idx;
+	}
+
+	public int getShop_idx() {
+		return shop_idx;
+	}
+
+	public void setShop_idx(int shop_idx) {
+		this.shop_idx = shop_idx;
+	}
 
 	public int getCategory_idx() {
 		return category_idx;

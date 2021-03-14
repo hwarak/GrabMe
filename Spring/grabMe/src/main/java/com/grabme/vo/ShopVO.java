@@ -3,8 +3,8 @@ package com.grabme.vo;
 public class ShopVO {
 
 	private int idx;
-	private String user_idx;
-	private String category_idx;
+	private int user_idx;
+	private int category_idx;
 	private String thumbnail;
 	private String title;
 	private String address;
@@ -18,19 +18,19 @@ public class ShopVO {
 		this.idx = idx;
 	}
 
-	public String getUser_idx() {
+	public int getUser_idx() {
 		return user_idx;
 	}
 
-	public void setUser_idx(String user_idx) {
+	public void setUser_idx(int user_idx) {
 		this.user_idx = user_idx;
 	}
 
-	public String getCategory_idx() {
+	public int getCategory_idx() {
 		return category_idx;
 	}
 
-	public void setCategory_idx(String category_idx) {
+	public void setCategory_idx(int category_idx) {
 		this.category_idx = category_idx;
 	}
 
