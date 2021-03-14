@@ -15,6 +15,7 @@
 		EA1EBEA125E50E620083C27D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA1EBE9F25E50E620083C27D /* LaunchScreen.storyboard */; };
 		EA1EBEAC25E50E630083C27D /* GrabMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBEAB25E50E630083C27D /* GrabMeTests.swift */; };
 		EA1EBEB725E50E630083C27D /* GrabMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBEB625E50E630083C27D /* GrabMeUITests.swift */; };
+		EA3DDAE625FE2A9C00A0B241 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3DDAE525FE2A9C00A0B241 /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EA1EBEB225E50E630083C27D /* GrabMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrabMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1EBEB625E50E630083C27D /* GrabMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrabMeUITests.swift; sourceTree = "<group>"; };
 		EA1EBEB825E50E630083C27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA3DDAE525FE2A9C00A0B241 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 		EA1EBED125E5272C0083C27D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EA3DDAE525FE2A9C00A0B241 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA3DDAE625FE2A9C00A0B241 /* AuthenticationViewModel.swift in Sources */,
 				EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */,
 				EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */,
 				EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */,

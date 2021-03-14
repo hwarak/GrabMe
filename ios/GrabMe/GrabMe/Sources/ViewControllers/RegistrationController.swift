@@ -14,45 +14,59 @@ class RegistrationController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var registraionButton: UIButton!
     @IBOutlet var userStatus: [UIButton]!
+
     
     // MARK: - properties
-    var selectedCountry: String?
-    var listOfCountry = ["🇰🇷Korea","🇯🇵Japan","🇺🇸USA"]
+    private var viewModel = RegistrationViewModel()
+    private var selectedCountry: String?
+    private var listOfCountry = ["🇰🇷Korea","🇯🇵Japan","🇺🇸USA"]
+    
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.createAndSetupPickerView()
         self.dismissAndClosePickerView()
+        self.configurationNotificationObservers()
+        self.configureUI()
+        
     }
-   
 }
 
-// MARK: - Actitons
+
 extension RegistrationController {
     
+    // MARK: - Helpers
+    func configureUI(){
+       // updateForm()
+    }
+    
+    func configurationNotificationObservers(){
+        phoneTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        countryTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    // MARK: - Actitons
+    
     @IBAction func isButtonClicked(_ sender: UIButton) {
+        viewModel.userStatus = true
         if sender.tag == 0 {
             userStatus[0].isSelected = true
             userStatus[1].isSelected = false
+            
         } else {
             userStatus[1].isSelected = true
             userStatus[0].isSelected = false
         }
+        updateForm()
     }
     
-    func configureUI(){
-        
-    }
     func createAndSetupPickerView(){
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
-        self.countryTextField.inputView = pickerView
-    }
-    
-    @objc func dismissAction() {
-        self.view.endEditing(true)
+        //self.countryTextField.inputView = pickerView
     }
     
     func dismissAndClosePickerView(){
@@ -73,6 +87,30 @@ extension RegistrationController {
         default: return "🇺🇸+1"
         }
     }
+    
+    @objc func dismissAction() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func textDidChange(sender: UITextField){
+        if sender == phoneTextField {
+            viewModel.phoneNumber = sender.text
+        }
+        else if sender == countryTextField {
+            viewModel.countryCode = sender.text
+        }
+        
+        updateForm()
+    }
+}
+// MARK: - FormViewModel
+extension RegistrationController: FormViewModel {
+    
+    func updateForm() {
+        registraionButton.backgroundColor = viewModel.buttonBackgroundColor
+        registraionButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        registraionButton.isEnabled = viewModel.FormIsValid
+    }
 }
 
 // MARK: - UIPicker for selecting Country code
@@ -91,8 +129,12 @@ extension RegistrationController: UIPickerViewDelegate, UIPickerViewDataSource, 
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedCountry = self.listOfCountry[row]
-        self.countryTextField.text = getCountryCode(country: selectedCountry ?? " ")
+        guard let country = selectedCountry else { return }
+        self.countryTextField.text = getCountryCode(country: country)
+        print(country)
         
+        viewModel.countryCode = countryTextField.text
+        updateForm()
     }
 }
 
