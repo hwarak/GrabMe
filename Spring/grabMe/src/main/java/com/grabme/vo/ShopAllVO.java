@@ -1,36 +1,20 @@
 package com.grabme.vo;
 
-public class ShopVO {
+public class ShopAllVO {
 
-	private int idx;
-	private String user_idx;
-	private String category_idx;
+	private int category_idx;
 	private String thumbnail;
 	private String title;
 	private String address;
 	private String introduction;
+	private String openkatalkURL;
+	private String instaURL;
 
-	public int getIdx() {
-		return idx;
-	}
-
-	public void setIdx(int idx) {
-		this.idx = idx;
-	}
-
-	public String getUser_idx() {
-		return user_idx;
-	}
-
-	public void setUser_idx(String user_idx) {
-		this.user_idx = user_idx;
-	}
-
-	public String getCategory_idx() {
+	public int getCategory_idx() {
 		return category_idx;
 	}
 
-	public void setCategory_idx(String category_idx) {
+	public void setCategory_idx(int category_idx) {
 		this.category_idx = category_idx;
 	}
 
@@ -64,6 +48,22 @@ public class ShopVO {
 
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
+	}
+
+	public String getOpenkatalkURL() {
+		return openkatalkURL;
+	}
+
+	public void setOpenkatalkURL(String openkatalkURL) {
+		this.openkatalkURL = openkatalkURL;
+	}
+
+	public String getInstaURL() {
+		return instaURL;
+	}
+
+	public void setInstaURL(String instaURL) {
+		this.instaURL = instaURL;
 	}
 
 }

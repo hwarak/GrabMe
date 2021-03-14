@@ -1,14 +1,14 @@
 package com.grabme.vo;
 
-public class ShopVO {
+public class ReservationListVO {
 
 	private int idx;
-	private String user_idx;
-	private String category_idx;
+	private int shop_idx;
+	private String date;
+	private String time;
 	private String thumbnail;
 	private String title;
 	private String address;
-	private String introduction;
 
 	public int getIdx() {
 		return idx;
@@ -18,20 +18,28 @@ public class ShopVO {
 		this.idx = idx;
 	}
 
-	public String getUser_idx() {
-		return user_idx;
+	public int getShop_idx() {
+		return shop_idx;
 	}
 
-	public void setUser_idx(String user_idx) {
-		this.user_idx = user_idx;
+	public void setShop_idx(int shop_idx) {
+		this.shop_idx = shop_idx;
 	}
 
-	public String getCategory_idx() {
-		return category_idx;
+	public String getDate() {
+		return date;
 	}
 
-	public void setCategory_idx(String category_idx) {
-		this.category_idx = category_idx;
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	public String getThumbnail() {
@@ -56,14 +64,6 @@ public class ShopVO {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public String getIntroduction() {
-		return introduction;
-	}
-
-	public void setIntroduction(String introduction) {
-		this.introduction = introduction;
 	}
 
 }

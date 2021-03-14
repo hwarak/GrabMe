@@ -43,8 +43,6 @@ public class S3Service {
     }
 
     public String upload(MultipartFile file) throws IOException {
-    	System.out.println("¿©±â¿©!!!");
-    	System.out.println(accessKey+"/"+secretKey+"/"+bucket+"/"+region);
     	
         String fileName = file.getOriginalFilename();
 

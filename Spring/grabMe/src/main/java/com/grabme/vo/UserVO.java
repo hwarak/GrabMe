@@ -5,7 +5,7 @@ public class UserVO {
 	private int idx;
 	private String name;
 	private String phone;
-	private String prifile_img;
+	private String profile_img;
 	private int status;
 
 	public int getIdx() {
@@ -32,12 +32,12 @@ public class UserVO {
 		this.phone = phone;
 	}
 
-	public String getPrifile_img() {
-		return prifile_img;
+	public String getProfile_img() {
+		return profile_img;
 	}
 
-	public void setPrifile_img(String prifile_img) {
-		this.prifile_img = prifile_img;
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
 	}
 
 	public int getStatus() {
