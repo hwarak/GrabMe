@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="762.72321428571422"/>
         </scene>
-        <!--Registration Controller-->
+        <!--View Controller-->
         <scene sceneID="1nB-m8-CvK">
             <objects>
-                <viewController id="PfI-G1-Mzs" customClass="RegistrationController" customModule="GrabMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PfI-G1-Mzs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cGF-i2-Due">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="1637.68115942029" y="762.72321428571422"/>
         </scene>
-        <!--Registration Controller-->
+        <!--View Controller-->
         <scene sceneID="Iqj-1D-tG9">
             <objects>
-                <viewController id="siV-pO-zQW" customClass="RegistrationController" customModule="GrabMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="siV-pO-zQW" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yNq-V6-HT4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

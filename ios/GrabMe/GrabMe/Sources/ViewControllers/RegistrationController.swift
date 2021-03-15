@@ -39,7 +39,7 @@ extension RegistrationController {
     
     // MARK: - Helpers
     func configureUI(){
-       // updateForm()
+        updateForm()
     }
     
     func configurationNotificationObservers(){
@@ -51,14 +51,8 @@ extension RegistrationController {
     
     @IBAction func isButtonClicked(_ sender: UIButton) {
         viewModel.userStatus = true
-        if sender.tag == 0 {
-            userStatus[0].isSelected = true
-            userStatus[1].isSelected = false
-            
-        } else {
-            userStatus[1].isSelected = true
-            userStatus[0].isSelected = false
-        }
+        userStatus[0].isSelected = sender.tag == 0
+        userStatus[1].isSelected = sender.tag == 1
         updateForm()
     }
     
@@ -66,7 +60,8 @@ extension RegistrationController {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
-        //self.countryTextField.inputView = pickerView
+        
+        countryTextField.inputView = pickerView
     }
     
     func dismissAndClosePickerView(){
