@@ -21,7 +21,7 @@
 	
 	<!-- select shop all info -->
 	<select id="selectShopAllinfo" resultType="com.grabme.vo.ShopAllVO">
-		select shop.category_idx, shop.thumbnail, shop.title, shop.address, shop.introduction, 
+		select shop.idx, shop.user_idx, shop.category_idx, shop.thumbnail, shop.title, shop.address, shop.introduction, 
 		externalChannel.openkatalkURL, externalChannel.instaURL
 		from shop left join externalChannel on shop.idx = externalChannel.shop_idx 
 		where shop.user_idx = #{user_idx}
@@ -38,7 +38,7 @@
 		externalChannel.instaURL=#{instaURL}
 		WHERE shop.idx=#{idx}
 	</update>
-	
+
 
 
 </mapper>
