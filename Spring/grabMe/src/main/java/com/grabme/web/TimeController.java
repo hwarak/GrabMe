@@ -36,7 +36,7 @@ public class TimeController {
 	// 시간 테이블 업데이트 하기
 
 	// (1) 시간 추가
-	@ApiOperation(value = "날짜별 예약시간 보기", notes = "날짜를 받으면 예약시간들을 보여준다.")
+	@ApiOperation(value = "시각 추가", notes = "시각을 추가한다.")
 	@PostMapping
 	@ResponseBody
 	public String timeInfoPost(@ApiParam(value = "시간 정보", required = true) @RequestBody TimeVO tvo) {
@@ -50,7 +50,7 @@ public class TimeController {
 	}
 
 	// (2) 시간 삭제
-	@ApiOperation(value = "날짜별 예약시간 보기", notes = "날짜를 받으면 예약시간들을 보여준다.")
+	@ApiOperation(value = "시각 삭제", notes = "해당 시각을 삭제한다.")
 	@DeleteMapping
 	@ResponseBody
 	public String timeInfoDelete(@ApiParam(value = "시간 정보", required = true) @RequestBody TimeVO tvo) {
@@ -64,7 +64,7 @@ public class TimeController {
 	}
 
 	// (3) 시간 업데이트
-	@ApiOperation(value = "날짜별 예약시간 보기", notes = "날짜를 받으면 예약시간들을 보여준다.")
+	@ApiOperation(value = "시각 업데이트", notes = "해당 시각을 다른 시각으로 바꾼다.")
 	@PutMapping
 	@ResponseBody
 	public String timeInfoPut(@ApiParam(value = "시간 정보", required = true) @RequestBody TimeVO tvo) {
@@ -78,7 +78,7 @@ public class TimeController {
 	}
 
 	// (4) 시간 가져오기
-	@ApiOperation(value = "날짜별 예약시간 보기", notes = "날짜를 받으면 예약시간들을 보여준다.")
+	@ApiOperation(value = "날짜별 예약 시각 보기", notes = "날짜를 받으면 예약시각들을 보여준다.")
 	@GetMapping
 	@ResponseBody
 	public String timeInfoGet(@ApiParam(value = "가게 번호", required = true) @RequestParam int shop_idx,

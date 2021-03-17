@@ -47,6 +47,7 @@ public class ShopController {
 	@Autowired
 	private ExternalChannelService exchannel_service;
 
+	
 	// 가게 정보를 가져온다
 	@ApiOperation(value = "가게 정보", notes = "가게 정보를 가져온다.")
 	@GetMapping
@@ -71,6 +72,7 @@ public class ShopController {
 		return obj.toString();
 	}
 
+	
 	// 가게 정보를 등록한다
 	@ApiOperation(value = "가게 등록", notes = "가게 정보를 등록한다.")
 	@PostMapping
@@ -99,6 +101,7 @@ public class ShopController {
 		return obj.toString();
 	}
 
+	
 	// 가게 업데이트 
 	// multipart 때문에 PutMapping X
 	@ApiOperation(value = "가게 업데이트", notes = "가게 정보를 업데이트한다.")

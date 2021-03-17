@@ -29,6 +29,7 @@ public class SignController {
 	@Autowired
 	private MessageService message_service;
 
+	
 	@ApiOperation(value = "유저 번호 확인", notes = "유저 번호와 상태를 입력받아 중복 확인 후 인증번호를 발송한다.")
 	@PostMapping(value = "/check")
 	@ResponseBody
@@ -52,6 +53,7 @@ public class SignController {
 		return obj.toString();
 	}
 
+	
 	@ApiOperation(value = "회원가입", notes = "유저 정보를 입력받아 데이터베이스에 저장한다.")
 	@PostMapping(value = "/up")
 	@ResponseBody
@@ -74,6 +76,7 @@ public class SignController {
 
 	}
 
+	
 	@ApiOperation(value = "로그인", notes = "유저 확인 후 로그인한다.")
 	@PostMapping(value = "/in")
 	@ResponseBody

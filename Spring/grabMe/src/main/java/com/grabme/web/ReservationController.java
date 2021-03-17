@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 
-@Api(tags = { "5. Reservation" })
+@Api(tags = { "4. Reservation" })
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/reservation")

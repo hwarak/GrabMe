@@ -36,10 +36,5 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "gallery")
-	public String dispWrite() {
-
-		return "gallery";
-	}
 
 }
