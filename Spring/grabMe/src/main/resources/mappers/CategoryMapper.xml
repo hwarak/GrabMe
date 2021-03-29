@@ -10,4 +10,11 @@
 		having distance <![CDATA[<=]]> 1 order by distance limit #{startNum},10
 	</select>
 	
+	<!-- 검색 -->
+	<select id="searchTitle" resultType="com.grabme.vo.ShopVO" >
+		select *,(6371*acos(cos(radians(37.55529449380922))*cos(radians(y))*cos(radians(x)-radians(126.9368267633939))+sin(radians(37.55529449380922))*sin(radians(y))))
+		as distance from shop where category_idx =3 and title like #{word}
+		having distance <![CDATA[<=]]> 1 order by distance limit 0,10
+	</select>
+	
 </mapper>

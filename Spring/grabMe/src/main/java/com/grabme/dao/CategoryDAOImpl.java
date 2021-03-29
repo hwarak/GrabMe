@@ -27,4 +27,18 @@ public class CategoryDAOImpl implements CategoryDAO {
 		return sqlSession.selectList("com.grabme.mappers.CategoryMapper.selectCategoryWithXY", map);
 	}
 
+	// search Title
+	@Override
+	public List<ShopVO> searchTitle(double x, double y, int category_idx, int startNum, String word) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("x", x);
+		map.put("y", y);
+		map.put("category_idx", category_idx);
+		map.put("startNum", startNum);
+		map.put("word", "%"+word+"%");
+		return sqlSession.selectList("com.grabme.mappers.CategoryMapper.searchTitle", map);
+	}
+	
+	
+
 }

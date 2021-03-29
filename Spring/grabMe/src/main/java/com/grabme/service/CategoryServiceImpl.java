@@ -20,4 +20,12 @@ public class CategoryServiceImpl implements CategoryService {
 		return dao.selectCategoryWithXY(x, y, category_idx, startNum);
 	}
 
+	// search Title
+	@Override
+	public List<ShopVO> searchTitle(double x, double y, int category_idx, int startNum, String word) {
+		return dao.searchTitle(x, y, category_idx, startNum, word);
+	}
+	
+	
+
 }
