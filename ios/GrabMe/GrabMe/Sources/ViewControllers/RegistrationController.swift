@@ -14,7 +14,6 @@ class RegistrationController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var registraionButton: UIButton!
     @IBOutlet var userStatus: [UIButton]!
-
     
     // MARK: - properties
     private var viewModel = RegistrationViewModel()
@@ -25,12 +24,10 @@ class RegistrationController: UIViewController {
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.createAndSetupPickerView()
         self.dismissAndClosePickerView()
         self.configurationNotificationObservers()
         self.configureUI()
-        
     }
 }
 
