@@ -16,12 +16,15 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	// select Category With X,Y
 	@Override
-	public List<ShopVO> selectCategoryWithXY(double x, double y, int category_idx) {
+	public List<ShopVO> selectCategoryWithXY(double x, double y, int category_idx, int startNum, int endNum) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("x", x);
 		map.put("y", y);
 		map.put("category_idx", category_idx);
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);
+		
 		return sqlSession.selectList("com.grabme.mappers.CategoryMapper.selectCategoryWithXY", map);
 	}
 

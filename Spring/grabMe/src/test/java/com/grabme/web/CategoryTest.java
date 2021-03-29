@@ -23,7 +23,7 @@ public class CategoryTest {
 	@Test
 	public void testSelectCategoryWithXY() throws Exception {
 		// 현재 위도,경도 값으로 주변 가게 리스트 가져오기
-		List<ShopVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3);
+		List<ShopVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3,1,3);
 		System.out.println(list.get(0).getTitle());
 	}
 }

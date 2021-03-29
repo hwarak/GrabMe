@@ -7,6 +7,6 @@ import com.grabme.vo.ShopVO;
 public interface CategoryDAO {
 
 	// select Category With X,Y
-	public List<ShopVO> selectCategoryWithXY(double x, double y, int category_idx);
+	public List<ShopVO> selectCategoryWithXY(double x, double y, int category_idx, int startNum, int endNum);
 	
 }
