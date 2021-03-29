@@ -23,6 +23,7 @@ local.properties
 .loadpath
 .recommenders
 config.properties
+.DS_Store
 
 # External tool builders
 .externalToolBuilders/
@@ -243,4 +244,4 @@ Dependencies/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/java,java-web,eclipse,xcode,swift,cocoapods,objective-c
+# End of https://www.toptal.com/developers/gitignore/api/java,java-web,eclipse,xcode,swift,cocoapods,objective-c.DS_Store
