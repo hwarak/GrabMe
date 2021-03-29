@@ -26,4 +26,11 @@ public class CategoryTest {
 		List<ShopVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3,0);
 		System.out.println(list.get(0).getTitle());
 	}
+	
+	@Test
+	public void testSearchTitle() throws Exception{
+		// 가게 검색
+		List<ShopVO> list = dao.searchTitle(126.93677023776556, 37.55522238374985, 3,0,"치과");
+		System.out.println(list.get(0).getTitle());
+	}
 }
