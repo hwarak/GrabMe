@@ -43,7 +43,7 @@ public class SignController {
 		if (result == 0) {
 			// 데이터베이스에 존재하지 않음, 가입 가능
 			String cn = user_service.randomNumber(); // cn = 인증번호
-			// message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
+			message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
 			obj.addProperty("result", "ok");
 			obj.addProperty("code", cn); // 클라이언트단에도 인증번호 전송
 		} else {
@@ -97,7 +97,7 @@ public class SignController {
 
 			String cn = user_service.randomNumber(); // cn = 인증번호
 
-			// message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
+			message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
 
 			obj.addProperty("result", "ok");
 			obj.addProperty("code", cn); // 클라이언트단에도 인증번호 전송

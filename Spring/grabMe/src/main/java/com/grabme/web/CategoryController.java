@@ -35,7 +35,7 @@ public class CategoryController {
 			@ApiParam(value = "경도", required = true) @RequestParam double x,
 			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int category_idx) {
 
-		List<ShopVO> list = category_service.selectCategoryWithXY(x, y, category_idx);
+		List<ShopVO> list = category_service.selectCategoryWithXY(x, y, category_idx,1,3);
 
 		return new Gson().toJsonTree(list).toString();
 	}

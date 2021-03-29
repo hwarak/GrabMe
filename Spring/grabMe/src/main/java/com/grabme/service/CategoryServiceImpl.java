@@ -14,10 +14,10 @@ public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private CategoryDAO dao;
 
-	// select Category With X,Y
+	// 위도,경도 값 받아서 거리순으로 정렬후 원하는 만큼 보여주기
 	@Override
-	public List<ShopVO> selectCategoryWithXY(double x, double y, int category_idx) {
-		return dao.selectCategoryWithXY(x, y, category_idx);
+	public List<ShopVO> selectCategoryWithXY(double x, double y, int category_idx, int startNum, int endNum) {
+		return dao.selectCategoryWithXY(x, y, category_idx, startNum, endNum);
 	}
 
 }
