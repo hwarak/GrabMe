@@ -32,7 +32,6 @@ class RegistrationController: UIViewController {
 }
 
 extension RegistrationController {
-    
     // MARK: - Helpers
     func configureUI(){
         updateForm()
