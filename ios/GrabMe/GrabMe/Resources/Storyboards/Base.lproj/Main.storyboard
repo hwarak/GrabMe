@@ -6,10 +6,13 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -286,6 +289,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="762.72321428571422"/>
         </scene>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <!--Select Category View Controller-->
@@ -649,12 +653,15 @@
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mx1-EH-qTK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <image name="instagram" width="1024" height="1024"/>
@@ -668,6 +675,9 @@
 =======
         <image name="square" catalog="system" width="128" height="114"/>
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+        <image name="square" catalog="system" width="128" height="114"/>
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
         <image name="square" catalog="system" width="128" height="114"/>
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb

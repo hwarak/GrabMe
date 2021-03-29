@@ -5,6 +5,7 @@
 	};
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	objectVersion = 51;
 	objects = {
 
@@ -18,12 +19,17 @@
 =======
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 		EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */; };
@@ -57,6 +63,7 @@
 /* Begin PBXFileReference section */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		1D380A81AA03B7A8F36DB7F7 /* Pods_GrabMe_GrabMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrabMe_GrabMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B3A06F232902B4A036CB19 /* Pods_GrabMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrabMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E4D38E9734972BED4E1749 /* Pods-GrabMe-GrabMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMe-GrabMeUITests.debug.xcconfig"; path = "Target Support Files/Pods-GrabMe-GrabMeUITests/Pods-GrabMe-GrabMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +77,8 @@
 		E5C0F47368AD7A2252E55F38 /* Pods-GrabMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMe.debug.xcconfig"; path = "Target Support Files/Pods-GrabMe/Pods-GrabMe.debug.xcconfig"; sourceTree = "<group>"; };
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 		EA1EBE9125E50E5E0083C27D /* GrabMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrabMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,9 +98,12 @@
 		EA3DDAE525FE2A9C00A0B241 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		F9C08FBB688D86482BF26050 /* Pods-GrabMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMe.release.xcconfig"; path = "Target Support Files/Pods-GrabMe/Pods-GrabMe.release.xcconfig"; sourceTree = "<group>"; };
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 /* End PBXFileReference section */
@@ -103,9 +115,12 @@
 			files = (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				4252FFADB29210B8054D3AF5 /* Pods_GrabMe.framework in Frameworks */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			);
@@ -117,9 +132,12 @@
 			files = (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				7A08A5976C4C2C71C214A042 /* Pods_GrabMeTests.framework in Frameworks */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			);
@@ -131,9 +149,12 @@
 			files = (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				6DA8EEA3113EB6E898F1225A /* Pods_GrabMe_GrabMeUITests.framework in Frameworks */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			);
@@ -142,6 +163,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		7D5E4C187B91786B14C3A369 /* Frameworks */ = {
@@ -171,6 +193,8 @@
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 		EA1EBE8825E50E5E0083C27D = {
 			isa = PBXGroup;
 			children = (
@@ -180,10 +204,13 @@
 				EA1EBE9225E50E5E0083C27D /* Products */,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				D0722184BB0979A9DD0000C3 /* Pods */,
 				7D5E4C187B91786B14C3A369 /* Frameworks */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			);
@@ -288,9 +315,12 @@
 				EA1EBE9825E50E5E0083C27D /* RegistrationController.swift */,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				945ED45626104E260027A1FE /* SelectCategoryViewController.swift */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			);
@@ -341,10 +371,13 @@
 			children = (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				948890712610525900391653 /* circleRedButton.json */,
 				945ED45126104DAD0027A1FE /* loadingAnimation.json */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			);
@@ -368,6 +401,7 @@
 			buildPhases = (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				9130D820514CE8928416157E /* [CP] Check Pods Manifest.lock */,
 				EA1EBE8D25E50E5E0083C27D /* Sources */,
 				EA1EBE8E25E50E5E0083C27D /* Frameworks */,
@@ -378,6 +412,11 @@
 				EA1EBE8E25E50E5E0083C27D /* Frameworks */,
 				EA1EBE8F25E50E5E0083C27D /* Resources */,
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+				EA1EBE8D25E50E5E0083C27D /* Sources */,
+				EA1EBE8E25E50E5E0083C27D /* Frameworks */,
+				EA1EBE8F25E50E5E0083C27D /* Resources */,
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 				EA1EBE8D25E50E5E0083C27D /* Sources */,
 				EA1EBE8E25E50E5E0083C27D /* Frameworks */,
@@ -399,9 +438,12 @@
 			buildPhases = (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				98BB7D7F0000362741F9EEE2 /* [CP] Check Pods Manifest.lock */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 				EA1EBEA325E50E630083C27D /* Sources */,
@@ -424,6 +466,7 @@
 			buildPhases = (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				3D2CF22F0AE6AF6BB9B354B5 /* [CP] Check Pods Manifest.lock */,
 				EA1EBEAE25E50E630083C27D /* Sources */,
 				EA1EBEAF25E50E630083C27D /* Frameworks */,
@@ -434,6 +477,11 @@
 				EA1EBEAF25E50E630083C27D /* Frameworks */,
 				EA1EBEB025E50E630083C27D /* Resources */,
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+				EA1EBEAE25E50E630083C27D /* Sources */,
+				EA1EBEAF25E50E630083C27D /* Frameworks */,
+				EA1EBEB025E50E630083C27D /* Resources */,
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 				EA1EBEAE25E50E630083C27D /* Sources */,
 				EA1EBEAF25E50E630083C27D /* Frameworks */,
@@ -500,6 +548,7 @@
 				EA1EBEA125E50E620083C27D /* LaunchScreen.storyboard in Resources */,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				948890722610525900391653 /* circleRedButton.json in Resources */,
 				EA1EBE9E25E50E620083C27D /* Assets.xcassets in Resources */,
 				EA1EBE9C25E50E5E0083C27D /* Main.storyboard in Resources */,
@@ -508,6 +557,10 @@
 				EA1EBE9E25E50E620083C27D /* Assets.xcassets in Resources */,
 				EA1EBE9C25E50E5E0083C27D /* Main.storyboard in Resources */,
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+				EA1EBE9E25E50E620083C27D /* Assets.xcassets in Resources */,
+				EA1EBE9C25E50E5E0083C27D /* Main.storyboard in Resources */,
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 				EA1EBE9E25E50E620083C27D /* Assets.xcassets in Resources */,
 				EA1EBE9C25E50E5E0083C27D /* Main.storyboard in Resources */,
@@ -531,6 +584,7 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /* Begin PBXShellScriptBuildPhase section */
@@ -640,6 +694,8 @@
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 /* Begin PBXSourcesBuildPhase section */
 		EA1EBE8D25E50E5E0083C27D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -649,9 +705,12 @@
 				EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				945ED45726104E260027A1FE /* SelectCategoryViewController.swift in Sources */,
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 				EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */,
@@ -830,9 +889,12 @@
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = E5C0F47368AD7A2252E55F38 /* Pods-GrabMe.debug.xcconfig */;
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			buildSettings = {
@@ -856,9 +918,12 @@
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = F9C08FBB688D86482BF26050 /* Pods-GrabMe.release.xcconfig */;
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			buildSettings = {
@@ -882,9 +947,12 @@
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = C2FDBA40F7DFF820BF851636 /* Pods-GrabMeTests.debug.xcconfig */;
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			buildSettings = {
@@ -911,9 +979,12 @@
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = 54CE2F960921EE138BF2C317 /* Pods-GrabMeTests.release.xcconfig */;
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			buildSettings = {
@@ -940,9 +1011,12 @@
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = 27E4D38E9734972BED4E1749 /* Pods-GrabMe-GrabMeUITests.debug.xcconfig */;
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			buildSettings = {
@@ -967,9 +1041,12 @@
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = D9D0DDB7ADE5F3DB89E127EF /* Pods-GrabMe-GrabMeUITests.release.xcconfig */;
 =======
 >>>>>>> f0776e299a848b45613b06ddab172ab8ffadc89c
+=======
+>>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 =======
 >>>>>>> e27c8d186cc37fa69552a80ecfb12adee1d7e4fb
 			buildSettings = {
