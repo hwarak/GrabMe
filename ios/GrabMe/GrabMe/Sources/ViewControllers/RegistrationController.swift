@@ -3,7 +3,7 @@
 //  GrabMe
 //
 //  Created by Tony Jung on 2021/02/23.
-//
+//Doyeon
 
 import UIKit
 
@@ -30,7 +30,6 @@ class RegistrationController: UIViewController {
         self.configureUI()
     }
 }
-
 
 extension RegistrationController {
     
