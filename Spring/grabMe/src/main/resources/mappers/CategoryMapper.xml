@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.grabme.mappers.CategoryMapper">
+
+	<select id="selectCategoryWithXY" resultType="com.grabme.vo.ShopVO">
+		select *,(6371*acos(cos(radians(#{y}))*cos(radians(y))*cos(radians(x)-radians(#{x}))+sin(radians(#{y}))*sin(radians(y))))
+		as distance from shop where category_idx =#{category_idx} 
+		having distance <![CDATA[<=]]> 0.3 order by distance limit 0,300
+	</select>
+	
+</mapper>

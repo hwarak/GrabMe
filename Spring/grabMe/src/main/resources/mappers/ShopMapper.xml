@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.grabme.mappers.ShopMapper">
+
+	<!-- insert shop -->
+	<insert id="insertShop">
+		insert into shop(user_idx,category_idx,thumbnail,title,address,introduction)
+		value(#{user_idx},#{category_idx},#{thumbnail},#{title},#{address},#{introduction})
+	</insert>
+
+	<!-- select shop idx -->
+	<select id="selectShopIdx" resultType="Integer">
+		select idx from shop where user_idx=#{user_idx};
+	</select>
+	
+	<!-- check shop -->
+	<select id="checkShop" resultType="Integer">
+		select count(*) from shop where user_idx=#{user_idx}
+	</select>
+	
+	<!-- select shop all info -->
+	<select id="selectShopAllinfo" resultType="com.grabme.vo.ShopAllVO">
+		select shop.idx, shop.user_idx, shop.category_idx, shop.thumbnail, shop.title, shop.address, shop.introduction, 
+		externalChannel.openkatalkURL, externalChannel.instaURL
+		from shop left join externalChannel on shop.idx = externalChannel.shop_idx 
+		where shop.user_idx = #{user_idx}
+	</select>
+
+	<!-- update shop -->
+	<update id="updateShopAllInfo">
+		update shop INNER JOIN externalChannel
+		on shop.idx = externalChannel.shop_idx
+		set shop.title=#{title},
+		shop.category_idx=#{category_idx}, shop.thumbnail=#{thumbnail}, shop.title=#{title},
+		shop.address=#{address}, shop.introduction=#{introduction},
+		externalChannel.openkatalkURL=#{openkatalkURL},
+		externalChannel.instaURL=#{instaURL}
+		WHERE shop.idx=#{idx}
+	</update>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
