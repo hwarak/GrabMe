@@ -23,7 +23,7 @@ public class CategoryTest {
 	@Test
 	public void testSelectCategoryWithXY() throws Exception {
 		// 위도,경도 값 받아서 거리순으로 정렬후 원하는 만큼 보여주기
-		List<ShopVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3,0,3);
+		List<ShopVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3,0);
 		System.out.println(list.get(0).getTitle());
 	}
 }
