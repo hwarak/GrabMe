@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.grabme.mappers.TimeMapper">
+
+	<!-- insert time -->
+	<insert id="insertTime">
+		insert into time(shop_idx,date,time) value(#{shop_idx},#{date},#{time})
+	</insert>
+	
+	<!-- update time -->
+	<update id="updateTime">
+		update time set time=#{time} where idx=#{idx} 
+	</update>
+	
+	<!-- delete time -->
+	<delete id="deleteTime">
+		delete from time where idx=#{idx}
+	</delete>
+
+	<!-- update time status -->
+	<update id="updateTimeStatus">
+		update time set status = 1-status where idx=#{idx}
+	</update>
+	
+	<!-- select date > list -->
+	<select id="selectDate" resultType="com.grabme.vo.TimeVO">
+		select * from time where shop_idx=#{shop_idx} and date=#{date} order by time asc;
+	</select>
+
+</mapper>

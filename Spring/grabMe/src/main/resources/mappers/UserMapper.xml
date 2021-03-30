@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.grabme.mappers.UserMapper">
+
+
+	<!-- Check user in database -->
+	<select id="checkUser" resultType="Integer">
+		select count(*) from user where phone=#{phone} and status=#{status}
+	</select>
+	
+	<!-- insert user -->
+	<insert id="insertUser">
+		insert into user(name,phone,status) value(#{name},#{phone},#{status})
+	</insert>
+
+	<!-- select user idx -->
+	<select id="selectUserIdx" resultType="Integer">
+		select idx from user where phone=#{phone} and status=#{status}
+	</select>
+
+	<!-- select user -->
+	<select id="selectUser" resultType="com.grabme.vo.UserVO">
+		select * from user where idx=#{idx}
+	</select>
+
+</mapper>
