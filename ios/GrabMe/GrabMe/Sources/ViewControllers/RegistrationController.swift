@@ -56,7 +56,6 @@ extension RegistrationController {
         
         print("\(stat), \(phone)")
         AuthService.isUserNumberAvailable(status: stat, phone: phone)
-        //AuthService.isUserNumberAvailable(user: user!)
         
         print("sent")
 
