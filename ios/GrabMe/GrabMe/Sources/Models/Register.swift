@@ -10,6 +10,7 @@ import UIKit
 struct CheckUserNumber: Codable {
     var status: Int
     var phone: String
+    var name: String?
     
     mutating func update(status: Int, phone: String){
         self.status = status
@@ -21,5 +22,3 @@ struct CheckUserNumberResponse: Codable{
     var result: String
     var code: String
 }
-
-

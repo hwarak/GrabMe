@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="762.72321428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--VerifySNS View Controller-->
         <scene sceneID="1nB-m8-CvK">
             <objects>
-                <viewController id="PfI-G1-Mzs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="verifySNS" id="PfI-G1-Mzs" customClass="VerifySNSViewController" customModule="GrabMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cGF-i2-Due">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,6 +176,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="verifyCodeTapped:" destination="PfI-G1-Mzs" eventType="touchUpInside" id="qKu-6e-gcH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Didn't receive it? Tap to resend." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktg-hz-Dod">
                                 <rect key="frame" x="117.5" y="336" width="179.5" height="14.5"/>
@@ -202,6 +205,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="N4i-Mh-FqT"/>
                     <connections>
+                        <outlet property="verifySNSCode" destination="6fe-ai-M8d" id="v4s-Mf-Wsb"/>
                         <segue destination="siV-pO-zQW" kind="show" id="ReB-vF-o3p"/>
                     </connections>
                 </viewController>
@@ -209,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="1637.68115942029" y="762.72321428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Complete Registration View Controller-->
         <scene sceneID="Iqj-1D-tG9">
             <objects>
-                <viewController id="siV-pO-zQW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="completeRegistration" id="siV-pO-zQW" customClass="CompleteRegistrationViewController" customModule="GrabMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yNq-V6-HT4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,6 +241,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="completeRegistrationButton:" destination="siV-pO-zQW" eventType="touchUpInside" id="FOp-uf-lMN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K1s-jS-NV8"/>
@@ -254,6 +261,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iyU-Ea-qco"/>
+                    <connections>
+                        <outlet property="nameTF" destination="f4Z-kK-rfh" id="Juw-hj-Qz2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ub-kb-2qf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

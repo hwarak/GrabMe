@@ -17,10 +17,13 @@ protocol AuthenticationViewModel {
     var buttonTitleColor: UIColor { get }
 }
 
-struct RegistrationViewModel: AuthenticationViewModel {
+class RegistrationViewModel: AuthenticationViewModel {
     var phoneNumber: String?
     var userStatus: Bool?
     var countryCode: String?
+
+    
+    private let manager = AuthenticationManager.shared
     
     var FormIsValid: Bool {
         return phoneNumber?.isEmpty == false && countryCode?.isEmpty == false && userStatus == true
@@ -34,5 +37,18 @@ struct RegistrationViewModel: AuthenticationViewModel {
         return FormIsValid ? .white : UIColor(white: 1, alpha: 0.67)
     }
     
+    // userAuth
+    func checkExistingUser(status: Int, phone: String){
+        manager.checkExistingUser(status: status, phone: phone)
+    }
+    
+    func checkVerification(code: String) -> Bool {
+        return code == manager.userAuth?.code ? true : false
+    }
+    
+    func signUpUser(name: String){
+        manager.signUpUser(name: name)
+    }
+
     
 }

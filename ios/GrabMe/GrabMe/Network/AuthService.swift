@@ -8,44 +8,57 @@
 import UIKit
 
 class AuthService {
-    static func isUserNumberAvailable(status: Int, phone: String){
+    static func isUserNumberAvailable(status: Int, phone: String, completion: @escaping (CheckUserNumberResponse) -> Void){
         let user = CheckUserNumber.init(status: status, phone: phone)
   
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
         guard let url: URL = URL(string:Config.ConfigUrl.checkUserStatus.url) else { return }
+     //   guard let url: URL = URL(string:"http://192.168.20.21:8080/web/sign/check") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
-        do {
-            let jsonEncode = JSONEncoder()
-            let data: Data = try jsonEncode.encode(user)
-            request.httpBody = data
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        } catch (let error) {
-            print(error.localizedDescription)
-        }
+        guard let encodeObject = AuthService.encode(data: user) else { return }
+        request.httpBody = encodeObject
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let dataTask: URLSessionDataTask = session.dataTask(with: request) { ( data, response, error) in
             guard error == nil else { return }
             guard let resultData = data else { return }
-            do {
-                let jsonDecoder: JSONDecoder = JSONDecoder()
-                let responses: CheckUserNumberResponse = try jsonDecoder.decode(CheckUserNumberResponse.self, from: resultData)
-               
-                print("\(responses.result)")
-                print("\(responses.code)")
-                
-                print("result data--> \(resultData)")
-                let resultString = String(data: resultData, encoding: .utf8)
-                print("resultString--> \(resultString)")
-                
-            } catch (let error) {
-                print(error.localizedDescription)
-            }
+
+            guard let decodeObject = AuthService.decode(CheckUserNumberResponse.self, data: resultData) else { return }
+            print("🔴 \(decodeObject.code), \(decodeObject.result)")
+            completion(decodeObject)
         }
         dataTask.resume() 
     }
+    
+    static func signUpUser(status: Int, phone: String, name: String){
+        let user = CheckUserNumber(status: status, phone: phone, name: name)
+        print("---> \(user.name), \(status), \(phone)")
+    }
+    
+    static func encode<T: Codable>(data: T) -> Data? {
+        do{
+            let request = try JSONEncoder().encode(data)
+            //let resultString = String(data: request, encoding: .utf8)
+            //print("Data in String: \(resultString)")
+            return request
+        } catch let error {
+            print("EncodingError: \(error.localizedDescription)")
+        }
+        return nil
+    }
+    
+    static func decode<T: Codable>(_ type: T.Type, data: Data) -> T? {
+        do {
+            let response = try JSONDecoder().decode(type, from: data)
+            return response
+        } catch let error {
+            print("DecodingError: \(error.localizedDescription)")
+        }
+        return nil
+    }
 }
+
