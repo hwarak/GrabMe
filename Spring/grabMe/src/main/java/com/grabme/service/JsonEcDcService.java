@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class JsonEcDcService {
 
-	// json 파싱 후 JSONObject 형태로 반환해준다
+	// json 파싱 후 JSONObject 형태로 반환해준다.
 	public JSONObject jsonDc(String str) {
 
 		JSONParser parser = new JSONParser();
