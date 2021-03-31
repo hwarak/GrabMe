@@ -28,14 +28,29 @@ public class CategoryController {
 	@Autowired
 	private CategoryService category_service;
 
-	@ApiOperation(value = "주변에 있는 가게들", notes = "주변에 있는 가게들 리스트를 가져온다.")
+	@ApiOperation(value = "주변에 있는 가게들", notes = "주변에 있는 가게들 리스트를 10개씩 가져온다.")
 	@GetMapping
 	@ResponseBody
-	public String getShop(@ApiParam(value = "위도", required = true) @RequestParam double y,
+	public String getShopList(@ApiParam(value = "위도", required = true) @RequestParam double y,
 			@ApiParam(value = "경도", required = true) @RequestParam double x,
-			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int category_idx) {
+			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int category_idx,
+			@ApiParam(value = "시작 번호", required = true) @RequestParam int startNum) {
 
-		List<ShopVO> list = category_service.selectCategoryWithXY(x, y, category_idx);
+		List<ShopVO> list = category_service.selectCategoryWithXY(x, y, category_idx, startNum);
+
+		return new Gson().toJsonTree(list).toString();
+	}
+	
+	@ApiOperation(value = "가게 이름 검색", notes = "검색어가 포함된 가게들을 거리순으로 10개씩 가져온다.")
+	@GetMapping("/2")
+	@ResponseBody
+	public String getSearchTitle(@ApiParam(value = "위도", required = true) @RequestParam double y,
+			@ApiParam(value = "경도", required = true) @RequestParam double x,
+			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int category_idx,
+			@ApiParam(value = "시작 번호", required = true) @RequestParam int startNum,
+			@ApiParam(value = "검색 단어", required = true) @RequestParam String word) {
+
+		List<ShopVO> list = category_service.searchTitle(x, y, category_idx, startNum, word);
 
 		return new Gson().toJsonTree(list).toString();
 	}

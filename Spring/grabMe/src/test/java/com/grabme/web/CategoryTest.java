@@ -22,8 +22,15 @@ public class CategoryTest {
 
 	@Test
 	public void testSelectCategoryWithXY() throws Exception {
-		// 현재 위도,경도 값으로 주변 가게 리스트 가져오기
-		List<ShopVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3);
+		// 위도,경도 값 받아서 거리순으로 정렬후 원하는 만큼 보여주기
+		List<ShopVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3,0);
+		System.out.println(list.get(0).getTitle());
+	}
+	
+	@Test
+	public void testSearchTitle() throws Exception{
+		// 가게 검색
+		List<ShopVO> list = dao.searchTitle(126.93677023776556, 37.55522238374985, 3,0,"치과");
 		System.out.println(list.get(0).getTitle());
 	}
 }
