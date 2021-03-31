@@ -1,7 +1,10 @@
 package com.grabme.web;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.grabme.service.JsonEcDcService;
 import com.grabme.service.TimeService;
 import com.grabme.vo.ShopAllVO;
 import com.grabme.vo.TimeVO;
@@ -32,6 +36,9 @@ public class TimeController {
 
 	@Autowired
 	private TimeService time_service;
+	
+	@Autowired
+	private JsonEcDcService json_service;
 
 	// 시간 테이블 업데이트 하기
 
@@ -39,14 +46,25 @@ public class TimeController {
 	@ApiOperation(value = "시각 추가", notes = "시각을 추가한다.")
 	@PostMapping
 	@ResponseBody
-	public String timeInfoPost(@ApiParam(value = "시간 정보", required = true) @RequestBody TimeVO tvo) {
+	public Map<String, Object> timeInfoPost(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
 
-		time_service.insertTime(tvo.getShop_idx(),tvo.getDate(), tvo.getTime());
+		System.out.println("도연씨 요청 : " + str);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		// json 파싱 후 반환
+		JSONObject obj = json_service.jsonDc(str);
+
+		String date = (String) obj.get("date");
+		String time = (String) obj.get("time");
+		int shop_idx = (int) (long) obj.get("shop_idx");
 		
-		JsonObject obj = new JsonObject();
-		obj.addProperty("result", "ok");
+		
+		time_service.insertTime(shop_idx,date,time);
 
-		return obj.toString();
+		map.put("result", "ok");
+
+		return map;
 	}
 
 	// (2) 시간 삭제
