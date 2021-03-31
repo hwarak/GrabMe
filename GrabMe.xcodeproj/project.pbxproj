@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		946466A82611C01900021DB0 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466A72611C01900021DB0 /* Register.swift */; };
-		946466B32611C4B400021DB0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466B22611C4B400021DB0 /* AuthService.swift */; };
-		946466C826142A2D00021DB0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466C726142A2D00021DB0 /* Config.swift */; };
 		EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */; };
 		EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */; };
 		EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9825E50E5E0083C27D /* RegistrationController.swift */; };
@@ -39,9 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		946466A72611C01900021DB0 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		946466B22611C4B400021DB0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		946466C726142A2D00021DB0 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EA1EBE9125E50E5E0083C27D /* GrabMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrabMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +140,6 @@
 		EA1EBEC825E526A00083C27D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				946466B22611C4B400021DB0 /* AuthService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -231,7 +224,6 @@
 		EA1EBED225E527340083C27D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				946466A72611C01900021DB0 /* Register.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				EA1EBEA225E50E620083C27D /* Info.plist */,
-				946466C726142A2D00021DB0 /* Config.swift */,
 			);
 			path = Supportings;
 			sourceTree = "<group>";
@@ -385,10 +376,7 @@
 				EA3DDAE625FE2A9C00A0B241 /* AuthenticationViewModel.swift in Sources */,
 				EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */,
 				EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */,
-				946466B32611C4B400021DB0 /* AuthService.swift in Sources */,
-				946466C826142A2D00021DB0 /* Config.swift in Sources */,
 				EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */,
-				946466A82611C01900021DB0 /* Register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
