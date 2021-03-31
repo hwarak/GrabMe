@@ -36,8 +36,3 @@ struct RegistrationViewModel: AuthenticationViewModel {
     
     
 }
-
-struct loginStatus {
-    var owner: String?
-    var guest: String?
-}

@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
+=======
+import com.google.gson.JsonObject;
+>>>>>>> 60d5062df8d8312803ec6450f4f6bfac333d90c3
 import com.grabme.service.JsonEcDcService;
 import com.grabme.service.MessageService;
 import com.grabme.service.UserService;
@@ -32,6 +36,9 @@ public class SignController {
 
 	@Autowired
 	private MessageService message_service;
+	
+	@Autowired
+	private JsonEcDcService json_service;
 
 	@Autowired
 	private JsonEcDcService json_service;
@@ -39,6 +46,7 @@ public class SignController {
 	@ApiOperation(value = "유저 번호 확인", notes = "유저 번호와 상태를 입력받아 중복 확인 후 인증번호를 발송한다.")
 	@PostMapping(value = "/check")
 	@ResponseBody
+<<<<<<< HEAD
 	public Map<String, Object> checkUser(@ApiParam(value = "유저 정보 체크", required = true) @RequestBody String str) {
 
 		System.out.println("도연씨 요청 : " + str);
@@ -51,11 +59,25 @@ public class SignController {
 		String phone = (String) obj.get("phone");
 		int status = (int) (long) obj.get("status");
 
+=======
+	public Map<String, Object> checkUser(@ApiParam(value = "유저 정보 체크", required = true)@ RequestBody String str) {
+
+		Map<String, Object> map =new HashMap<String, Object>();
+	
+		JSONObject obj = json_service.jsonDc(str);
+		// json 파싱 후 JSONObject 형태로 반환해준다
+		
+		String phone = (String) obj.get("phone");
+		int status = (int) (long) obj.get("status");
+		
+		int result = user_service.checkUser(phone,status);
+>>>>>>> 60d5062df8d8312803ec6450f4f6bfac333d90c3
 		// 데이터베이스에 번호/상태 체크 후 존재하는 유저(1), 존재하지 않는 유저(0) 반환
 		int result = user_service.checkUser(phone, status);
 
 		if (result == 0) {
 			// 데이터베이스에 존재하지 않음, 가입 가능
+<<<<<<< HEAD
 
 			// cn = 인증번호
 			String cn = user_service.randomNumber();
@@ -66,6 +88,12 @@ public class SignController {
 			map.put("result", "ok");
 			map.put("code", cn); // 클라이언트단에도 인증번호 전송
 
+=======
+			String cn = user_service.randomNumber(); // cn = 인증번호
+			//message_service.sendMessage(phone, cn); // 인증번호가 담긴 메세지를 보낸다
+			map.put("result", "ok");
+			map.put("code", cn); // 클라이언트단에도 인증번호 전송
+>>>>>>> 60d5062df8d8312803ec6450f4f6bfac333d90c3
 		} else {
 
 			// 데이터베이스에 이미 존재함, 가입 불가능
@@ -138,8 +166,12 @@ public class SignController {
 
 			String cn = user_service.randomNumber(); // cn = 인증번호
 
+<<<<<<< HEAD
 			// 인증번호가 담긴 메세지를 보낸다
 			// message_service.sendMessage(uvo.getPhone(), cn);
+=======
+			message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
+>>>>>>> 60d5062df8d8312803ec6450f4f6bfac333d90c3
 
 			map.put("result", "ok");
 			map.put("code", cn); // 클라이언트단에도 인증번호 전송
