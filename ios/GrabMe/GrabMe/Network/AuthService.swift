@@ -10,12 +10,11 @@ import UIKit
 class AuthService {
     static func isUserNumberAvailable(status: Int, phone: String){
         let user = CheckUserNumber.init(status: status, phone: phone)
-        print("\(user.phone), \(user.status)")
-        
+  
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        guard let url: URL = URL(string: "http://15.164.72.21:8080/grabMe/sign/check") else { return }
+        guard let url: URL = URL(string:Config.ConfigUrl.checkUserStatus.url) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -38,10 +37,14 @@ class AuthService {
             do {
                 let jsonDecoder: JSONDecoder = JSONDecoder()
                 let responses: CheckUserNumberResponse = try jsonDecoder.decode(CheckUserNumberResponse.self, from: resultData)
+               
+                print("\(responses.result)")
+                print("\(responses.code)")
+                
                 print("result data--> \(resultData)")
                 let resultString = String(data: resultData, encoding: .utf8)
                 print("resultString--> \(resultString)")
-
+                
             } catch (let error) {
                 print(error.localizedDescription)
             }
