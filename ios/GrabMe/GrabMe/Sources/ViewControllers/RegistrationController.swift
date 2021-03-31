@@ -3,7 +3,7 @@
 //  GrabMe
 //
 //  Created by Tony Jung on 2021/02/23.
-//
+//Doyeon
 
 import UIKit
 
@@ -14,29 +14,28 @@ class RegistrationController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var registraionButton: UIButton!
     @IBOutlet var userStatus: [UIButton]!
-
     
+ 
     // MARK: - properties
     private var viewModel = RegistrationViewModel()
     private var selectedCountry: String?
     private var listOfCountry = ["🇰🇷Korea","🇯🇵Japan","🇺🇸USA"]
+    private var status: Int?
+
+
     
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.createAndSetupPickerView()
         self.dismissAndClosePickerView()
         self.configurationNotificationObservers()
         self.configureUI()
-        
     }
 }
 
-
 extension RegistrationController {
-    
     // MARK: - Helpers
     func configureUI(){
         updateForm()
@@ -48,11 +47,25 @@ extension RegistrationController {
     }
     
     // MARK: - Actitons
+    @IBAction func submitButtonTapped(_ sender: UIButton) {
+
+        guard let phone = phoneTextField.text else { return }
+        
+        guard let stat = status else { return }
+       
+        
+        print("\(stat), \(phone)")
+        AuthService.isUserNumberAvailable(status: stat, phone: phone)
+        
+        print("sent")
+
+    }
     
     @IBAction func isButtonClicked(_ sender: UIButton) {
         viewModel.userStatus = true
         userStatus[0].isSelected = sender.tag == 0
         userStatus[1].isSelected = sender.tag == 1
+        status = sender.tag
         updateForm()
     }
     
