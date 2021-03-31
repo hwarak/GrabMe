@@ -1,5 +1,9 @@
 package com.grabme.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.JsonObject;
+import com.grabme.service.JsonEcDcService;
 import com.grabme.service.MessageService;
 import com.grabme.service.UserService;
 import com.grabme.vo.UserVO;
@@ -28,29 +33,38 @@ public class SignController {
 
 	@Autowired
 	private MessageService message_service;
+	
+	@Autowired
+	private JsonEcDcService json_service;
 
 	
 	@ApiOperation(value = "유저 번호 확인", notes = "유저 번호와 상태를 입력받아 중복 확인 후 인증번호를 발송한다.")
 	@PostMapping(value = "/check")
 	@ResponseBody
-	public String checkUser(@ApiParam(value = "유저 정보 체크", required = true) @RequestBody UserVO uvo) {
+	public Map<String, Object> checkUser(@ApiParam(value = "유저 정보 체크", required = true)@ RequestBody String str) {
 
-		JsonObject obj = new JsonObject();
-
-		int result = user_service.checkUser(uvo.getPhone(), uvo.getStatus());
+		Map<String, Object> map =new HashMap<String, Object>();
+	
+		JSONObject obj = json_service.jsonDc(str);
+		// json 파싱 후 JSONObject 형태로 반환해준다
+		
+		String phone = (String) obj.get("phone");
+		int status = (int) (long) obj.get("status");
+		
+		int result = user_service.checkUser(phone,status);
 		// 데이터베이스에 번호/상태 체크 후 존재하는 유저(1), 존재하지 않는 유저(0) 반환
 
 		if (result == 0) {
 			// 데이터베이스에 존재하지 않음, 가입 가능
 			String cn = user_service.randomNumber(); // cn = 인증번호
-			message_service.sendMessage(uvo.getPhone(), cn); // 인증번호가 담긴 메세지를 보낸다
-			obj.addProperty("result", "ok");
-			obj.addProperty("code", cn); // 클라이언트단에도 인증번호 전송
+			//message_service.sendMessage(phone, cn); // 인증번호가 담긴 메세지를 보낸다
+			map.put("result", "ok");
+			map.put("code", cn); // 클라이언트단에도 인증번호 전송
 		} else {
 			// 데이터베이스에 이미 존재함, 가입 불가능
-			obj.addProperty("result", "no");
+			map.put("result", "no");
 		}
-		return obj.toString();
+		return map;
 	}
 
 	
