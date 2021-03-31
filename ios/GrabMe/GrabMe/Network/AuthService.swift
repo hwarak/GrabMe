@@ -18,19 +18,16 @@ class AuthService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        let jsonEncode = JSONEncoder()
-        
         do {
+            let jsonEncode = JSONEncoder()
             let data: Data = try jsonEncode.encode(user)
-        
-           // let resultString = String(data: data, encoding: .utf8)
             request.httpBody = data
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
 
         } catch (let error) {
             print(error.localizedDescription)
         }
+        
         let dataTask: URLSessionDataTask = session.dataTask(with: request) { ( data, response, error) in
             guard error == nil else { return }
             guard let resultData = data else { return }
@@ -49,8 +46,6 @@ class AuthService {
                 print(error.localizedDescription)
             }
         }
-        dataTask.resume()
-
-        
+        dataTask.resume() 
     }
 }
