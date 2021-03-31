@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ghi-dk-kkw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gGz-xr-xF2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,7 +32,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PfI-G1-Mzs" kind="show" id="mx1-EH-qTK"/>
+                                    <action selector="submitButtonTapped:" destination="IF9-35-7lh" eventType="touchUpInside" id="Mmb-Y5-eZi"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfV-gQ-nB1">
@@ -286,26 +287,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xre-ID-2vc">
-                                <rect key="frame" x="325" y="58" width="69" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xre-ID-2vc">
+                                <rect key="frame" x="328" y="58" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3D3-ze-KpH"/>
+                                    <constraint firstAttribute="width" secondItem="Xre-ID-2vc" secondAttribute="height" multiplier="1:1" id="QRv-dh-k5P"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="person.circle.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="46"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="55"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any Categories?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3A-gA-KYb">
-                                <rect key="frame" x="20" y="154" width="266" height="40"/>
+                                <rect key="frame" x="16" y="144" width="266" height="40"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="33"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="highlightedColor" systemColor="labelColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRG-vF-efr">
-                                <rect key="frame" x="0.0" y="214" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="204" width="414" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B0-Lk-7HF">
-                                        <rect key="frame" x="0.0" y="0.0" width="800" height="682"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="800" height="692"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jR-kC-52K">
                                                 <rect key="frame" x="236" y="101" width="158" height="157"/>
@@ -361,19 +364,29 @@
                                                     <color key="titleColor" red="0.93725490570000003" green="0.92941176889999999" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB8-1c-BdO">
-                                                <rect key="frame" x="33" y="21" width="186" height="180"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB8-1c-BdO">
+                                                <rect key="frame" x="33" y="21" width="200" height="200"/>
                                                 <color key="backgroundColor" red="0.86274516580000005" green="0.69411766529999996" blue="0.23921570180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ZB8-1c-BdO" secondAttribute="height" multiplier="1:1" id="6we-gm-Q4t"/>
+                                                    <constraint firstAttribute="width" constant="200" id="OYo-kJ-Z4M"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="restaurant">
                                                     <color key="titleColor" red="0.93725490570000003" green="0.92941176889999999" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderRadius">
+                                                        <integer key="value" value="100"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.93725490570000003" green="0.92941176889999999" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
+                                            <constraint firstItem="ZB8-1c-BdO" firstAttribute="leading" secondItem="3B0-Lk-7HF" secondAttribute="leading" constant="33" id="T6X-LC-ejK"/>
                                             <constraint firstAttribute="width" constant="800" id="Uu0-kR-cnm"/>
+                                            <constraint firstItem="ZB8-1c-BdO" firstAttribute="top" secondItem="3B0-Lk-7HF" secondAttribute="top" constant="21" id="a7D-C1-WUa"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -392,11 +405,13 @@
                         <color key="backgroundColor" red="0.93854111429999998" green="0.92856389279999996" blue="0.89045131209999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qRG-vF-efr" firstAttribute="top" secondItem="G3A-gA-KYb" secondAttribute="bottom" constant="20" id="7Gd-Dd-3Pf"/>
-                            <constraint firstItem="G3A-gA-KYb" firstAttribute="leading" secondItem="gQN-HI-Enn" secondAttribute="leading" constant="20" id="DYy-uk-XNB"/>
+                            <constraint firstItem="G3A-gA-KYb" firstAttribute="leading" secondItem="gQN-HI-Enn" secondAttribute="leading" constant="16" id="DYy-uk-XNB"/>
                             <constraint firstItem="gQN-HI-Enn" firstAttribute="trailing" secondItem="qRG-vF-efr" secondAttribute="trailing" id="HhM-Mp-e5Y"/>
+                            <constraint firstItem="G3A-gA-KYb" firstAttribute="top" secondItem="Xre-ID-2vc" secondAttribute="bottom" constant="16" id="IDt-i0-Y3G"/>
                             <constraint firstItem="qRG-vF-efr" firstAttribute="leading" secondItem="gQN-HI-Enn" secondAttribute="leading" id="KhS-aV-DEo"/>
                             <constraint firstItem="qRG-vF-efr" firstAttribute="bottom" secondItem="FeJ-Pp-HkC" secondAttribute="bottom" id="YEj-yR-woy"/>
-                            <constraint firstItem="G3A-gA-KYb" firstAttribute="top" secondItem="gQN-HI-Enn" secondAttribute="top" constant="110" id="wyQ-81-ZGZ"/>
+                            <constraint firstItem="Xre-ID-2vc" firstAttribute="top" secondItem="gQN-HI-Enn" secondAttribute="top" constant="14" id="c9a-a6-5fb"/>
+                            <constraint firstItem="gQN-HI-Enn" firstAttribute="trailing" secondItem="Xre-ID-2vc" secondAttribute="trailing" constant="16" id="qk9-bk-omn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="maS-r2-3TG"/>
@@ -428,12 +443,12 @@
             <point key="canvasLocation" x="1587" y="1438"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="mx1-EH-qTK"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square" catalog="system" width="128" height="114"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
