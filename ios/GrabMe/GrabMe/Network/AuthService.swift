@@ -12,7 +12,6 @@ class AuthService {
         let user = CheckUserNumber.init(status: status, phone: phone)
         print("\(user.phone), \(user.status)")
         
-        
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
