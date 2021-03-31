@@ -7,7 +7,7 @@ public class UserVO {
 	private String phone;
 	private String profile_img;
 	private int status;
-
+	
 	public int getIdx() {
 		return idx;
 	}
