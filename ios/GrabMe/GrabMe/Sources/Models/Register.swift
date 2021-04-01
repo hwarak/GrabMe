@@ -11,7 +11,7 @@ struct CheckUserNumber: Codable {
     var status: Int
     var phone: String
     var name: String?
-    
+
     mutating func update(status: Int, phone: String){
         self.status = status
         self.phone = phone
@@ -21,4 +21,6 @@ struct CheckUserNumber: Codable {
 struct CheckUserNumberResponse: Codable{
     var result: String
     var code: String
+    
+    
 }
