@@ -97,7 +97,7 @@ public class SignController {
 		svo.setResult("ok");
 		svo.setCode("");
 		
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_CODE,svo),HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATED_USER,svo),HttpStatus.OK);
 
 	}
 
