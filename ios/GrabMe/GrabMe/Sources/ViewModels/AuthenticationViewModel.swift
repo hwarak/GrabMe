@@ -43,7 +43,7 @@ class RegistrationViewModel: AuthenticationViewModel {
     }
     
     func checkVerification(code: String) -> Bool {
-        return code == manager.userAuth?.code ? true : false
+        return code == manager.userAuth?.data.code ? true : false
     }
     
     func signUpUser(name: String){

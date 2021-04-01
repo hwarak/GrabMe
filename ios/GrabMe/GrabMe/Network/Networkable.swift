@@ -18,6 +18,8 @@ extension Networkable {
     static func reqeustAPI(request: URLRequest, completion: @escaping (Data) -> Void) {
         
         URLSession(configuration: .default).dataTask(with: request) { data, response, error in
+            
+            //print("🔴 \(response)")
             guard error == nil else { return }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
@@ -35,6 +37,7 @@ extension Networkable {
             let request = try JSONEncoder().encode(data)
             //let resultString = String(data: request, encoding: .utf8)
             //print("Data in String: \(resultString)")
+        
             return request
         } catch let error {
             print("EncodingError: \(error.localizedDescription)")

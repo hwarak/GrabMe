@@ -14,8 +14,9 @@ import Foundation
 //}
 
 class Networking {
-    static let baseURL = "http://15.164.72.21:8080/grabMe"
-    
+   // static let baseURL = "http://15.164.72.21:8080/grabMe"
+    static let baseURL = "http://192.168.1.206:8080/web/"
+   
     enum RequestType: String {
         case get = "GET", post = "POST", put = "PUT", patch = "PATCH", delete = "DELETE"
     }
@@ -31,7 +32,7 @@ class Networking {
         func contentType(_ boundary: String) -> String? {
             switch self {
             case .none: return nil
-            case .json: return "application/json"
+            case .json: return "application/json; charset=UTF-8"
             case .formURLEncoded: return "application/x-www-form-urlencoded"
             case .multipartFormData: return "multipart/form-data; boundary=\(boundary)"
             case let .custom(value): return value

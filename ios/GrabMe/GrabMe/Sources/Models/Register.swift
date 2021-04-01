@@ -18,9 +18,13 @@ struct CheckUserNumber: Codable {
     }
 }
 
-struct CheckUserNumberResponse: Codable{
+struct ResponseCode: Codable{
     var result: String
     var code: String
-    
-    
+}
+
+struct Response: Codable {
+    var statusCode: Int
+    var responseMessage: String
+    var data: ResponseCode
 }

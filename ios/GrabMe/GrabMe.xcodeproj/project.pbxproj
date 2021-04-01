@@ -15,6 +15,8 @@
 		946466EA2615663C00021DB0 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466E92615663C00021DB0 /* Networkable.swift */; };
 		946466F226156CE100021DB0 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466F126156CE100021DB0 /* Networking.swift */; };
 		94646700261576A700021DB0 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466FF261576A700021DB0 /* AuthServices.swift */; };
+		9464670E2615A4D900021DB0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464670D2615A4D900021DB0 /* CategoryViewController.swift */; };
+		946467132615B10100021DB0 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946467122615B10100021DB0 /* CategoryListViewController.swift */; };
 		EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */; };
 		EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */; };
 		EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9825E50E5E0083C27D /* RegistrationController.swift */; };
@@ -52,6 +54,8 @@
 		946466E92615663C00021DB0 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		946466F126156CE100021DB0 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		946466FF261576A700021DB0 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		9464670D2615A4D900021DB0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		946467122615B10100021DB0 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		EA1EBE9125E50E5E0083C27D /* GrabMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrabMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,7 +210,9 @@
 			children = (
 				EA1EBE9825E50E5E0083C27D /* RegistrationController.swift */,
 				946466D226143AE800021DB0 /* VerifySNSViewController.swift */,
+				9464670D2615A4D900021DB0 /* CategoryViewController.swift */,
 				946466DC2614619A00021DB0 /* CompleteRegistrationViewController.swift */,
+				946467122615B10100021DB0 /* CategoryListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -405,8 +411,10 @@
 				946466F226156CE100021DB0 /* Networking.swift in Sources */,
 				94646700261576A700021DB0 /* AuthServices.swift in Sources */,
 				946466DD2614619A00021DB0 /* CompleteRegistrationViewController.swift in Sources */,
+				946467132615B10100021DB0 /* CategoryListViewController.swift in Sources */,
 				946466EA2615663C00021DB0 /* Networkable.swift in Sources */,
 				946466C826142A2D00021DB0 /* Config.swift in Sources */,
+				9464670E2615A4D900021DB0 /* CategoryViewController.swift in Sources */,
 				EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */,
 				946466A82611C01900021DB0 /* Register.swift in Sources */,
 			);

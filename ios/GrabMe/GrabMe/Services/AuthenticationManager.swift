@@ -10,7 +10,7 @@ import UIKit
 class AuthenticationManager {
     
     static let shared = AuthenticationManager()
-    var userAuth: CheckUserNumberResponse?
+    var userAuth: Response?
 
     var status: Int?
     var phone: String?
