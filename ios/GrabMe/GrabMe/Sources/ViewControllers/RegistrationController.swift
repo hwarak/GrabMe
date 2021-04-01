@@ -21,6 +21,7 @@ class RegistrationController: UIViewController {
     private var selectedCountry: String?
     private var listOfCountry = ["🇰🇷Korea","🇯🇵Japan","🇺🇸USA"]
     private var status: Int?
+    
 
 
     
@@ -50,13 +51,14 @@ extension RegistrationController {
     @IBAction func submitButtonTapped(_ sender: UIButton) {
 
         guard let phone = phoneTextField.text else { return }
-        
         guard let stat = status else { return }
+
+            self.viewModel.checkExistingUser(status: stat, phone: phone)
        
-        
-        print("\(stat), \(phone)")
-        AuthService.isUserNumberAvailable(status: stat, phone: phone)
-        
+                let vc = self.storyboard?.instantiateViewController(identifier: "verifySNS") as! VerifySNSViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+
         print("sent")
 
     }

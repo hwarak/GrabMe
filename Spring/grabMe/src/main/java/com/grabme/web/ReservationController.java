@@ -59,6 +59,7 @@ public class ReservationController {
 		int time_idx = (int) (long) obj.get("time_idx");
 		int user_idx = (int) (long) obj.get("user_idx");
 
+		// 유저 idx와 시간 idx를 가져와 디비에 저장해준다
 		reservation_service.insertReservation(user_idx, time_idx);
 
 		map.put("result", "ok");
