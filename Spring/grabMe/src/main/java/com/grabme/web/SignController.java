@@ -1,8 +1,5 @@
 package com.grabme.web;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +17,6 @@ import com.grabme.service.JsonEcDcService;
 import com.grabme.service.MessageService;
 import com.grabme.service.UserService;
 import com.grabme.vo.SignResVO;
-import com.grabme.vo.UserVO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,13 +42,11 @@ public class SignController {
 	@ApiOperation(value = "유저 번호 확인", notes = "유저 번호와 상태를 입력받아 중복 확인 후 인증번호를 발송한다.")
 	@PostMapping(value = "/check")
 	@ResponseBody
-	public Map<String, Object> checkUser(@ApiParam(value = "유저 정보 체크", required = true) @RequestBody String str) {
+	public ResponseEntity checkUser(@ApiParam(value = "유저 정보 체크", required = true) @RequestBody String str) {
 
 		System.out.println("도연씨 요청 : " + str);
 		
 		SignResVO svo = SignResVO.getSignResVOObject();
-		
-		Map<String, Object> map = new HashMap<String, Object>();
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
@@ -79,21 +73,15 @@ public class SignController {
 			svo.setResult("no");
 		}
 		
-		map.put("statusCode", StatusCode.OK);
-		map.put("responseMessage", ResponseMessage.SEND_CODE);
-		map.put("data",svo);
-
-		return map;
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_CODE,svo),HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "회원가입", notes = "유저 정보를 입력받아 데이터베이스에 저장한다.")
 	@PostMapping(value = "/up")
 	@ResponseBody
-	public Map<String, Object> signUp(@ApiParam(value = "유저 정보", required = true) @RequestBody String str) {
+	public ResponseEntity signUp(@ApiParam(value = "유저 정보", required = true) @RequestBody String str) {
 
 		System.out.println("도연씨 요청 : " + str);
-
-		Map<String, Object> map = new HashMap<String, Object>();
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
@@ -109,11 +97,8 @@ public class SignController {
 		svo.setResult("ok");
 		svo.setCode("");
 		
-		map.put("statusCode", StatusCode.OK);
-		map.put("responseMessage", ResponseMessage.CREATED_USER);
-		map.put("data",svo);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_CODE,svo),HttpStatus.OK);
 
-		return map;
 	}
 
 	
