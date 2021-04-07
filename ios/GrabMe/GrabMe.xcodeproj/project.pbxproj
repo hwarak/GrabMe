@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9417E86C261AE0BF003D9AEA /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9417E86B261AE0BF003D9AEA /* CategoryListTableViewCell.swift */; };
+		943AD086261D9B76007372E3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD085261D9B76007372E3 /* UIViewExtension.swift */; };
 		946466A82611C01900021DB0 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466A72611C01900021DB0 /* Register.swift */; };
 		946466C826142A2D00021DB0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466C726142A2D00021DB0 /* Config.swift */; };
 		946466D326143AE800021DB0 /* VerifySNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466D226143AE800021DB0 /* VerifySNSViewController.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9417E86B261AE0BF003D9AEA /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
+		943AD085261D9B76007372E3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = GrabMe/Sources/Views/Cells/UIViewExtension.swift; sourceTree = SOURCE_ROOT; };
 		946466A72611C01900021DB0 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		946466C726142A2D00021DB0 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		946466D226143AE800021DB0 /* VerifySNSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySNSViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		EA1EBEC725E526860083C27D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				943AD085261D9B76007372E3 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			children = (
 				EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */,
 				EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */,
+				9417E86B261AE0BF003D9AEA /* CategoryListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -405,9 +411,11 @@
 			files = (
 				946466D326143AE800021DB0 /* VerifySNSViewController.swift in Sources */,
 				EA3DDAE625FE2A9C00A0B241 /* AuthenticationViewModel.swift in Sources */,
+				9417E86C261AE0BF003D9AEA /* CategoryListTableViewCell.swift in Sources */,
 				EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */,
 				946466D8261447D500021DB0 /* AuthenticationManager.swift in Sources */,
 				EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */,
+				943AD086261D9B76007372E3 /* UIViewExtension.swift in Sources */,
 				946466F226156CE100021DB0 /* Networking.swift in Sources */,
 				94646700261576A700021DB0 /* AuthServices.swift in Sources */,
 				946466DD2614619A00021DB0 /* CompleteRegistrationViewController.swift in Sources */,
