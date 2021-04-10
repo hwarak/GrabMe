@@ -1,5 +1,7 @@
 package com.grabme.dao;
 
+import java.util.List;
+
 import com.grabme.vo.UserVO;
 
 public interface UserDAO {
@@ -13,7 +15,6 @@ public interface UserDAO {
 	// select user idx
 	public int selectUserIdx(String phone, int status);
 	
-	// select user
-	public UserVO selectUser(int idx);
-	
+	// select User By Time
+	public List<UserVO> selectUserByTime(int time_idx);
 }

@@ -1,6 +1,7 @@
 package com.grabme.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -42,10 +43,12 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectUserIdx", map);
 	}
 
-	// select user
+	// select User By Time
 	@Override
-	public UserVO selectUser(int idx) {
-		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectUser",idx);
+	public List<UserVO> selectUserByTime(int time_idx) {
+		return sqlSession.selectList("com.grabme.mappers.UserMapper.selectUserByTime",time_idx);
 	}
+	
+	
 
 }

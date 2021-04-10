@@ -22,6 +22,7 @@ public class TimeDAOImpl implements TimeDAO {
 		map.put("date", date);
 		map.put("time", time);
 		map.put("people", people);
+		map.put("max_people", people);
 		sqlSession.insert("com.grabme.mappers.TimeMapper.insertTime", map);
 
 	}

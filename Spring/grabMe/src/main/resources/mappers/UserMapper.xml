@@ -18,10 +18,12 @@
 	<select id="selectUserIdx" resultType="Integer">
 		select idx from user where phone=#{phone} and status=#{status}
 	</select>
-
-	<!-- select user -->
-	<select id="selectUser" resultType="com.grabme.vo.UserVO">
-		select * from user where idx=#{idx}
+	
+	<!-- select user by time -->
+	<select id="selectUserByTime" resultType="com.grabme.vo.UserVO">
+		select user.* from reservation 
+		left join user on user.idx = reservation.user_idx
+		where reservation.time_idx = #{time_idx};
 	</select>
 
 </mapper>

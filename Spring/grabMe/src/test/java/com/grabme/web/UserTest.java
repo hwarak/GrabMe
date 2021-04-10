@@ -50,12 +50,4 @@ public class UserTest {
 		System.out.println(dao.selectUserIdx(phone, status));// 등록한 유저 idx 반환
 	}
 
-	@Test
-	public void testSelectUser() throws Exception {
-		// idx로 유저 정보 가져오기
-		UserVO uvo = dao.selectUser(1);
-
-		System.out.println(uvo.getName());
-	}
-
 }

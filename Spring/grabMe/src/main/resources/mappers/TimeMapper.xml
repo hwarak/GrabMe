@@ -5,7 +5,7 @@
 
 	<!-- insert time -->
 	<insert id="insertTime">
-		insert into time(shop_idx,date,time,people) value(#{shop_idx},#{date},#{time},#{people})
+		insert into time(shop_idx,date,time,people,max_people) value(#{shop_idx},#{date},#{time},#{people},#{max_people})
 	</insert>
 	
 	<!-- update time -->
@@ -18,12 +18,12 @@
 		delete from time where idx=#{idx}
 	</delete>
 
-	<!-- update time people -->
+	<!-- update time people Minus -->
 	<update id="updateTimePeopleMinus">
 		update time set people = people-1 where idx=#{idx}
 	</update>
 	
-	<!-- update time people -->
+	<!-- update time people Plus -->
 	<update id="updateTimePeoplePlus">
 		update time set people = people+1 where idx=#{idx}
 	</update>
@@ -37,5 +37,7 @@
 	<select id="selectDate" resultType="com.grabme.vo.TimeVO">
 		select * from time where shop_idx=#{shop_idx} and date=#{date} order by time asc;
 	</select>
+	
+	
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.grabme.service;
 
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,13 +47,11 @@ public class UserServiceImpl implements UserService {
 		dao.insertUser(name, phone, status);
 
 	}
-	
-	// select user
+
+	// select User By Time
 	@Override
-	public UserVO selectUser(int idx) {
-		return dao.selectUser(idx);
+	public List<UserVO> selectUserByTime(int time_idx) {
+		return dao.selectUserByTime(time_idx);
 	}
-	
-	
 
 }

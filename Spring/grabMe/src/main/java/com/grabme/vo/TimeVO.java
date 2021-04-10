@@ -11,5 +11,6 @@ public class TimeVO {
 	private String time;
 	private String status;
 	private int people;
+	private int max_people;
 
 }

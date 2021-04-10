@@ -1,5 +1,7 @@
 package com.grabme.service;
 
+import java.util.List;
+
 import com.grabme.vo.UserVO;
 
 public interface UserService {
@@ -16,7 +18,7 @@ public interface UserService {
 	// insert user
 	public void insertUser(String name, String phone, int status);
 
-	// select user
-	public UserVO selectUser(int idx);
+	// select User By Time
+	public List<UserVO> selectUserByTime(int time_idx);
 
 }

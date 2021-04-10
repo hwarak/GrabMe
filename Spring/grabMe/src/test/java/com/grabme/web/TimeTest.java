@@ -22,7 +22,7 @@ public class TimeTest {
 
 	@Test
 	public void testIsertTime() throws Exception {
-		// 예약 날짜/시간 등록하기
+		// 예약 날짜/시각 등록하기
 		dao.insertTime(28, "2021-05-19", "10:30",5);
 	}
 
@@ -46,33 +46,5 @@ public class TimeTest {
 			System.out.println(tmp.getTime());
 		}
 	}
-
-//	@Test
-//	public void testSlashJson() throws Exception {
-//		String str = "u&6&10:30!x&5!d&8!i&2021-03-11&17:30!i&2021-03-11";
-//		String arr[] = str.split("!");
-//
-//
-//		for (int i = 0; i < arr.length; i++) {
-//			
-//			switch (arr[i].charAt(0)) {
-//			case 'u':
-//				System.out.println("update");
-//				break;
-//			case 'd':
-//				System.out.println("delete");
-//				break;
-//			case 'i':
-//				System.out.println("insert");
-//				break;
-//			case 'x':
-//				System.out.println("xxx");
-//				break;
-//
-//			}
-//			
-//		}
-//
-//	}
 
 }
