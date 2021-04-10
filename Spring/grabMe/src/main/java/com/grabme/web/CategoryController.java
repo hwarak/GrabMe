@@ -43,8 +43,7 @@ public class CategoryController {
 
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
-			ShopResVO rvo = ShopResVO.getShopResVOObject();
-			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, rvo), HttpStatus.OK);
+			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, list), HttpStatus.OK);
 		}
 
 		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST, list), HttpStatus.OK);
@@ -63,8 +62,7 @@ public class CategoryController {
 
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
-			ShopResVO rvo = ShopResVO.getShopResVOObject();
-			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, rvo), HttpStatus.OK);
+			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, list), HttpStatus.OK);
 		}
 
 		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST, list), HttpStatus.OK);
