@@ -13,5 +13,5 @@ public interface ReservationService {
 	public List<ShopResVO> selectReservationList(int user_idx);
 
 	// delete reservation
-	public void deleteReservation(int idx);
+	public void deleteReservation(int reservation_idx);
 }

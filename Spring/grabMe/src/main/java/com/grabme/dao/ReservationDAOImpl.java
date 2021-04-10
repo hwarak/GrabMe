@@ -31,17 +31,17 @@ public class ReservationDAOImpl implements ReservationDAO {
 
 	// delete reservation
 	@Override
-	public void deleteReservation(int idx) {
-		sqlSession.delete("com.grabme.mappers.ReservationMapper.deleteReservation",idx);
+	public void deleteReservation(int reservation_idx) {
+		sqlSession.delete("com.grabme.mappers.ReservationMapper.deleteReservation", reservation_idx);
 	}
 
-	// select time idx
+	// select time idx by reservation_idx
 	@Override
-	public int selectTimeIdx(int idx) {
-		return sqlSession.selectOne("com.grabme.mappers.ReservationMapper.selectTimeIdx",idx);
+	public int selectTimeIdx(int reservation_idx) {
+		return sqlSession.selectOne("com.grabme.mappers.ReservationMapper.selectTimeIdx", reservation_idx);
+		
 	}
-	
-	
+
 	
 
 }

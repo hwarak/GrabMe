@@ -40,10 +40,10 @@ public class ReservationTest {
 		// 예약 삭제
 		dao.deleteReservation(1);
 	}
-
-	@Test
-	public void testSelectTimeIdx() throws Exception {
-		// 예약한 시간 고유 번호 반환
-		System.out.println(dao.selectTimeIdx(3));
-	}
+//
+//	@Test
+//	public void testSelectTimeIdx() throws Exception {
+//		// 예약한 시간 고유 번호 반환
+//		System.out.println(dao.selectTimeIdx(3));
+//	}
 }

@@ -1,9 +1,6 @@
 package com.grabme.web;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -64,10 +61,11 @@ public class ReservationController {
 		// 유저 idx와 시간 idx를 가져와 디비에 저장해준다
 		reservation_service.insertReservation(user_idx, time_idx);
 		
+		// front에서 받는 데이터 형태로 맞춰주기
 		svo.setResult("ok");
 		svo.setCode("");
 		
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATED_USER,svo),HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATE_RESERVATION,svo),HttpStatus.OK);
 		
 	}
 
@@ -89,20 +87,24 @@ public class ReservationController {
 	@ApiOperation(value = "예약 삭제하기", notes = "예약번호를 가져와 예약을 삭제한다")
 	@DeleteMapping
 	@ResponseBody
-	public Map<String, Object> reservationDelete(@ApiParam(value = "예약 정보", required = true) @RequestBody String str) {
+	public ResponseEntity reservationDelete(@ApiParam(value = "예약 정보", required = true) @RequestBody String str) {
 
-		Map<String, Object> map = new HashMap<String, Object>();
+		System.out.println("도연씨 요청 : " + str);
+		
+		SignResVO svo = SignResVO.getSignResVOObject();
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
 
-		int idx = (int) (long) obj.get("idx");
-		
+		int reservation_idx = (int) (long) obj.get("reservation_idx");
+		 
 		// 선택된 예약 idx 찾아서 삭제하기
-		reservation_service.deleteReservation(idx);
+		reservation_service.deleteReservation(reservation_idx);
 
-		map.put("result", "ok");
-
-		return map;
+		// front에서 받는 데이터 형태로 맞춰주기
+		svo.setResult("ok");
+		svo.setCode("");
+		
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.DELETE_RESERVATION,svo),HttpStatus.OK);
 	}
 }

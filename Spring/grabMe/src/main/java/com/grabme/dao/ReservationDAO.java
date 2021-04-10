@@ -13,8 +13,8 @@ public interface ReservationDAO {
 	public List<ShopResVO> selectReservationList(int user_idx);
 
 	// delete reservation
-	public void deleteReservation(int idx);
+	public void deleteReservation(int reservation_idx);
 	
-	// select time idx
-	public int selectTimeIdx(int idx);
+	// select time idx by reservation_idx
+	public int selectTimeIdx(int reservation_idx);
 }

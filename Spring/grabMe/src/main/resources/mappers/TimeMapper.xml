@@ -5,7 +5,7 @@
 
 	<!-- insert time -->
 	<insert id="insertTime">
-		insert into time(shop_idx,date,time) value(#{shop_idx},#{date},#{time})
+		insert into time(shop_idx,date,time,people) value(#{shop_idx},#{date},#{time},#{people})
 	</insert>
 	
 	<!-- update time -->
@@ -18,9 +18,19 @@
 		delete from time where idx=#{idx}
 	</delete>
 
+	<!-- update time people -->
+	<update id="updateTimePeopleMinus">
+		update time set people = people-1 where idx=#{idx}
+	</update>
+	
+	<!-- update time people -->
+	<update id="updateTimePeoplePlus">
+		update time set people = people+1 where idx=#{idx}
+	</update>
+	
 	<!-- update time status -->
 	<update id="updateTimeStatus">
-		update time set status = 1-status where idx=#{idx}
+		update time set status = if (people > 0, 'T', 'F') where idx=#{idx}
 	</update>
 	
 	<!-- select date > list -->

@@ -20,12 +20,12 @@
 	
 	<!-- delete reservation -->
 	<delete id="deleteReservation">
-		delete from reservation where idx=#{idx};
+		delete from reservation where reservation_idx=#{reservation_idx};
 	</delete>
 	
 	<!-- select time idx -->
 	<select id="selectTimeIdx" resultType="Integer">
-		select time_idx from reservation where idx=#{idx}
+		select time_idx from reservation where reservation_idx=#{reservation_idx}
 	</select>
 
 </mapper>

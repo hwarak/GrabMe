@@ -7,7 +7,7 @@ import com.grabme.vo.TimeVO;
 public interface TimeService {
 
 	// insert time
-	public void insertTime(int shop_idx, String date, String time);
+	public void insertTime(int shop_idx, String date, String time, int people);
 
 	// update time
 	public void updateTime(String time, int idx);

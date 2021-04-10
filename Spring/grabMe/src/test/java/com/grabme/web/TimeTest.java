@@ -23,7 +23,7 @@ public class TimeTest {
 	@Test
 	public void testIsertTime() throws Exception {
 		// 예약 날짜/시간 등록하기
-		dao.insertTime(4, "2021-03-09", "10:30");
+		dao.insertTime(28, "2021-05-19", "10:30",5);
 	}
 
 	@Test

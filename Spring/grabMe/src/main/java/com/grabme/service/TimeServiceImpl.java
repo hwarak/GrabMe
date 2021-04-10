@@ -16,8 +16,8 @@ public class TimeServiceImpl implements TimeService {
 
 	// insert time
 	@Override
-	public void insertTime(int shop_idx, String date, String time) {
-		dao.insertTime(shop_idx, date, time);
+	public void insertTime(int shop_idx, String date, String time, int people) {
+		dao.insertTime(shop_idx, date, time, people);
 	}
 
 	// update time

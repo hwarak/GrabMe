@@ -1,11 +1,11 @@
 package com.grabme.web;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.grabme.response.DefaultRes;
+import com.grabme.response.ResponseMessage;
+import com.grabme.response.StatusCode;
 import com.grabme.service.JsonEcDcService;
 import com.grabme.service.TimeService;
-import com.grabme.vo.ShopAllVO;
+import com.grabme.vo.SignResVO;
 import com.grabme.vo.TimeVO;
 
 import io.swagger.annotations.Api;
@@ -36,7 +39,7 @@ public class TimeController {
 
 	@Autowired
 	private TimeService time_service;
-	
+
 	@Autowired
 	private JsonEcDcService json_service;
 
@@ -46,11 +49,11 @@ public class TimeController {
 	@ApiOperation(value = "시각 추가", notes = "시각을 추가한다.")
 	@PostMapping
 	@ResponseBody
-	public Map<String, Object> timeInfoPost(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
+	public ResponseEntity timeInfoPost(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
 
 		System.out.println("도연씨 요청 : " + str);
 
-		Map<String, Object> map = new HashMap<String, Object>();
+		SignResVO svo = SignResVO.getSignResVOObject();
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
@@ -58,27 +61,36 @@ public class TimeController {
 		String date = (String) obj.get("date");
 		String time = (String) obj.get("time");
 		int shop_idx = (int) (long) obj.get("shop_idx");
-		
-		
-		time_service.insertTime(shop_idx,date,time);
+		int people = (int) (long) obj.get("people");
 
-		map.put("result", "ok");
+		time_service.insertTime(shop_idx, date, time, people);
 
-		return map;
+		svo.setResult("ok");
+		svo.setCode("");
+
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATE_TIME, svo), HttpStatus.OK);
 	}
 
 	// (2) 시간 삭제
 	@ApiOperation(value = "시각 삭제", notes = "해당 시각을 삭제한다.")
 	@DeleteMapping
 	@ResponseBody
-	public String timeInfoDelete(@ApiParam(value = "시간 정보", required = true) @RequestBody TimeVO tvo) {
+	public ResponseEntity timeInfoDelete(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
 
-		time_service.deleteTime(tvo.getIdx());
+		System.out.println("도연씨 요청 : " + str);
 
-		JsonObject obj = new JsonObject();
-		obj.addProperty("result", "ok");
+		SignResVO svo = SignResVO.getSignResVOObject();
 
-		return obj.toString();
+		// json 파싱 후 반환
+		JSONObject obj = json_service.jsonDc(str);
+		int idx = (int) (long) obj.get("idx");
+
+		time_service.deleteTime(idx);
+
+		svo.setResult("ok");
+		svo.setCode("");
+
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.DELETE_TIME, svo), HttpStatus.OK);
 	}
 
 	// (3) 시간 업데이트
@@ -107,38 +119,36 @@ public class TimeController {
 		return new Gson().toJsonTree(list).toString();
 	}
 
-
 	/*
-	// 시간 배열로 받기
-	@ApiOperation(value = "예약시간 추가", notes = "날짜와 예약시간을 입력받아 데이터베이스에 추가한다.")
-	@PostMapping
-	@ResponseBody
-	public String timeInfoPost(@ApiParam(value = "예약시간,날짜 정보 받기", required = true) @RequestBody String timeInfo,
-			@ApiParam(value = "가게 번호", required = true) @RequestParam int shop_idx) {
-
-		try {
-
-			JSONParser jsonParser = new JSONParser();
-			JSONObject jsonObj = (JSONObject) jsonParser.parse(timeInfo);
-
-			String date = (String) jsonObj.get("date");
-
-			JSONArray time = (JSONArray) jsonObj.get(date);
-			Iterator<String> iterator = time.iterator();
-
-			while (iterator.hasNext()) {
-				time_service.insertTime(shop_idx, date, iterator.next());
-			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-		JsonObject obj = new JsonObject();
-		obj.addProperty("result", "ok");
-
-		return obj.toString();
-	}
-	*/
+	 * // 시간 배열로 받기
+	 * 
+	 * @ApiOperation(value = "예약시간 추가", notes = "날짜와 예약시간을 입력받아 데이터베이스에 추가한다.")
+	 * 
+	 * @PostMapping
+	 * 
+	 * @ResponseBody public String timeInfoPost(@ApiParam(value = "예약시간,날짜 정보 받기",
+	 * required = true) @RequestBody String timeInfo,
+	 * 
+	 * @ApiParam(value = "가게 번호", required = true) @RequestParam int shop_idx) {
+	 * 
+	 * try {
+	 * 
+	 * JSONParser jsonParser = new JSONParser(); JSONObject jsonObj = (JSONObject)
+	 * jsonParser.parse(timeInfo);
+	 * 
+	 * String date = (String) jsonObj.get("date");
+	 * 
+	 * JSONArray time = (JSONArray) jsonObj.get(date); Iterator<String> iterator =
+	 * time.iterator();
+	 * 
+	 * while (iterator.hasNext()) { time_service.insertTime(shop_idx, date,
+	 * iterator.next()); }
+	 * 
+	 * } catch (Exception e) { // TODO: handle exception }
+	 * 
+	 * JsonObject obj = new JsonObject(); obj.addProperty("result", "ok");
+	 * 
+	 * return obj.toString(); }
+	 */
 
 }

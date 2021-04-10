@@ -16,11 +16,12 @@ public class TimeDAOImpl implements TimeDAO {
 
 	// insert time
 	@Override
-	public void insertTime(int shop_idx, String date, String time) {
+	public void insertTime(int shop_idx, String date, String time, int people) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("shop_idx", shop_idx);
 		map.put("date", date);
 		map.put("time", time);
+		map.put("people", people);
 		sqlSession.insert("com.grabme.mappers.TimeMapper.insertTime", map);
 
 	}
@@ -41,9 +42,21 @@ public class TimeDAOImpl implements TimeDAO {
 
 	}
 
-	// update time status
+	// update People Minus
 	@Override
-	public void updateTimeStatus(int idx) {
+	public void updateTimePeopleMinus(int idx) {
+		sqlSession.update("com.grabme.mappers.TimeMapper.updateTimePeopleMinus", idx);
+	}
+	
+	// update People Plus
+	@Override
+	public void updateTimePeoplePlus(int idx) {
+		sqlSession.update("com.grabme.mappers.TimeMapper.updateTimePeoplePlus", idx);
+		
+	}
+
+	// update time status
+	public void updateTimeStatus(int idx) { // TODO Auto-generated method stub
 		sqlSession.update("com.grabme.mappers.TimeMapper.updateTimeStatus", idx);
 	}
 
