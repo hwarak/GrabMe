@@ -6,20 +6,31 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CategoryListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var restaurantImage: UIImageView!
-    
+    @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var address: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        restaurantImage.roundCorners(cornerRadius: 10, maskedCorners: [.layerMinXMinYCorner, .layerMinXMaxYCorner])
+        placeImage.roundCorners(cornerRadius: 10, maskedCorners: [.layerMinXMinYCorner, .layerMinXMaxYCorner])
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    func configureUI(_ item: CategoryList){
+        title.text = item.title
+        address.text = item.address
+        let url = URL(string: item.thumbnail!)
+        placeImage.kf.setImage(with: url)
+        
+        
     }
 
 }
