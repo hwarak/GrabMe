@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.grabme.vo.ShopVO;
+import com.grabme.vo.ShopResVO;
 
 public class CategoryDAOImpl implements CategoryDAO {
 
@@ -16,7 +16,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	// 위도,경도 값 받아서 거리순으로 정렬후 원하는 만큼 보여주기
 	@Override
-	public List<ShopVO> selectCategoryWithXY(double x, double y, int category_idx, int startNum) {
+	public List<ShopResVO> selectCategoryWithXY(double x, double y, int category_idx, int startNum) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("x", x);
@@ -29,7 +29,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	// search Title
 	@Override
-	public List<ShopVO> searchTitle(double x, double y, int category_idx, int startNum, String word) {
+	public List<ShopResVO> searchTitle(double x, double y, int category_idx, int startNum, String word) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("x", x);
 		map.put("y", y);

@@ -10,7 +10,7 @@
 
 	<!-- select reservation list -->
 	<select id="selectReservationList" resultType="com.grabme.vo.ReservationListVO">
-		select reservation.idx, time.shop_idx, time.date, time.time, 
+		select shop.idx ,reservation.reservation_idx, time.date, time.time, 
 		shop.thumbnail, shop.title, shop.address from reservation 
 		left join time on reservation.time_idx = time.idx
 		left join shop on time.shop_idx = shop.idx

@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.grabme.dao.ReservationDAO;
-import com.grabme.vo.ReservationListVO;
+import com.grabme.vo.ShopResVO;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,15 +23,15 @@ public class ReservationTest {
 	@Test
 	public void testInsertReservation() throws Exception {
 		// 예약 등록하기
-		dao.insertReservation(1, 5);
+		dao.insertReservation(15, 4);
 	}
 
 	@Test
 	public void testSelectReservationList() throws Exception {
 		// 유저의 예약내역을 보여준다
-		List<ReservationListVO> list = dao.selectReservationList(6);
-		for (ReservationListVO tmp : list) {
-			System.out.println(tmp.getShop_idx());
+		List<ShopResVO> list = dao.selectReservationList(6);
+		for (ShopResVO tmp : list) {
+			System.out.println(tmp.getAddress());
 		}
 	}
 
