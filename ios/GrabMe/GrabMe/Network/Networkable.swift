@@ -16,15 +16,15 @@ protocol Networkable {
 
 extension Networkable {
     static func reqeustAPI(request: URLRequest, completion: @escaping (Data) -> Void) {
-        
+
         URLSession(configuration: .default).dataTask(with: request) { data, response, error in
-            
-            //print("🔴 \(response)")
+            print("🔴 \(response)")
             guard error == nil else { return }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
             let successRange = 200..<300 // 에러코드 확인
-            guard successRange.contains(statusCode) else { return }
+            guard successRange.contains(statusCode) else {
+                return }
             guard let resultData = data else { return }
   
             completion(resultData)
@@ -35,9 +35,9 @@ extension Networkable {
     static func encode<T: Codable>(data: T) -> Data? {
         do{
             let request = try JSONEncoder().encode(data)
-            //let resultString = String(data: request, encoding: .utf8)
-            //print("Data in String: \(resultString)")
-        
+//            let resultString = String(data: request, encoding: .utf8)
+//            print("Data in String: \(resultString)")
+//
             return request
         } catch let error {
             print("EncodingError: \(error.localizedDescription)")
@@ -47,6 +47,9 @@ extension Networkable {
     
     static func decode<T: Codable>(_ type: T.Type, data: Data) -> T? {
         do {
+            let resultString = String(data: data, encoding: .utf8)
+            print("Data in String: \(resultString)")
+        
             let response = try JSONDecoder().decode(type, from: data)
             return response
         } catch let error {

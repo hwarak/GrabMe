@@ -3,12 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39A80F1493105B219023B372 /* Pods_GrabMe_GrabMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714400FB5490CB22D1655A6B /* Pods_GrabMe_GrabMeUITests.framework */; };
+		77AEF0A642D2E800F26E58AE /* Pods_GrabMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29476A11EC66C010F44F060 /* Pods_GrabMe.framework */; };
 		9417E86C261AE0BF003D9AEA /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9417E86B261AE0BF003D9AEA /* CategoryListTableViewCell.swift */; };
 		943AD086261D9B76007372E3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD085261D9B76007372E3 /* UIViewExtension.swift */; };
+		943AD08B261EABEA007372E3 /* CategoryListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD08A261EABEA007372E3 /* CategoryListManager.swift */; };
+		943AD09326213677007372E3 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD09226213677007372E3 /* CategoryList.swift */; };
+		943AD09826214327007372E3 /* CategoryListServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD09726214327007372E3 /* CategoryListServices.swift */; };
+		943AD09D26215E35007372E3 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD09C26215E35007372E3 /* CategoryListViewModel.swift */; };
 		946466A82611C01900021DB0 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466A72611C01900021DB0 /* Register.swift */; };
 		946466C826142A2D00021DB0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466C726142A2D00021DB0 /* Config.swift */; };
 		946466D326143AE800021DB0 /* VerifySNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466D226143AE800021DB0 /* VerifySNSViewController.swift */; };
@@ -19,6 +25,7 @@
 		94646700261576A700021DB0 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466FF261576A700021DB0 /* AuthServices.swift */; };
 		9464670E2615A4D900021DB0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464670D2615A4D900021DB0 /* CategoryViewController.swift */; };
 		946467132615B10100021DB0 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946467122615B10100021DB0 /* CategoryListViewController.swift */; };
+		9E2867C8CBCD022F40DE21D6 /* Pods_GrabMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8281B9B612439950A14826E8 /* Pods_GrabMeTests.framework */; };
 		EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */; };
 		EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */; };
 		EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EBE9825E50E5E0083C27D /* RegistrationController.swift */; };
@@ -48,8 +55,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57F7D207633FB912282A8D89 /* Pods-GrabMe-GrabMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMe-GrabMeUITests.debug.xcconfig"; path = "Target Support Files/Pods-GrabMe-GrabMeUITests/Pods-GrabMe-GrabMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		714400FB5490CB22D1655A6B /* Pods_GrabMe_GrabMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrabMe_GrabMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5C8B60414A03AD23E0233C /* Pods-GrabMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMe.release.xcconfig"; path = "Target Support Files/Pods-GrabMe/Pods-GrabMe.release.xcconfig"; sourceTree = "<group>"; };
+		8281B9B612439950A14826E8 /* Pods_GrabMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrabMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9417E86B261AE0BF003D9AEA /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
 		943AD085261D9B76007372E3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = GrabMe/Sources/Views/Cells/UIViewExtension.swift; sourceTree = SOURCE_ROOT; };
+		943AD08A261EABEA007372E3 /* CategoryListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListManager.swift; sourceTree = "<group>"; };
+		943AD09226213677007372E3 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		943AD09726214327007372E3 /* CategoryListServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListServices.swift; sourceTree = "<group>"; };
+		943AD09C26215E35007372E3 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 		946466A72611C01900021DB0 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		946466C726142A2D00021DB0 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		946466D226143AE800021DB0 /* VerifySNSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySNSViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +75,11 @@
 		946466FF261576A700021DB0 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		9464670D2615A4D900021DB0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		946467122615B10100021DB0 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		B7D13C9C483695937F0D5924 /* Pods-GrabMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMe.debug.xcconfig"; path = "Target Support Files/Pods-GrabMe/Pods-GrabMe.debug.xcconfig"; sourceTree = "<group>"; };
+		BBBC0E0901BB758C6E2101B9 /* Pods-GrabMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMeTests.release.xcconfig"; path = "Target Support Files/Pods-GrabMeTests/Pods-GrabMeTests.release.xcconfig"; sourceTree = "<group>"; };
+		BEA6DAFDCDC791E347A02F9A /* Pods-GrabMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMeTests.debug.xcconfig"; path = "Target Support Files/Pods-GrabMeTests/Pods-GrabMeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D53ADF71348F610EF98A3CDF /* Pods-GrabMe-GrabMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabMe-GrabMeUITests.release.xcconfig"; path = "Target Support Files/Pods-GrabMe-GrabMeUITests/Pods-GrabMe-GrabMeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E29476A11EC66C010F44F060 /* Pods_GrabMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrabMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1EBE9125E50E5E0083C27D /* GrabMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrabMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1EBE9425E50E5E0083C27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AEF0A642D2E800F26E58AE /* Pods_GrabMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E2867C8CBCD022F40DE21D6 /* Pods_GrabMeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,12 +118,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39A80F1493105B219023B372 /* Pods_GrabMe_GrabMeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61B1C5386EAD76303A742563 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7D13C9C483695937F0D5924 /* Pods-GrabMe.debug.xcconfig */,
+				7A5C8B60414A03AD23E0233C /* Pods-GrabMe.release.xcconfig */,
+				57F7D207633FB912282A8D89 /* Pods-GrabMe-GrabMeUITests.debug.xcconfig */,
+				D53ADF71348F610EF98A3CDF /* Pods-GrabMe-GrabMeUITests.release.xcconfig */,
+				BEA6DAFDCDC791E347A02F9A /* Pods-GrabMeTests.debug.xcconfig */,
+				BBBC0E0901BB758C6E2101B9 /* Pods-GrabMeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC4D044D50048F55787601E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E29476A11EC66C010F44F060 /* Pods_GrabMe.framework */,
+				714400FB5490CB22D1655A6B /* Pods_GrabMe_GrabMeUITests.framework */,
+				8281B9B612439950A14826E8 /* Pods_GrabMeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA1EBE8825E50E5E0083C27D = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +155,8 @@
 				EA1EBEAA25E50E630083C27D /* GrabMeTests */,
 				EA1EBEB525E50E630083C27D /* GrabMeUITests */,
 				EA1EBE9225E50E5E0083C27D /* Products */,
+				61B1C5386EAD76303A742563 /* Pods */,
+				CC4D044D50048F55787601E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +216,7 @@
 				946466E92615663C00021DB0 /* Networkable.swift */,
 				946466F126156CE100021DB0 /* Networking.swift */,
 				946466FF261576A700021DB0 /* AuthServices.swift */,
+				943AD09726214327007372E3 /* CategoryListServices.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -194,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				946466D7261447D500021DB0 /* AuthenticationManager.swift */,
+				943AD08A261EABEA007372E3 /* CategoryListManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -251,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				EA3DDAE525FE2A9C00A0B241 /* AuthenticationViewModel.swift */,
+				943AD09C26215E35007372E3 /* CategoryListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -259,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				946466A72611C01900021DB0 /* Register.swift */,
+				943AD09226213677007372E3 /* CategoryList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,9 +338,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA1EBEBB25E50E630083C27D /* Build configuration list for PBXNativeTarget "GrabMe" */;
 			buildPhases = (
+				FCEC246B1EB27FD08C50EB1B /* [CP] Check Pods Manifest.lock */,
 				EA1EBE8D25E50E5E0083C27D /* Sources */,
 				EA1EBE8E25E50E5E0083C27D /* Frameworks */,
 				EA1EBE8F25E50E5E0083C27D /* Resources */,
+				44C3BA91419840CE404F2EF1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +357,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA1EBEBE25E50E630083C27D /* Build configuration list for PBXNativeTarget "GrabMeTests" */;
 			buildPhases = (
+				5A60BC714E667C0B3D87C7A1 /* [CP] Check Pods Manifest.lock */,
 				EA1EBEA325E50E630083C27D /* Sources */,
 				EA1EBEA425E50E630083C27D /* Frameworks */,
 				EA1EBEA525E50E630083C27D /* Resources */,
@@ -321,9 +376,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA1EBEC125E50E630083C27D /* Build configuration list for PBXNativeTarget "GrabMeUITests" */;
 			buildPhases = (
+				975AAA4B3760E79BF0782DF5 /* [CP] Check Pods Manifest.lock */,
 				EA1EBEAE25E50E630083C27D /* Sources */,
 				EA1EBEAF25E50E630083C27D /* Frameworks */,
 				EA1EBEB025E50E630083C27D /* Resources */,
+				C045D4CBF08FB8C0126C4912 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,13 +461,119 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		44C3BA91419840CE404F2EF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrabMe/Pods-GrabMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrabMe/Pods-GrabMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrabMe/Pods-GrabMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A60BC714E667C0B3D87C7A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrabMeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		975AAA4B3760E79BF0782DF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrabMe-GrabMeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C045D4CBF08FB8C0126C4912 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrabMe-GrabMeUITests/Pods-GrabMe-GrabMeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrabMe-GrabMeUITests/Pods-GrabMe-GrabMeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrabMe-GrabMeUITests/Pods-GrabMe-GrabMeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCEC246B1EB27FD08C50EB1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrabMe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EA1EBE8D25E50E5E0083C27D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943AD09826214327007372E3 /* CategoryListServices.swift in Sources */,
 				946466D326143AE800021DB0 /* VerifySNSViewController.swift in Sources */,
 				EA3DDAE625FE2A9C00A0B241 /* AuthenticationViewModel.swift in Sources */,
+				943AD08B261EABEA007372E3 /* CategoryListManager.swift in Sources */,
+				943AD09D26215E35007372E3 /* CategoryListViewModel.swift in Sources */,
 				9417E86C261AE0BF003D9AEA /* CategoryListTableViewCell.swift in Sources */,
 				EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */,
 				946466D8261447D500021DB0 /* AuthenticationManager.swift in Sources */,
@@ -425,6 +588,7 @@
 				9464670E2615A4D900021DB0 /* CategoryViewController.swift in Sources */,
 				EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */,
 				946466A82611C01900021DB0 /* Register.swift in Sources */,
+				943AD09326213677007372E3 /* CategoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -585,7 +749,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -597,6 +761,7 @@
 		};
 		EA1EBEBC25E50E630083C27D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7D13C9C483695937F0D5924 /* Pods-GrabMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -616,6 +781,7 @@
 		};
 		EA1EBEBD25E50E630083C27D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A5C8B60414A03AD23E0233C /* Pods-GrabMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -635,6 +801,7 @@
 		};
 		EA1EBEBF25E50E630083C27D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEA6DAFDCDC791E347A02F9A /* Pods-GrabMeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -657,6 +824,7 @@
 		};
 		EA1EBEC025E50E630083C27D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBBC0E0901BB758C6E2101B9 /* Pods-GrabMeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -679,6 +847,7 @@
 		};
 		EA1EBEC225E50E630083C27D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57F7D207633FB912282A8D89 /* Pods-GrabMe-GrabMeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -699,6 +868,7 @@
 		};
 		EA1EBEC325E50E630083C27D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D53ADF71348F610EF98A3CDF /* Pods-GrabMe-GrabMeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
