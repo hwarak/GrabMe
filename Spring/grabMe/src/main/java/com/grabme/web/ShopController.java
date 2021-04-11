@@ -57,9 +57,9 @@ public class ShopController {
 	@ApiOperation(value = "가게 정보", notes = "가게 정보를 가져온다.")
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity shopInfoGet(@ApiParam(value = "유저 번호", required = true) @RequestParam int user_idx) {
+	public ResponseEntity shopInfoGet(@ApiParam(value = "가게 번호", required = true) @RequestParam int idx) {
 
-		ShopAllVO savo = shop_service.selectShopAllinfo(user_idx);
+		ShopAllVO savo = shop_service.selectShopAllinfo(idx);
 
 		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST,savo),HttpStatus.OK);
 	}

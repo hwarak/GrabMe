@@ -45,8 +45,8 @@ public class ShopDAOImpl implements ShopDAO {
 
 	// select Shop All Info
 	@Override
-	public ShopAllVO selectShopAllinfo(int user_idx) {
-		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopAllinfo", user_idx);
+	public ShopAllVO selectShopAllinfo(int idx) {
+		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopAllinfo", idx);
 
 	}
 
@@ -54,7 +54,7 @@ public class ShopDAOImpl implements ShopDAO {
 	@Override
 	public void updateShopAllinfo(ShopAllVO savo) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("idx", savo.getShop_idx());
+		map.put("idx", savo.getIdx());
 		map.put("category_idx", savo.getCategory_idx());
 		map.put("thumbnail", savo.getThumbnail());
 		map.put("title", savo.getTitle());
@@ -66,5 +66,13 @@ public class ShopDAOImpl implements ShopDAO {
 		sqlsession.insert("com.grabme.mappers.ShopMapper.updateShopAllInfo", map);
 
 	}
+
+	// delete shop
+	@Override
+	public void deleteShop(int idx) {
+		sqlsession.delete("com.grabme.mappers.ShopMapper.deleteShop",idx);
+	}
+	
+	
 
 }

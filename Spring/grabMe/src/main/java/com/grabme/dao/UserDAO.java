@@ -20,4 +20,7 @@ public interface UserDAO {
 	
 	// delete user
 	public void deleteUser(int idx);
+	
+	// select return idx (사장님 : 가게 번호 / 개인 : 0)
+	public int selectReturnIdx(int idx);
 }

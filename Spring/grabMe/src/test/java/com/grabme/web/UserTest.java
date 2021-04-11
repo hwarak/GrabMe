@@ -65,5 +65,10 @@ public class UserTest {
 		// 유저 삭제
 		dao.deleteUser(32);
 	}
+	
+	@Test
+	public void testSelectReturnIdx() throws Exception{
+		System.out.println(dao.selectReturnIdx(8));
+	}
 
 }

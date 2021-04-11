@@ -54,6 +54,12 @@ public class UserDAOImpl implements UserDAO {
 	public void deleteUser(int idx) {
 		sqlSession.delete("com.grabme.mappers.UserMapper.deleteUser",idx);
 	}
+
+	// select return idx (사장님 : 가게 번호 / 개인 : 0)
+	@Override
+	public int selectReturnIdx(int idx) {
+		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectReturnIdx",idx);
+	}
 	
 	
 	

@@ -32,8 +32,8 @@ public class ShopServiceImpl implements ShopService {
 
 	// select Shop All Info
 	@Override
-	public ShopAllVO selectShopAllinfo(int user_idx) {
-		return dao.selectShopAllinfo(user_idx);
+	public ShopAllVO selectShopAllinfo(int idx) {
+		return dao.selectShopAllinfo(idx);
 	}
 
 	// update Shop All Info

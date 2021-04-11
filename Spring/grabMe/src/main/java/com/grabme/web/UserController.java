@@ -47,8 +47,15 @@ public class UserController {
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
 		int idx = (int) (long) obj.get("idx");
+		
+		int result = user_service.selectReturnIdx(idx);
+		
+		if(result == 0) {
+			user_service.deleteUser(idx);			
+		}else {
+			
+		}
 
-		user_service.deleteUser(idx);
 
 		svo.setResult("ok");
 		svo.setCode("");

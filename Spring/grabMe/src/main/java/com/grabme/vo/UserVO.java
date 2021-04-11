@@ -9,5 +9,5 @@ public class UserVO {
 	private String name;
 	private String phone;
 	private String profile_img;
-	private int status;
+	private int status;	
 }

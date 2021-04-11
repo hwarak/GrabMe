@@ -15,9 +15,12 @@ public interface ShopDAO {
 	public int checkShop(int user_idx);
 
 	// select Shop All Info
-	public ShopAllVO selectShopAllinfo(int user_idx);
+	public ShopAllVO selectShopAllinfo(int idx);
 
 	// update Shop All Info
 	public void updateShopAllinfo(ShopAllVO savo);
+	
+	// delete shop
+	public void deleteShop(int idx);
 
 }

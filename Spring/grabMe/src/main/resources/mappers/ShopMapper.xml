@@ -21,10 +21,10 @@
 	
 	<!-- select shop all info -->
 	<select id="selectShopAllinfo" resultType="com.grabme.vo.ShopAllVO">
-		select shop.idx, shop.user_idx, shop.category_idx, shop.thumbnail, shop.title, shop.address, shop.introduction, 
-		externalChannel.openkatalkURL, externalChannel.instaURL
-		from shop left join externalChannel on shop.idx = externalChannel.shop_idx 
-		where shop.user_idx = #{user_idx}
+		select shop.idx, shop.category_idx, shop.thumbnail, shop.title, shop.address, shop.introduction, 
+		shop.phone, externalChannel.openkatalkURL, externalChannel.instaURL from shop 
+		left join externalChannel on shop.idx = externalChannel.shop_idx 
+		where shop.idx = #{idx}
 	</select>
 
 	<!-- update shop -->
@@ -39,7 +39,10 @@
 		WHERE shop.idx=#{idx}
 	</update>
 
-
+	<!-- delete shop -->
+	<delete id="deleteShop">
+		delete from shop where idx=#{idx}
+	</delete>
 
 </mapper>
 

@@ -89,6 +89,13 @@ public class UserServiceImpl implements UserService {
 		// 유저 삭제
 		dao.deleteUser(idx);
 	}
+
+	// select return idx (사장님 : 가게 번호 / 개인 : 0)
+	@Override
+	public int selectReturnIdx(int idx) {
+		return dao.selectReturnIdx(idx);
+	}
+	
 	
 	
 
