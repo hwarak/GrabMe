@@ -18,8 +18,7 @@ class CategoryListViewModel {
     
     func requestList(category: Int, lat: Double, long: Double, completion: @escaping() -> Void) {
         manager.requestList(category: category, lat: lat, long: long, completion: {
-            print("🔵🔵\(self.categoryList.count)")
-            
+            print("🔵🔵\(category), \(lat), \(long)")
             completion()
         })
     }

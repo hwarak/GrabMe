@@ -10,7 +10,7 @@ import Foundation
 class CategoryListServices: Networkable {
     static func retrieveCategoryList(category: Int, lat: Double, long: Double, completion: @escaping ([CategoryList]) -> Void) {
         
-        reqeustAPI(request: Networking.requestObject(type: .categoryList, requestType: .get)) { ( data ) in
+        reqeustAPI(request: Networking.requestObject(type: .categoryList(x: "\(long)" ,y: "\(lat)", categoryIdx: "\(category)", page: "0" ), requestType: .get)) { ( data ) in
             print("\(data)")
             guard let decodeData = self.decode(CategoryListResponse.self, data: data) else { return }
             print("🔴 \(decodeData.statusCode), \(decodeData.responseMessage)")
@@ -18,12 +18,6 @@ class CategoryListServices: Networkable {
         }
         
     }
-    
-    /*  func retriveCategoryList(category: Int, lat: Double, long: Double) {
-     
-     }
-     
-     func searchPlace(category: Int, placeName: String) {**/
     
     func searchPlace(category: Int, placeName: String) {
         

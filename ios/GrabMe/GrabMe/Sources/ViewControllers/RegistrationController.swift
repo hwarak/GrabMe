@@ -57,8 +57,9 @@ extension RegistrationController {
        
                 let vc = self.storyboard?.instantiateViewController(identifier: "verifySNS") as! VerifySNSViewController
                 vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
+             //   self.present(vc, animated: true, completion: nil)
 
+        self.navigationController?.pushViewController(vc, animated: true)
         print("sent")
 
     }

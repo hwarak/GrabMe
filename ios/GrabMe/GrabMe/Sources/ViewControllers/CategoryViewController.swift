@@ -18,7 +18,6 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -56,6 +55,8 @@ class CategoryViewController: UIViewController {
             break
         case .authorizedAlways:
             break
+        @unknown default:
+            break
         }
     }
     
@@ -83,10 +84,9 @@ class CategoryViewController: UIViewController {
         viewModel.requestList(category: sender.tag, lat: currentLocation.latitude, long: currentLocation.longitude,completion: {
             
             DispatchQueue.main.async {
-                //self.navigationController?.pushViewController(vc, animated: true)
-                self.present(vc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+             //   self.present(vc, animated: true, completion: nil)
             }
-       
         })
         
         
@@ -98,7 +98,7 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-           guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        //guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         //   print("🟣 lat: \(locValue.latitude), long: \(locValue.longitude)")
         
         

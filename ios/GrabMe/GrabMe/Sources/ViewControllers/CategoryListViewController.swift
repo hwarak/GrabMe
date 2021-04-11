@@ -42,8 +42,8 @@ extension CategoryListViewController: UITableViewDelegate, UITableViewDataSource
 }
 
 //MARK: - Actions
-//extension CategoryListViewController {
-//    @IBAction func popButtonTapped(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-//    }
-//}
+extension CategoryListViewController {
+    @IBAction func popButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+}

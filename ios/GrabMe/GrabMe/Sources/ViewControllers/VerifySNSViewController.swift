@@ -25,7 +25,8 @@ class VerifySNSViewController: UIViewController {
         if status {
             let vc = self.storyboard?.instantiateViewController(identifier: "completeRegistration") as! CompleteRegistrationViewController
             vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil)
+           // present(vc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
             //코드에러! 
