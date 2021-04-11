@@ -17,4 +17,7 @@ public interface UserDAO {
 	
 	// select User By Time
 	public List<UserVO> selectUserByTime(int time_idx);
+	
+	// delete user
+	public void deleteUser(int idx);
 }

@@ -42,6 +42,12 @@ public class ReservationDAOImpl implements ReservationDAO {
 		
 	}
 
+	// select reservation by user
+	@Override
+	public List<Integer> selectReservationByUser(int user_idx) {
+		return sqlSession.selectList("com.grabme.mappers.ReservationMapper.selectReservationByUser",user_idx);
+	}
+
 	
 
 }

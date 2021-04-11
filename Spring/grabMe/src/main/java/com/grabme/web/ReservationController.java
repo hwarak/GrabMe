@@ -48,7 +48,7 @@ public class ReservationController {
 	@ResponseBody
 	public ResponseEntity reservationPost(@ApiParam(value = "예약 정보", required = true) @RequestBody String str) {
 
-		System.out.println("도연씨 요청 : " + str);
+		System.out.println("클라이언트 요청 : " + str);
 		
 		SignResVO svo = SignResVO.getSignResVOObject();
 
@@ -89,7 +89,7 @@ public class ReservationController {
 	@ResponseBody
 	public ResponseEntity reservationDelete(@ApiParam(value = "예약 정보", required = true) @RequestBody String str) {
 
-		System.out.println("도연씨 요청 : " + str);
+		System.out.println("클라이언트 요청 : " + str);
 		
 		SignResVO svo = SignResVO.getSignResVOObject();
 

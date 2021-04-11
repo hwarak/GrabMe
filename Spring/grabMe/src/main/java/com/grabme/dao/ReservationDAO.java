@@ -17,4 +17,7 @@ public interface ReservationDAO {
 	
 	// select time idx by reservation_idx
 	public int selectTimeIdx(int reservation_idx);
+	
+	// select reservation by user
+	public List<Integer> selectReservationByUser(int user_idx);
 }

@@ -48,6 +48,14 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserVO> selectUserByTime(int time_idx) {
 		return sqlSession.selectList("com.grabme.mappers.UserMapper.selectUserByTime",time_idx);
 	}
+
+	// delete user
+	@Override
+	public void deleteUser(int idx) {
+		sqlSession.delete("com.grabme.mappers.UserMapper.deleteUser",idx);
+	}
+	
+	
 	
 	
 

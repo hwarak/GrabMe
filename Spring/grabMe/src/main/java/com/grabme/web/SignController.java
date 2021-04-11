@@ -44,7 +44,7 @@ public class SignController {
 	@ResponseBody
 	public ResponseEntity checkUser(@ApiParam(value = "유저 정보 체크", required = true) @RequestBody String str) {
 
-		System.out.println("도연씨 요청 : " + str);
+		System.out.println("클라이언트 요청 : " + str);
 		
 		SignResVO svo = SignResVO.getSignResVOObject();
 
@@ -81,7 +81,7 @@ public class SignController {
 	@ResponseBody
 	public ResponseEntity signUp(@ApiParam(value = "유저 정보", required = true) @RequestBody String str) {
 
-		System.out.println("도연씨 요청 : " + str);
+		System.out.println("클라이언트 요청 : " + str);
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);

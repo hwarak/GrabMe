@@ -6,6 +6,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.grabme.dao.ReservationDAO;
 import com.grabme.dao.UserDAO;
 import com.grabme.vo.UserVO;
 
@@ -14,6 +15,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO dao;
+	
+	@Autowired
+	private ReservationDAO rdao;
 
 	// Check user in database
 	@Override
@@ -53,5 +57,24 @@ public class UserServiceImpl implements UserService {
 	public List<UserVO> selectUserByTime(int time_idx) {
 		return dao.selectUserByTime(time_idx);
 	}
+
+	// delete user
+	@Override
+	public void deleteUser(int idx) {
+		// 유저 탈퇴시 예약 내역 전부 삭제하기
+		
+		// 유저의 모든 예약내역 가져오기
+		List<Integer> list = rdao.selectReservationByUser(idx);
+		
+		for (Integer tmp : list) {
+			// 예약 내역 삭제
+			rdao.deleteReservation(tmp);
+		}
+		
+		// 유저 삭제
+		dao.deleteUser(idx);
+	}
+	
+	
 
 }

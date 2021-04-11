@@ -25,5 +25,10 @@
 		left join user on user.idx = reservation.user_idx
 		where reservation.time_idx = #{time_idx};
 	</select>
+	
+	<!-- delete user -->
+	<delete id="deleteUser">
+		delete from user where idx=#{idx}
+	</delete>
 
 </mapper>

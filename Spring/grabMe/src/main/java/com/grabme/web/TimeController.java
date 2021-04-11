@@ -53,7 +53,7 @@ public class TimeController {
 	@ResponseBody
 	public ResponseEntity timeInfoPost(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
 
-		System.out.println("도연씨 요청 : " + str);
+		System.out.println("클라이언트 요청 : " + str);
 
 		SignResVO svo = SignResVO.getSignResVOObject();
 
@@ -79,7 +79,7 @@ public class TimeController {
 	@ResponseBody
 	public ResponseEntity timeInfoDelete(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
 
-		System.out.println("도연씨 요청 : " + str);
+		System.out.println("클라이언트 요청 : " + str);
 
 		SignResVO svo = SignResVO.getSignResVOObject();
 
