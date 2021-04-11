@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryDetailDateCollectionViewCell: UICollectionViewCell {
     
+
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var date: UILabel!
 }
