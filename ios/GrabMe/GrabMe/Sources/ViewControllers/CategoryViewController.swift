@@ -64,35 +64,31 @@ class CategoryViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func categoryButtonTapped(_ sender: UIButton) {
-        /*
-         karaoke: 1
-         hospital: 2
-         cafe: 3
-         gym: 4
-         education: 5
-         beauty: 6
-         restaurant: 7
-         */
-        
-        
-        
+
         let vc = self.storyboard?.instantiateViewController(identifier: "CategoryList") as! CategoryListViewController
         vc.modalPresentationStyle = .fullScreen
+        
+        let categoryName = findCategory(category: sender.tag)
+        vc.category = categoryName
 
+        
         let currentLocation = self.locationManager.location!.coordinate
         
         viewModel.requestList(category: sender.tag, lat: currentLocation.latitude, long: currentLocation.longitude,completion: {
-            
             DispatchQueue.main.async {
             self.navigationController?.pushViewController(vc, animated: true)
              //   self.present(vc, animated: true, completion: nil)
             }
         })
         
-        
-        print("🔴 lat: \(currentLocation.latitude), long: \(currentLocation.longitude)")
-        
+        print("🔴 current location lat: \(currentLocation.latitude), long: \(currentLocation.longitude)")
+    }
     
+    //MARK: - Helpers
+    func findCategory(category: Int) -> String{
+        let category = Categorysss(rawValue: category)
+        guard let categoryName = category?.getCategory() else { return "" }
+        return categoryName
     }
 }
 

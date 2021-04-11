@@ -14,13 +14,18 @@ class CategoryListViewController: UIViewController {
     private let identifier = "ListCell"
     private var viewModel = CategoryListViewModel()
     private var locationManager = CLLocationManager()
+    var category = ""
+    @IBOutlet weak var categoryName: UILabel!
     
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        categoryName.text = category
     }
+    
+    //MARK: - Helpers
+
 }
 
 
@@ -35,10 +40,20 @@ extension CategoryListViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? CategoryListTableViewCell else { return UITableViewCell() }
         cell.configureUI(viewModel.categoryList[indexPath.row])
         return cell
-        
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(identifier: "CategoryDetail") as! CategoryListDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        
+        let shopIdx = viewModel.categoryList[indexPath.row].shopIdx
+        
+        viewModel.requestPlaceDetail(shopIdx: "\(shopIdx)", completion: {
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        })
+    }
 }
 
 //MARK: - Actions

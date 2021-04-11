@@ -53,6 +53,7 @@ class Networking {
         case checkUserStatus
         case signUp
         case categoryList(x: String, y: String, categoryIdx: String, page: String)
+        case shopDetail(shopIdx: String)
         //(x: String, y: String, categoryIdx: String, page: String)
         
         var url: String {
@@ -61,7 +62,7 @@ class Networking {
             case .signUp: return "\(Networking.baseURL)/sign/up"
             case .categoryList:
                 return "\(Networking.baseURL)/category?"
-                //x=126.93653239882295&y=37.555429485573576&category_idx=3&startNum=0
+            case .shopDetail: return "\(Networking.baseURL)/shop?"
             }
         }
         
@@ -72,8 +73,11 @@ class Networking {
             case .categoryList(let x, let y, let categoryIdx, let page): queryItems = [
                 URLQueryItem(name: "x", value: x),
                 URLQueryItem(name: "y", value: y),
-                URLQueryItem(name: "category_idx", value: categoryIdx),
+                URLQueryItem(name: "categoryIdx", value: categoryIdx),
                 URLQueryItem(name: "startNum", value: page)
+                ]
+            case .shopDetail(let shopIdx): queryItems = [
+                URLQueryItem(name: "shopIdx", value: shopIdx)
                 ]
                 
             default:

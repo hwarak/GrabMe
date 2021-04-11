@@ -14,8 +14,8 @@ struct CategoryListResponse: Codable {
 }
 
 struct CategoryList: Codable {
-    var placeIdx: Int //place idx || reservationIdx
-    var shopIdx: Int
+    var shopIdx: Int //place idx || reservationIdx
+    var reservationIdx: Int
     var date: String?
     var time: String?
     var thumbnail: String?
@@ -23,8 +23,8 @@ struct CategoryList: Codable {
     var address: String?
     
     enum CodingKeys: String, CodingKey {
-        case placeIdx = "idx"
-        case shopIdx = "reservation_idx"
+        case shopIdx = "idx"
+        case reservationIdx = "reservation_idx"
         case date, time, thumbnail, title, address
     }
 }

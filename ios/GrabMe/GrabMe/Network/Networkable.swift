@@ -48,7 +48,7 @@ extension Networkable {
     static func decode<T: Codable>(_ type: T.Type, data: Data) -> T? {
         do {
             let resultString = String(data: data, encoding: .utf8)
-            print("Data in String: \(resultString)")
+        //    print("Data in String: \(resultString)")
         
             let response = try JSONDecoder().decode(type, from: data)
             return response

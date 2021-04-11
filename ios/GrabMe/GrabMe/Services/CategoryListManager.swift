@@ -15,6 +15,7 @@ class CategoryListManager {
     private var categoryIdx: Int?
     private var currentpage = 0
     var categoryList: [CategoryList] = []
+    var categoryDetail: CategoryListDetail?
     
     
     //MARK: - Actions
@@ -32,6 +33,15 @@ class CategoryListManager {
             print("\(self.categoryList.count)")
             completion()
         })
+    }
+    
+    func requestPlaceDetail(shopIdx: String, completion: @escaping() -> Void) {
+        CategoryListServices.requestPlaceDetail(shopIdx: shopIdx, completion: { data in
+           // print("♥️\(shopIdx)")
+            self.categoryDetail = data
+            completion()
+        })
+        
     }
     
 }
