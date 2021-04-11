@@ -18,9 +18,6 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	private TimeDAO tdao;
 
-	@Autowired
-	private ReservationDAO rdao;
-
 	// insert reservation
 	@Override
 	public void insertReservation(int user_idx, int time_idx) {
@@ -41,7 +38,7 @@ public class ReservationServiceImpl implements ReservationService {
 	public void deleteReservation(int reservation_idx) {
 
 		// 업데이트 할 시간 idx 가져오기
-		int time_idx = rdao.selectTimeIdx(reservation_idx);
+		int time_idx = dao.selectTimeIdx(reservation_idx);
 
 		// 예약 가능 인원 +1
 		tdao.updateTimePeoplePlus(time_idx);

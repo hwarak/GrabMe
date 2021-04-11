@@ -14,6 +14,5 @@ public class TimeVO {
 	private int max_people;
 	private boolean del_status;
 	
-	
 
 }
