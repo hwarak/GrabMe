@@ -99,10 +99,10 @@ public class TimeController {
 	@ApiOperation(value = "날짜별 타임 리스트 보기", notes = "날짜를 받으면 예약타임들을 보여준다.")
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity timeInfoGet(@ApiParam(value = "가게 번호", required = true) @RequestParam int shop_idx,
+	public ResponseEntity timeInfoGet(@ApiParam(value = "가게 번호", required = true) @RequestParam int shopIdx,
 			@ApiParam(value = "날짜", required = true) @RequestParam String date) {
 
-		List<TimeVO> list = time_service.selectDate(shop_idx, date);
+		List<TimeVO> list = time_service.selectDate(shopIdx, date);
 		
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
@@ -116,9 +116,9 @@ public class TimeController {
 	@ApiOperation(value = "예약한 유저 리스트 보기", notes = "타임을 선택하면 예약된 유저 리스트를 보여준다.")
 	@GetMapping("/2")
 	@ResponseBody
-	public ResponseEntity userInfoGet(@ApiParam(value = "타임 번호", required = true) @RequestParam int time_idx) {
+	public ResponseEntity userInfoGet(@ApiParam(value = "타임 번호", required = true) @RequestParam int timeIdx) {
 
-		List<UserVO> list = user_service.selectUserByTime(time_idx);
+		List<UserVO> list = user_service.selectUserByTime(timeIdx);
 		
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리

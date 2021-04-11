@@ -22,5 +22,8 @@ public interface ShopDAO {
 	
 	// delete shop
 	public void deleteShop(int idx);
+	
+	// delete time & reservation
+	public void deleteTimeReservation(int shop_idx);
 
 }

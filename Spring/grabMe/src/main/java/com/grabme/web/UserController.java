@@ -14,6 +14,7 @@ import com.grabme.response.DefaultRes;
 import com.grabme.response.ResponseMessage;
 import com.grabme.response.StatusCode;
 import com.grabme.service.JsonEcDcService;
+import com.grabme.service.ShopService;
 import com.grabme.service.UserService;
 import com.grabme.vo.SignResVO;
 
@@ -22,15 +23,16 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 
-
-@Api(tags = { "2. User" })
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
 	@Autowired
-	UserService user_service;
+	private UserService user_service;
+	
+	@Autowired
+	private ShopService shop_service;
 	
 	@Autowired
 	private JsonEcDcService json_service;
@@ -46,16 +48,15 @@ public class UserController {
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
-		int idx = (int) (long) obj.get("idx");
+		int user_idx = (int) (long) obj.get("user_idx");
 		
-		int result = user_service.selectReturnIdx(idx);
+		int result = user_service.selectReturnIdx(user_idx);
 		
 		if(result == 0) {
-			user_service.deleteUser(idx);			
+			user_service.deleteUser(user_idx);			
 		}else {
-			
+			shop_service.deleteShop(result,user_idx);
 		}
-
 
 		svo.setResult("ok");
 		svo.setCode("");

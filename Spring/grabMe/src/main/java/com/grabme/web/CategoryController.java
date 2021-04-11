@@ -36,10 +36,10 @@ public class CategoryController {
 	@ResponseBody
 	public ResponseEntity getShopList(@ApiParam(value = "위도", required = true) @RequestParam double y,
 			@ApiParam(value = "경도", required = true) @RequestParam double x,
-			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int category_idx,
+			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int categoryIdx,
 			@ApiParam(value = "시작 번호", required = true) @RequestParam int startNum) {
 
-		List<ShopResVO> list = category_service.selectCategoryWithXY(x, y, category_idx, startNum);
+		List<ShopResVO> list = category_service.selectCategoryWithXY(x, y, categoryIdx, startNum);
 
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
@@ -54,11 +54,11 @@ public class CategoryController {
 	@ResponseBody
 	public ResponseEntity getSearchTitle(@ApiParam(value = "위도", required = true) @RequestParam double y,
 			@ApiParam(value = "경도", required = true) @RequestParam double x,
-			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int category_idx,
+			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int categoryIdx,
 			@ApiParam(value = "시작 번호", required = true) @RequestParam int startNum,
 			@ApiParam(value = "검색 단어", required = true) @RequestParam String word) {
 
-		List<ShopResVO> list = category_service.searchTitle(x, y, category_idx, startNum, word);
+		List<ShopResVO> list = category_service.searchTitle(x, y, categoryIdx, startNum, word);
 
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리

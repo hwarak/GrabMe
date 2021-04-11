@@ -72,6 +72,14 @@ public class ShopDAOImpl implements ShopDAO {
 	public void deleteShop(int idx) {
 		sqlsession.delete("com.grabme.mappers.ShopMapper.deleteShop",idx);
 	}
+
+	// delete time & reservation
+	@Override
+	public void deleteTimeReservation(int shop_idx) {
+		sqlsession.delete("com.grabme.mappers.ShopMapper.deleteTimeReservation",shop_idx);
+		
+	}
+	
 	
 	
 

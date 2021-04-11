@@ -38,4 +38,5 @@
 		select *, if(status , 'true', 'false') as status, if (del_status , 'true', 'false') as del_status from time where shop_idx=#{shop_idx} and date=#{date} order by time asc;
 	</select>
 
+
 </mapper>

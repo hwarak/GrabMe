@@ -43,6 +43,13 @@
 	<delete id="deleteShop">
 		delete from shop where idx=#{idx}
 	</delete>
+	
+	<!-- delete time & reservation -->
+	<delete id="deleteTimeReservation">
+		delete time, reservation
+		from time  left join reservation on time.idx = reservation.time_idx 
+		where time.shop_idx = #{shop_idx}
+	</delete>
 
 </mapper>
 

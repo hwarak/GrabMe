@@ -3,8 +3,8 @@ package com.grabme.response;
 public class ResponseMessage {
 	
 	public static final String SEND_CODE = "인증번호 전송 성공";
-	public static final String CREATED_USER = "회원 가입 성공";
-	public static final String DELETE_USER = "회원 탈퇴 성공";
+	public static final String CREATED_USER = "계정 생성 성공";
+	public static final String DELETE_USER = "계정 삭제 성공";
 	
 	public static final String SEND_LIST = "리스트 전송 성공";
 	public static final String NO_CONTENT = "보내줄 데이터 없음";

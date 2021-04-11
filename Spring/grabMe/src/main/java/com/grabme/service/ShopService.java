@@ -23,4 +23,7 @@ public interface ShopService {
 	// check empty
 	public ShopAllVO checkEmpty(ShopAllVO savo);
 
+	// delete shop
+	public void deleteShop(int shop_idx, int user_idx);
+
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grabme.dao.ShopDAO;
+import com.grabme.dao.UserDAO;
 import com.grabme.vo.ShopAllVO;
 
 @Service
@@ -11,6 +12,9 @@ public class ShopServiceImpl implements ShopService {
 
 	@Autowired
 	private ShopDAO dao;
+	
+	@Autowired
+	private UserDAO udao;
 
 	@Override
 	public void insertShop(int user_idx, int category_idx, String thumbnail, String title, String address,
@@ -60,5 +64,18 @@ public class ShopServiceImpl implements ShopService {
 
 		return savo;
 	}
+
+	// delete shop
+	@Override
+	public void deleteShop(int shop_idx, int user_idx) {
+		// 가게 번호로 등록된 모든 예약내역과 타임테이블을 삭제한다
+		dao.deleteTimeReservation(shop_idx);
+		// 가게 정보 전부 삭제
+		dao.deleteShop(shop_idx);
+		// 마지막으로 유저 정보까지 삭제
+		udao.deleteUser(user_idx);
+	}
+	
+	
 
 }

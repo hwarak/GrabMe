@@ -72,10 +72,10 @@ public class ReservationController {
 	@ApiOperation(value = "예약 가져오기", notes = "유저 번호를 입력받아 예약 내역을 출력한다.")
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity reservationGet(@ApiParam(value = "유저번호", required = true) @RequestParam int user_idx) {
+	public ResponseEntity reservationGet(@ApiParam(value = "유저번호", required = true) @RequestParam int userIdx) {
 
 		// 앞으로 예약된 예약리스트를 가져온다.(과거는 가져오지 않음)
-		List<ShopResVO> list = reservation_service.selectReservationList(user_idx);
+		List<ShopResVO> list = reservation_service.selectReservationList(userIdx);
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
 			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, list), HttpStatus.OK);
