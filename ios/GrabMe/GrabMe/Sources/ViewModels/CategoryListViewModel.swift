@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryListViewModel {
     //MARK: - Properties
+    var days = [Int]()
+    var daysInText = [String]()
     
     private let manager = CategoryListManager.shared
     
@@ -34,6 +36,22 @@ class CategoryListViewModel {
             completion()
         })
     }
+    
+    func sevendaysAfterToday() {
+        //코드 수정하기!
+        let cal = Calendar.current
+        var date = cal.startOfDay(for: Date())
+ 
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "EE"
+        for i in 1 ... 7 {
+            let day = cal.component(.day, from: date)
+            days.append(day)
+            daysInText.append(dateformatter.string(from: date))
+            date = cal.date(byAdding: .day, value: +1, to: date)!
+        }
+    }
+    
     
 }
 enum Categorysss: Int {

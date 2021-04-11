@@ -22,10 +22,10 @@ class CompleteRegistrationViewController: UIViewController {
     @IBAction func completeRegistrationButton(_ sender: Any) {
         viewModel.signUpUser(name: nameTF.text!)
         self.dismiss(animated: true, completion: nil)
-      //  let vc = self.storyboard?.instantiateViewController(identifier: "category") as! CategoryViewController
+        let vc = self.storyboard?.instantiateViewController(identifier: "category") as! CategoryViewController
        // vc.modalPresentationStyle = .fullScreen
        // present(vc, animated: true, completion: nil)
-       // self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

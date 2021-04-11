@@ -35,3 +35,14 @@ struct CategoryListDetail: Codable {
     }
 
 }
+
+struct ReservationStatusResponse: Codable {
+    var statusCode: Int
+    var responseMessage: String
+    var data: [ReservationStatus]
+}
+
+struct ReservationStatus: Codable {
+    var idx: Int
+    var shop_idx: Int
+}

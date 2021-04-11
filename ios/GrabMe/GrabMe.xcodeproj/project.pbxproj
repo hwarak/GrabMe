@@ -18,6 +18,8 @@
 		943AD0B82622957A007372E3 /* CategoryListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD0B72622957A007372E3 /* CategoryListDetailViewController.swift */; };
 		943AD0C826229771007372E3 /* CategoryDetailDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD0C726229771007372E3 /* CategoryDetailDateCollectionViewCell.swift */; };
 		943AD0D02622C861007372E3 /* CategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD0CF2622C861007372E3 /* CategoryDetail.swift */; };
+		943AD0D526230DB0007372E3 /* CategoryDetailTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD0D426230DB0007372E3 /* CategoryDetailTimeCollectionViewCell.swift */; };
+		943AD0DA262317C4007372E3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943AD0D9262317C4007372E3 /* ModalViewController.swift */; };
 		946466A82611C01900021DB0 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466A72611C01900021DB0 /* Register.swift */; };
 		946466C826142A2D00021DB0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466C726142A2D00021DB0 /* Config.swift */; };
 		946466D326143AE800021DB0 /* VerifySNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946466D226143AE800021DB0 /* VerifySNSViewController.swift */; };
@@ -71,6 +73,8 @@
 		943AD0B72622957A007372E3 /* CategoryListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryListDetailViewController.swift; path = GrabMe/Resources/Storyboards/CategoryListDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		943AD0C726229771007372E3 /* CategoryDetailDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailDateCollectionViewCell.swift; sourceTree = "<group>"; };
 		943AD0CF2622C861007372E3 /* CategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetail.swift; sourceTree = "<group>"; };
+		943AD0D426230DB0007372E3 /* CategoryDetailTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailTimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		943AD0D9262317C4007372E3 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		946466A72611C01900021DB0 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		946466C726142A2D00021DB0 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		946466D226143AE800021DB0 /* VerifySNSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySNSViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +279,7 @@
 				946466DC2614619A00021DB0 /* CompleteRegistrationViewController.swift */,
 				946467122615B10100021DB0 /* CategoryListViewController.swift */,
 				943AD0B72622957A007372E3 /* CategoryListDetailViewController.swift */,
+				943AD0D9262317C4007372E3 /* ModalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				EA1EBE9625E50E5E0083C27D /* SceneDelegate.swift */,
 				9417E86B261AE0BF003D9AEA /* CategoryListTableViewCell.swift */,
 				943AD0C726229771007372E3 /* CategoryDetailDateCollectionViewCell.swift */,
+				943AD0D426230DB0007372E3 /* CategoryDetailTimeCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -589,6 +595,7 @@
 				9417E86C261AE0BF003D9AEA /* CategoryListTableViewCell.swift in Sources */,
 				EA1EBE9925E50E5E0083C27D /* RegistrationController.swift in Sources */,
 				946466D8261447D500021DB0 /* AuthenticationManager.swift in Sources */,
+				943AD0DA262317C4007372E3 /* ModalViewController.swift in Sources */,
 				EA1EBE9525E50E5E0083C27D /* AppDelegate.swift in Sources */,
 				943AD086261D9B76007372E3 /* UIViewExtension.swift in Sources */,
 				946466F226156CE100021DB0 /* Networking.swift in Sources */,
@@ -598,6 +605,7 @@
 				946466EA2615663C00021DB0 /* Networkable.swift in Sources */,
 				946466C826142A2D00021DB0 /* Config.swift in Sources */,
 				9464670E2615A4D900021DB0 /* CategoryViewController.swift in Sources */,
+				943AD0D526230DB0007372E3 /* CategoryDetailTimeCollectionViewCell.swift in Sources */,
 				EA1EBE9725E50E5E0083C27D /* SceneDelegate.swift in Sources */,
 				946466A82611C01900021DB0 /* Register.swift in Sources */,
 				943AD09326213677007372E3 /* CategoryList.swift in Sources */,

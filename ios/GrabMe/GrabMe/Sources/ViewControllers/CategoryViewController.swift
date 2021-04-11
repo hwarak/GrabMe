@@ -13,12 +13,15 @@ class CategoryViewController: UIViewController {
     //MARK: - Properties
     let locationManager = CLLocationManager()
     let viewModel = CategoryListViewModel()
+    @IBOutlet weak var profileImage: UIButton!
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
         // Do any additional setup after loading the view.
+        profileImage.layer.borderColor = UIColor.gray.cgColor
+        profileImage.layer.borderWidth = 2
     }
     
 
