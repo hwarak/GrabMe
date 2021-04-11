@@ -80,11 +80,11 @@ public class ShopController {
 		ShopAllVO savo = shop_service.checkEmpty(savoPre);
 		
 		// 가게 등록
-		shop_service.insertShop(savo.getUser_idx(), savo.getCategory_idx(), filePath, savo.getTitle(),
+		shop_service.insertShop(savo.getOwner_idx(), savo.getCategory_idx(), filePath, savo.getTitle(),
 				savo.getAddress(), savo.getIntroduction());
 
 		// 가게 url 등록
-		exchannel_service.insertURL(shop_service.selectShopIdx(savo.getUser_idx()), savo.getOpenkatalkURL(),
+		exchannel_service.insertURL(shop_service.selectShopIdx(savo.getOwner_idx()), savo.getOpenkatalkURL(),
 				savo.getInstaURL());
 
 		JsonObject obj = new JsonObject();

@@ -6,6 +6,7 @@ import lombok.Data;
 public class ShopAllVO {
 
 	private int idx;
+	private int owner_idx;
 	private int category_idx;
 	private String thumbnail;
 	private String title;
