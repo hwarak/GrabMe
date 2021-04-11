@@ -30,10 +30,11 @@
 	<delete id="deleteUser">
 		delete from user where idx=#{idx}
 	</delete>
-	
+
 	<!-- return shop_idx or 0 -->
 	<select id="selectReturnIdx" resultType="Integer">
-		select if(status, 0 ,(select idx from shop where shop.owner_idx=#{idx})) as "상태" FROM user where idx=#{idx}
+		select if(status, 0, (if((select count(*) from shop where shop.owner_idx=#{idx} ) ,
+		(select idx from shop where shop.owner_idx=#{idx}),0))) as "상태" FROM user where idx=#{idx}
 	</select>
 
 </mapper>

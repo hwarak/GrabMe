@@ -68,6 +68,7 @@ public class UserTest {
 	
 	@Test
 	public void testSelectReturnIdx() throws Exception{
+		// 사장님이면 가게 번호, 개인고객이면 0을 반환
 		System.out.println(dao.selectReturnIdx(8));
 	}
 
