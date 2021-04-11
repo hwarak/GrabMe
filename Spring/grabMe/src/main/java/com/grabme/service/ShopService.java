@@ -1,7 +1,5 @@
 package com.grabme.service;
 
-import java.util.List;
-
 import com.grabme.vo.ShopAllVO;
 
 public interface ShopService {
@@ -17,7 +15,7 @@ public interface ShopService {
 	public int checkShop(int user_idx);
 
 	// select Shop All Info
-	public List<ShopAllVO> selectShopAllinfo(int user_idx);
+	public ShopAllVO selectShopAllinfo(int user_idx);
 
 	// update Shop All Info
 	public void updateShopAllinfo(ShopAllVO savo);

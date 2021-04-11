@@ -1,7 +1,5 @@
 package com.grabme.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +32,7 @@ public class ShopServiceImpl implements ShopService {
 
 	// select Shop All Info
 	@Override
-	public List<ShopAllVO> selectShopAllinfo(int user_idx) {
+	public ShopAllVO selectShopAllinfo(int user_idx) {
 		return dao.selectShopAllinfo(user_idx);
 	}
 

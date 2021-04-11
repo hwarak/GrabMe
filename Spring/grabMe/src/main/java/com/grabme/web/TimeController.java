@@ -103,6 +103,11 @@ public class TimeController {
 			@ApiParam(value = "날짜", required = true) @RequestParam String date) {
 
 		List<TimeVO> list = time_service.selectDate(shop_idx, date);
+		
+		if (list.isEmpty()) {
+			// 리스트가 비어있을 때 에외처리
+			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, list), HttpStatus.OK);
+		}
 
 		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST, list), HttpStatus.OK);
 	}
@@ -114,6 +119,11 @@ public class TimeController {
 	public ResponseEntity userInfoGet(@ApiParam(value = "타임 번호", required = true) @RequestParam int time_idx) {
 
 		List<UserVO> list = user_service.selectUserByTime(time_idx);
+		
+		if (list.isEmpty()) {
+			// 리스트가 비어있을 때 에외처리
+			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, list), HttpStatus.OK);
+		}
 
 		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST, list), HttpStatus.OK);
 	}

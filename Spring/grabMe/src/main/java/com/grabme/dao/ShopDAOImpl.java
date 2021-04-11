@@ -1,7 +1,6 @@
 package com.grabme.dao;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -46,8 +45,8 @@ public class ShopDAOImpl implements ShopDAO {
 
 	// select Shop All Info
 	@Override
-	public List<ShopAllVO> selectShopAllinfo(int user_idx) {
-		return sqlsession.selectList("com.grabme.mappers.ShopMapper.selectShopAllinfo", user_idx);
+	public ShopAllVO selectShopAllinfo(int user_idx) {
+		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopAllinfo", user_idx);
 
 	}
 

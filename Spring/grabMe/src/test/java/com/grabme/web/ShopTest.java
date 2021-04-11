@@ -48,10 +48,8 @@ public class ShopTest {
 	@Test
 	public void testAllInfo() throws Exception {
 		// 가게의 모든 정보를 입력한다
-		List<ShopAllVO> list = dao.selectShopAllinfo(4);
-		for (ShopAllVO tmp : list) {
-			System.out.println(tmp.getTitle());
-		}
+		ShopAllVO savo = dao.selectShopAllinfo(4);
+		System.out.println(savo.getAddress());
 	}
 
 }

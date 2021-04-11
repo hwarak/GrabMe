@@ -40,10 +40,11 @@ public class TimeTest {
 
 	@Test
 	public void testSelectDate() throws Exception {
-		// 해당 날짜의 예약 시간들을 보여준다
-		List<TimeVO> list = dao.selectDate(4, "2021-03-11");
+		// 해당 날짜, 해당 가게의 예약 시간들을 보여준다
+		List<TimeVO> list = dao.selectDate(4, "2021-05-11");
 		for (TimeVO tmp : list) {
-			System.out.println(tmp.getTime());
+			// boolean 사용할때는 getStatus() X isStatus O
+			System.out.println(tmp.isStatus());
 		}
 	}
 

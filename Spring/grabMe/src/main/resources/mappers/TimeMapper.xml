@@ -30,14 +30,17 @@
 	
 	<!-- update time status -->
 	<update id="updateTimeStatus">
-		update time set status = if (people > 0, 'T', 'F') where idx=#{idx}
+		update time set status = if (people > 0, 1, 0) where idx=#{idx}
+	</update>
+	
+	<!-- update time status -->
+	<update id="updateTimeDelStatus">
+		update time set del_status = if (people != max_people, 0, 1) where idx=#{idx}
 	</update>
 	
 	<!-- select date > list -->
 	<select id="selectDate" resultType="com.grabme.vo.TimeVO">
-		select * from time where shop_idx=#{shop_idx} and date=#{date} order by time asc;
+		select *, if(status , 'true', 'false') as status, if (del_status , 'true', 'false') as del_status from time where shop_idx=#{shop_idx} and date=#{date} order by time asc;
 	</select>
-	
-	
 
 </mapper>

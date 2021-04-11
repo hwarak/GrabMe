@@ -9,8 +9,11 @@ public class TimeVO {
 	private int shop_idx;
 	private String date;
 	private String time;
-	private String status;
+	private boolean status;
 	private int people;
 	private int max_people;
+	private boolean del_status;
+	
+	
 
 }

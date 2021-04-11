@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,6 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.grabme.response.DefaultRes;
+import com.grabme.response.ResponseMessage;
+import com.grabme.response.StatusCode;
 import com.grabme.service.CategoryService;
 import com.grabme.service.ExternalChannelService;
 import com.grabme.service.S3Service;
@@ -52,24 +57,11 @@ public class ShopController {
 	@ApiOperation(value = "가게 정보", notes = "가게 정보를 가져온다.")
 	@GetMapping
 	@ResponseBody
-	public String shopInfoGet(@ApiParam(value = "유저 번호", required = true) @RequestParam int user_idx) {
+	public ResponseEntity shopInfoGet(@ApiParam(value = "유저 번호", required = true) @RequestParam int user_idx) {
 
-		JsonObject obj = new JsonObject();
-		List<ShopAllVO> list = shop_service.selectShopAllinfo(user_idx);
+		ShopAllVO savo = shop_service.selectShopAllinfo(user_idx);
 
-		int cn = shop_service.checkShop(user_idx);
-		// 유저 번호로 등록된 가게가 있는지 확인
-
-		if (cn == 0) {
-			// 등록된 가게가 없다
-			obj.addProperty("result", "no");
-		} else {
-			// 등록된 가게 있음
-			// 가게 정보 보여주기
-			return new Gson().toJsonTree(list).toString();
-			
-		}
-		return obj.toString();
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST,savo),HttpStatus.OK);
 	}
 
 	

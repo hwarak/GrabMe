@@ -31,7 +31,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService category_service;
 
-	@ApiOperation(value = "주변에 있는 가게들", notes = "주변에 있는 가게들 리스트를 10개씩 가져온다.")
+	@ApiOperation(value = "주변에 있는 가게들", notes = "주변에 있는 가게들 리스트를 20개씩 가져온다.")
 	@GetMapping
 	@ResponseBody
 	public ResponseEntity getShopList(@ApiParam(value = "위도", required = true) @RequestParam double y,
@@ -49,7 +49,7 @@ public class CategoryController {
 		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST, list), HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "가게 이름 검색", notes = "검색어가 포함된 가게들을 거리순으로 10개씩 가져온다.")
+	@ApiOperation(value = "가게 이름 검색", notes = "검색어가 포함된 가게들을 거리순으로 20개씩 가져온다.")
 	@GetMapping("/2")
 	@ResponseBody
 	public ResponseEntity getSearchTitle(@ApiParam(value = "위도", required = true) @RequestParam double y,

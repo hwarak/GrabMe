@@ -60,6 +60,13 @@ public class TimeDAOImpl implements TimeDAO {
 	public void updateTimeStatus(int idx) { // TODO Auto-generated method stub
 		sqlSession.update("com.grabme.mappers.TimeMapper.updateTimeStatus", idx);
 	}
+	
+	
+	// update time delete status
+	@Override
+	public void updateTimeDelStatus(int idx) {
+		sqlSession.update("com.grabme.mappers.TimeMapper.updateTimeDelStatus", idx);
+	}
 
 	// select date -> list
 	@Override
