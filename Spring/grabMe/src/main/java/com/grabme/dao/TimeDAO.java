@@ -24,9 +24,6 @@ public interface TimeDAO {
 	// update time status
 	public void updateTimeStatus(int idx);
 
-	// update time status
-	public void updateTimeDelStatus(int idx);
-
 	// select date -> list
 	public List<TimeVO> selectDate(int shop_idx, String date);
 

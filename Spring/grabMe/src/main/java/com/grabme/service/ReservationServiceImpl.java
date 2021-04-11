@@ -29,10 +29,8 @@ public class ReservationServiceImpl implements ReservationService {
 		tdao.updateTimePeopleMinus(time_idx);
 
 		// 상태 체크 후 예약 가능 인원수가 1 이상이면 T로 전환
-		tdao.updateTimeStatus(time_idx);
-
 		// 상태 체크 후 최대 인원수와 예약가능한 인원수가 같지 않으면 0 같으면 1
-		tdao.updateTimeDelStatus(time_idx);
+		tdao.updateTimeStatus(time_idx);
 
 		// time 테이블 업데이트 후에 reservation 테이블 추가 !
 		dao.insertReservation(user_idx, time_idx);
@@ -49,10 +47,8 @@ public class ReservationServiceImpl implements ReservationService {
 		tdao.updateTimePeoplePlus(time_idx);
 
 		// 상태 체크 후 예약 가능 인원수가 1 이상이면 T로 전환
-		tdao.updateTimeStatus(time_idx);
-
 		// 상태 체크 후 최대 인원수와 예약가능한 인원수가 같지 않으면 0 같으면 1
-		tdao.updateTimeDelStatus(time_idx);
+		tdao.updateTimeStatus(time_idx);
 
 		// time 테이블 업데이트 후에 reservation 테이블 삭제 !
 		dao.deleteReservation(reservation_idx);

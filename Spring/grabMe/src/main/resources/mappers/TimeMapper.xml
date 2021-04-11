@@ -30,12 +30,7 @@
 	
 	<!-- update time status -->
 	<update id="updateTimeStatus">
-		update time set status = if (people > 0, 1, 0) where idx=#{idx}
-	</update>
-	
-	<!-- update time status -->
-	<update id="updateTimeDelStatus">
-		update time set del_status = if (people != max_people, 0, 1) where idx=#{idx}
+		update time set status = if (people > 0, 1, 0), del_status = if (people != max_people, 0, 1) where idx=#{idx}
 	</update>
 	
 	<!-- select date > list -->
