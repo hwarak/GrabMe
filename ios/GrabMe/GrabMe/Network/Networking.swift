@@ -7,12 +7,6 @@
 
 import Foundation
 
-//protocol EndPointType {
-//    var baseURL: String { get }
-//    var path: String { get }
-//    var url: URL? { get }
-//}
-
 class Networking {
     static let baseURL = "http://15.164.72.21:8080/grabMe"
     //static let baseURL = "http://192.168.1.206:8080/web/"
@@ -58,7 +52,8 @@ class Networking {
     enum EndPoint {
         case checkUserStatus
         case signUp
-        case categoryList
+        case categoryList(x: String, y: String, categoryIdx: String, page: String)
+        case shopDetail(shopIdx: String)
         //(x: String, y: String, categoryIdx: String, page: String)
         
         var url: String {
@@ -66,18 +61,44 @@ class Networking {
             case .checkUserStatus: return "\(Networking.baseURL)/sign/check"
             case .signUp: return "\(Networking.baseURL)/sign/up"
             case .categoryList:
-           // case .categoryList(let x, let y, let categoryIdx, let page):
-             //   EndPointss.categoryList(x: x, y: y, categoryIdx: categoryIdx, page: page)
-                
-                return "\(Networking.baseURL)/category?x=126.93653239882295&y=37.555429485573576&category_idx=3&startNum=0"
+                return "\(Networking.baseURL)/category?"
+            case .shopDetail: return "\(Networking.baseURL)/shop?"
             }
         }
         
-    }
-
-    static func requestObject(type: EndPoint, data: Data? = nil, requestType: RequestType) -> URLRequest {
         
-        let url = URL(string: type.url)! //이거 고쳐야함.. !
+        var queryItem: [URLQueryItem] {
+            var queryItems: [URLQueryItem] = []
+            switch self {
+            case .categoryList(let x, let y, let categoryIdx, let page): queryItems = [
+                URLQueryItem(name: "x", value: x),
+                URLQueryItem(name: "y", value: y),
+                URLQueryItem(name: "categoryIdx", value: categoryIdx),
+                URLQueryItem(name: "startNum", value: page)
+                ]
+            case .shopDetail(let shopIdx): queryItems = [
+                URLQueryItem(name: "shopIdx", value: shopIdx)
+                ]
+                
+            default:
+                return queryItems
+            }
+            return queryItems
+        }
+    }
+    
+    static func requestObject(type: EndPoint, data: Data? = nil, requestType: RequestType) -> URLRequest {
+    
+        var url = URL(string: type.url)!
+        
+        if requestType == .get {
+            var urlComponents = URLComponents(string: type.url )
+            urlComponents?.queryItems?.append(contentsOf: type.queryItem)
+            print("🟦\(urlComponents?.url)")
+            url = (urlComponents?.url)!
+        }
+        
+        //이거 고쳐야함.. !
         var request = URLRequest(url: url)
         
         if requestType == .post {
@@ -85,9 +106,9 @@ class Networking {
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
+
         return request
     }
-
 }
 //extension EndPointss {
 //    static func categoryList(x: String, y: String, categoryIdx: String, page: String) -> EndPointss {
