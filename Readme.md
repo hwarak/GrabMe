@@ -35,4 +35,5 @@ DB 설계
 
 
 ### 화면 구현
-![Alt text](/etc/gif/001.GIF)![Alt text](/etc/gif/002.GIF)
+![Alt text](/etc/gif/001.GIFhttps://github.com/hwarak/GrabMe/blob/master/etc/gif/001.GIF)![Alt text](https://github.com/hwarak/GrabMe/blob/master/etc/gif/002.GIF)
+![grab-landing-page](https://github.com/doyeon326/MyPersonalMovieTheater/blob/master/gif/firstPage.gif) ![grab-landing-page](https://github.com/doyeon326/MyPersonalMovieTheater/blob/master/gif/secondPage.gif)
