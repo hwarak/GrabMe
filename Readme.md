@@ -24,7 +24,13 @@
 <img src="/etc/images/userFlow.png" width="450px"></img><br/>
 
 ### 기획
-
+* 초기 디자인
+<img src="/etc/images/InitialDesign.png" width="450px"></img><br/>
+<img src="/etc/images/AppFlow.png" width="450px"></img><br/>
+* 노션을 이용한 일정관리
+<img src="/etc/images/Notion.png" width="450px"></img><br/>
+* DB 설계
+<img src="/etc/images/DB.png" width="450px"></img><br/>
 ### 개발 환경
 
 
