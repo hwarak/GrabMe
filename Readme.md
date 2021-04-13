@@ -21,17 +21,18 @@
 
 ### 프로젝트 설계
 * User Flow
-<img src="/etc/images/userFlow.png" width="450px"></img><br/>
+<img src="/etc/images/userFlow.png" width="450px" height="300px"></img><br/>
 
 ### 기획
-* 초기 디자인
-<img src="/etc/images/InitialDesign.png" width="450px"></img><br/>
-<img src="/etc/images/AppFlow.png" width="450px"></img><br/>
-* 노션을 이용한 일정관리
-<img src="/etc/images/Notion.png" width="450px"></img><br/>
-* DB 설계
-<img src="/etc/images/DB.png" width="450px"></img><br/>
+초기 디자인
+<img src="/etc/images/InitialDesign.png" width="450px" height="300px"></img><br/>
+<img src="/etc/images/AppFlow.png" width="450px" height="300px"></img><br/>
+노션을 이용한 일정관리
+<img src="/etc/images/Notion.png" width="450px" height="300px"></img><br/>
+DB 설계
+<img src="/etc/images/DB.png" width="450px" height="300px"></img><br/>
 ### 개발 환경
 
 
 ### 화면 구현
+![Alt text](/etc/gif/001.GIF)![Alt text](/etc/gif/002.GIF)
