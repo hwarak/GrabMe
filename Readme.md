@@ -21,8 +21,13 @@
 
 ### 프로젝트 설계
 * User Flow
+![Alt text](/etc/images/userFlow.png)
 
 ### 기획
+
+![Alt text](/etc/images/AppFlow.png)
+![Alt text](/etc/images/Notion.png)
+![Alt text](/etc/images/DB.png)
 ### 개발 환경
 
 
