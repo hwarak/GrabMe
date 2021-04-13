@@ -23,17 +23,4 @@
 * User Flow
 ![Alt text](/etc/images/userFlow.png)
 
-### 기획
-초기 디자인
-![Alt text](/etc/images/InitialDesign.png)
-![Alt text](/etc/images/AppFlow.png)
-노션을 이용한 일정관리
-![Alt text](/etc/images/Notion.png)
-DB 설계
-![Alt text]("/etc/images/DB.png)
-### 개발 환경
 
-
-### 화면 구현
-
-![grab-landing-page](https://github.com/hwarak/GrabMe/blob/master/etc/gif/008.GIF) ![grab-landing-page](https://github.com/hwarak/GrabMe/blob/master/etc/gif/008.GIF)
