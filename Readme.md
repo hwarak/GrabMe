@@ -36,4 +36,4 @@ DB 설계
 
 ### 화면 구현
 
-![grab-landing-page](https://github.com/doyeon326/MyPersonalMovieTheater/blob/master/gif/firstPage.gif) ![grab-landing-page](https://github.com/doyeon326/MyPersonalMovieTheater/blob/master/gif/secondPage.gif)
+![grab-landing-page](https://github.com/hwarak/GrabMe/blob/master/etc/gif/008.GIF) ![grab-landing-page](https://github.com/hwarak/GrabMe/blob/master/etc/gif/008.GIF)
