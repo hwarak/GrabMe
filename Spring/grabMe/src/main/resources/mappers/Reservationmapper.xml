@@ -10,12 +10,13 @@
 
 	<!-- select reservation list -->
 	<select id="selectReservationList" resultType="com.grabme.vo.ShopResVO">
-		select shop.idx ,reservation.reservation_idx, time.date, time.time, 
-		shop.thumbnail, shop.title, shop.address from reservation 
-		left join time on reservation.time_idx = time.idx
+		select reservation.reservation_idx, 
+		shop.idx , shop.thumbnail, shop.title, shop.address, shop.phone,
+		time.time_date, time.time_time from reservation 
+		left join time on reservation.time_idx = time.time_idx
 		left join shop on time.shop_idx = shop.idx
-		where reservation.user_idx=#{user_idx} and DATE(NOW()) <![CDATA[<=]]> date
-		order by date asc;
+		where reservation.user_idx=#{user_idx} and DATE(NOW()) <![CDATA[<=]]> time_date
+		order by time_date asc;
 	</select>
 	
 	<!-- delete reservation -->
