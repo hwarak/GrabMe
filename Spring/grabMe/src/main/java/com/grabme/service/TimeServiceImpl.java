@@ -16,26 +16,26 @@ public class TimeServiceImpl implements TimeService {
 
 	// insert time
 	@Override
-	public void insertTime(int shop_idx, String date, String time, int people) {
-		dao.insertTime(shop_idx, date, time, people);
+	public void insertTime(int shop_idx, String time_date, String time_time, int time_people) {
+		dao.insertTime(shop_idx, time_date, time_time, time_people);
 	}
 
 	// update time
 	@Override
-	public void updateTime(String time, int idx) {
-		dao.updateTime(time, idx);
+	public void updateTime(String time_time, int time_idx) {
+		dao.updateTime(time_time, time_idx);
 	}
 
 	// delete time
 	@Override
-	public void deleteTime(int idx) {
-		dao.deleteTime(idx);
+	public void deleteTime(int time_idx) {
+		dao.deleteTime(time_idx);
 	}
 
 	// select date -> list
 	@Override
-	public List<TimeVO> selectDate(int shop_idx, String date) {
-		return dao.selectDate(shop_idx, date);
+	public List<TimeVO> selectDate(int shop_idx, String time_date) {
+		return dao.selectDate(shop_idx, time_date);
 	}
 
 }

@@ -4,15 +4,12 @@ import lombok.Data;
 
 @Data
 public class TimeVO {
-
-	private int idx;
+	private int time_idx;
 	private int shop_idx;
-	private String date;
-	private String time;
-	private boolean status;
-	private int people;
-	private int max_people;
-	private boolean del_status;
-	
-
+	private String time_date;
+	private String time_time;
+	private boolean time_status;
+	private int time_people;
+	private int time_max_people;
+	private boolean time_del_status;
 }

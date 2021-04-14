@@ -44,7 +44,7 @@ public class TimeTest {
 		List<TimeVO> list = dao.selectDate(4, "2021-05-11");
 		for (TimeVO tmp : list) {
 			// boolean 사용할때는 getStatus() X isStatus O
-			System.out.println(tmp.isStatus());
+			System.out.println(tmp.isTime_status());
 		}
 	}
 

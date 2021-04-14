@@ -12,8 +12,8 @@ public class ResponseMessage {
 	public static final String CREATE_RESERVATION = "예약 성공";
 	public static final String DELETE_RESERVATION = "예약 삭제 성공";
 	
-	public static final String CREATE_TIME = "타임 생성";
-	public static final String DELETE_TIME = "타임 삭제";
+	public static final String CREATE_TIME = "타임 생성 성공";
+	public static final String DELETE_TIME = "타임 삭제 성공";
 	
 	public static final String LOGIN_SUCCESS = "로그인 성공";
 	public static final String LOGIN_FAIL = "로그인 실패";

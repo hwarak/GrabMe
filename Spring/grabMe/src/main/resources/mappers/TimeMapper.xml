@@ -5,37 +5,40 @@
 
 	<!-- insert time -->
 	<insert id="insertTime">
-		insert into time(shop_idx,date,time,people,max_people) value(#{shop_idx},#{date},#{time},#{people},#{max_people})
+		insert into time(shop_idx,time_date,time_time,time_people,time_max_people) 
+		value(#{shop_idx},#{time_date},#{time_time},#{time_people},#{time_max_people})
 	</insert>
 	
 	<!-- update time -->
 	<update id="updateTime">
-		update time set time=#{time} where idx=#{idx} 
+		update time set time_time=#{time_time} where time_idx=#{time_idx} 
 	</update>
 	
 	<!-- delete time -->
 	<delete id="deleteTime">
-		delete from time where idx=#{idx}
+		delete from time where time_idx=#{time_idx}
 	</delete>
 
 	<!-- update time people Minus -->
 	<update id="updateTimePeopleMinus">
-		update time set people = people-1 where idx=#{idx}
+		update time set time_people = time_people-1 where time_idx=#{time_idx}
 	</update>
 	
 	<!-- update time people Plus -->
 	<update id="updateTimePeoplePlus">
-		update time set people = people+1 where idx=#{idx}
+		update time set time_people = time_people+1 where time_idx=#{time_idx}
 	</update>
 	
 	<!-- update time status -->
 	<update id="updateTimeStatus">
-		update time set status = if (people > 0, 1, 0), del_status = if (people != max_people, 0, 1) where idx=#{idx}
+		update time set time_status = if (time_people > 0, 1, 0), time_del_status = if (time_people != time_max_people, 0, 1) 
+		where time_idx=#{time_idx}
 	</update>
 	
 	<!-- select date > list -->
 	<select id="selectDate" resultType="com.grabme.vo.TimeVO">
-		select *, if(status , 'true', 'false') as status, if (del_status , 'true', 'false') as del_status from time where shop_idx=#{shop_idx} and date=#{date} order by time asc;
+		select *, if(time_status , 'true', 'false') as time_status, if (time_del_status , 'true', 'false') as time_del_status 
+		from time where shop_idx=#{shop_idx} and time_date=#{time_date} order by time_time asc;
 	</select>
 
 

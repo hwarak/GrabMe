@@ -60,12 +60,12 @@ public class TimeController {
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
 
-		String date = (String) obj.get("date");
-		String time = (String) obj.get("time");
+		String time_date = (String) obj.get("time_date");
+		String time_time = (String) obj.get("time_time");
 		int shop_idx = (int) (long) obj.get("shop_idx");
-		int people = (int) (long) obj.get("people");
+		int time_people = (int) (long) obj.get("time_people");
 
-		time_service.insertTime(shop_idx, date, time, people);
+		time_service.insertTime(shop_idx, time_date, time_time, time_people);
 
 		svo.setResult("ok");
 		svo.setCode("");
@@ -85,9 +85,9 @@ public class TimeController {
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
-		int idx = (int) (long) obj.get("idx");
+		int time_idx = (int) (long) obj.get("time_idx");
 
-		time_service.deleteTime(idx);
+		time_service.deleteTime(time_idx);
 
 		svo.setResult("ok");
 		svo.setCode("");
