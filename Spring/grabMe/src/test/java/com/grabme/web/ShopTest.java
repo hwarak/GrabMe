@@ -1,7 +1,5 @@
 package com.grabme.web;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.grabme.dao.ExternalChannelDAO;
 import com.grabme.dao.ShopDAO;
-import com.grabme.vo.ShopAllVO;
+import com.grabme.vo.ShopVO;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,7 +32,7 @@ public class ShopTest {
 	public void testInnsertAndSelect() throws Exception {
 		// 가게 등록 후 바로 가게 번호 받아오기
 		int user_idx = 7;
-		dao.insertShop(user_idx, 3, "썸네일", "가게이름", "주소", "가게 소개");
+		//dao.insertShop(user_idx, 3, "썸네일", "가게이름", "주소", "가게 소개");
 		edao.insertURL(dao.selectShopIdx(user_idx), "카톡주소입니다", "인스타주소입니다");
 	}
 
@@ -46,10 +44,11 @@ public class ShopTest {
 	}
 
 	@Test
-	public void testAllInfo() throws Exception {
+	public void testSelectShopAllInfo() throws Exception {
 		// 가게의 모든 정보를 입력한다
-		ShopAllVO savo = dao.selectShopAllinfo(4);
-		System.out.println(savo.getAddress());
+		ShopVO svo = dao.selectShopAllInfo(35);
+		System.out.println(svo.getShopAddress());
 	}
+	
 
 }

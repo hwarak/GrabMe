@@ -6,81 +6,84 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.grabme.vo.ShopAllVO;
+import com.grabme.vo.ShopVO;
 
 public class ShopDAOImpl implements ShopDAO {
 
 	@Autowired
 	private SqlSession sqlsession;
 
-	// insert shop
+	// 비즈니스 등록
 	@Override
-	public void insertShop(int user_idx, int category_idx, String thumbnail, String title, String address,
-			String introduction) {
+	public void insertShop(int ownerIdx, int categoryIdx, String shopThumbnail, String shopTitle, String shopAddress,
+			String shopPhone, String shopIntroduction, double shopLon, double shopLat, String shopKatalkUrl,
+			String shopInstaUrl) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("user_idx", user_idx);
-		map.put("category_idx", category_idx);
-		map.put("thumbnail", thumbnail);
-		map.put("title", title);
-		map.put("address", address);
-		map.put("introduction", introduction);
+		map.put("ownerIdx", ownerIdx);
+		map.put("categoryIdx", categoryIdx);
+		map.put("shopThumbnail", shopThumbnail);
+		map.put("shopTitle", shopTitle);
+		map.put("shopAddress", shopAddress);
+		map.put("shopPhone", shopPhone);
+		map.put("shopIntroduction", shopIntroduction);
+		map.put("shopLon", shopLon);
+		map.put("shopLat", shopLat);
+		map.put("shopKatalkUrl", shopKatalkUrl);
+		map.put("shopInstaUrl", shopInstaUrl);
 
 		sqlsession.insert("com.grabme.mappers.ShopMapper.insertShop", map);
 
 	}
 
-	// select shop idx
+	// 사장님 idx로 등록된 비즈니스 idx 찾기
 	@Override
-	public int selectShopIdx(int user_idx) {
-		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopIdx", user_idx);
+	public int selectShopIdx(int ownerIdx) {
+		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopIdx", ownerIdx);
 	}
 
-	// check Shop
+	// 사장님이 등록한 비즈니스가 있으면 1을 없으면 0을 반환한다
 	@Override
-	public int checkShop(int user_idx) {
-		// 가게 존재하는지 확인
-		// 입력받은 유저아이디로 생성된 가게가 없으면 0을 반환
-		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.checkShop", user_idx);
+	public int checkShop(int ownerIdx) {
+		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.checkShop", ownerIdx);
 	}
 
-	// select Shop All Info
+	// 비즈니스 정보 모두 보기
 	@Override
-	public ShopAllVO selectShopAllinfo(int idx) {
-		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopAllinfo", idx);
-
+	public ShopVO selectShopAllInfo(int shopIdx) {
+		return sqlsession.selectOne("com.grabme.mappers.ShopMapper.selectShopAllInfo", shopIdx);
 	}
 
-	// update Shop All Info
+	// 비즈니스 정보 업데이트
 	@Override
-	public void updateShopAllinfo(ShopAllVO savo) {
+	public void updateShopAllInfo(ShopVO svo) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("idx", savo.getIdx());
-		map.put("category_idx", savo.getCategory_idx());
-		map.put("thumbnail", savo.getThumbnail());
-		map.put("title", savo.getTitle());
-		map.put("address", savo.getAddress());
-		map.put("introduction", savo.getIntroduction());
-		map.put("openkatalkURL", savo.getOpenkatalkURL());
-		map.put("instaURL", savo.getInstaURL());
+		map.put("shopIdx", svo.getShopIdx());
+		map.put("categoryIdx", svo.getCategoryIdx());
+		map.put("shopThumbnail", svo.getShopThumbnail());
+		map.put("shopTitle", svo.getShopTitle());
+		map.put("shopAddress", svo.getShopAddress());
+		map.put("shopPhone", svo.getShopPhone());
+		map.put("shopIntroduction", svo.getShopIntroduction());
+		map.put("shopLon", svo.getShopLon());
+		map.put("shopLat", svo.getShopLat());
+		map.put("shopKatalkUrl", svo.getShopKatalkUrl());
+		map.put("shopInstaUrl", svo.getShopInstaUrl());
 
 		sqlsession.insert("com.grabme.mappers.ShopMapper.updateShopAllInfo", map);
 
 	}
 
-	// delete shop
+	// 비즈니스 삭제
 	@Override
-	public void deleteShop(int idx) {
-		sqlsession.delete("com.grabme.mappers.ShopMapper.deleteShop",idx);
+	public void deleteShop(int shopIdx) {
+		sqlsession.delete("com.grabme.mappers.ShopMapper.deleteShop", shopIdx);
 	}
 
-	// delete time & reservation
+	// 비즈니스에 등록된 예약 시각들, 예약 내역들 모두 삭제
 	@Override
-	public void deleteTimeReservation(int shop_idx) {
-		sqlsession.delete("com.grabme.mappers.ShopMapper.deleteTimeReservation",shop_idx);
-		
+	public void deleteTimeReservation(int shopIdx) {
+		sqlsession.delete("com.grabme.mappers.ShopMapper.deleteTimeReservation", shopIdx);
+
 	}
-	
-	
-	
 
 }

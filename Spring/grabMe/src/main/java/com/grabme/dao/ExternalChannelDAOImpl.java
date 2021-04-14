@@ -11,12 +11,12 @@ public class ExternalChannelDAOImpl implements ExternalChannelDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	// insert shop url
+	// 가게 채널 등록
 	@Override
-	public void insertURL(int shop_idx, String openkatalkURL, String instaURL) {
+	public void insertURL(int shopIdx, String katalkURL, String instaURL) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("shop_idx", shop_idx);
-		map.put("openkatalkURL", openkatalkURL);
+		map.put("shopIdx", shopIdx);
+		map.put("katalkURL", katalkURL);
 		map.put("instaURL", instaURL);
 		sqlSession.insert("com.grabme.mappers.ExternalChannelMapper.insertURL", map);
 

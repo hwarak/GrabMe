@@ -4,10 +4,8 @@ import lombok.Data;
 
 @Data
 public class ExternalChannelVO {
-
-	private int idx;
-	private int shop_idx;
-	private String openkatalkURL;
+	private int channelIdx;
+	private int shopIdx;
+	private String katalkURL;
 	private String instaURL;
-
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.grabme.vo.ShopResVO;
+import com.grabme.vo.ShopListResVO;
 
 public class ReservationDAOImpl implements ReservationDAO {
 
@@ -25,7 +25,7 @@ public class ReservationDAOImpl implements ReservationDAO {
 
 	// select reservation list
 	@Override
-	public List<ShopResVO> selectReservationList(int user_idx) {
+	public List<ShopListResVO> selectReservationList(int user_idx) {
 		return sqlSession.selectList("com.grabme.mappers.ReservationMapper.selectReservationList", user_idx);
 	}
 

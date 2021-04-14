@@ -4,14 +4,14 @@
 <mapper namespace="com.grabme.mappers.CategoryMapper">
 
 	<!-- 위도,경도 값 받아서 거리순으로 정렬후 원하는 만큼 보여주기 -->
-	<select id="selectCategoryWithXY" resultType="com.grabme.vo.ShopResVO">
+	<select id="selectCategoryWithXY" resultType="com.grabme.vo.ShopListResVO">
 		select *,(6371*acos(cos(radians(#{y}))*cos(radians(y))*cos(radians(x)-radians(#{x}))+sin(radians(#{y}))*sin(radians(y))))
 		as distance from shop where category_idx = #{category_idx}
 		order by distance limit #{startNum},20
 	</select>
 	
 	<!-- 검색 -->
-	<select id="searchTitle" resultType="com.grabme.vo.ShopResVO" >
+	<select id="searchTitle" resultType="com.grabme.vo.ShopListResVO" >
 		select *,(6371*acos(cos(radians(#{y}))*cos(radians(y))*cos(radians(x)-radians(#{x}))+sin(radians(#{y}))*sin(radians(y))))
 		as distance from shop where category_idx = #{category_idx} and title like #{word}
 		order by distance limit #{startNum},20

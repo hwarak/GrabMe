@@ -9,7 +9,7 @@
 	</insert>
 
 	<!-- select reservation list -->
-	<select id="selectReservationList" resultType="com.grabme.vo.ShopResVO">
+	<select id="selectReservationList" resultType="com.grabme.vo.ShopListResVO">
 		select reservation.reservation_idx, 
 		shop.idx , shop.thumbnail, shop.title, shop.address, shop.phone,
 		time.time_date, time.time_time from reservation 

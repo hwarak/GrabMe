@@ -2,7 +2,7 @@ package com.grabme.dao;
 
 public interface ExternalChannelDAO {
 
-	// insert shop url
-	public void insertURL(int shop_idx, String openkatalkURL, String instaURL);
+	// 가게 채널 등록
+	public void insertURL(int shopIdx, String katalkURL, String instaURL);
 
 }

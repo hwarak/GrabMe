@@ -3,52 +3,60 @@
 
 <mapper namespace="com.grabme.mappers.ShopMapper">
 
-	<!-- insert shop -->
+	<!-- 비즈니스 등록 -->
 	<insert id="insertShop">
-		insert into shop(user_idx,category_idx,thumbnail,title,address,introduction)
-		value(#{user_idx},#{category_idx},#{thumbnail},#{title},#{address},#{introduction})
+		insert into
+		shop(owner_idx,category_idx,shop_thumbnail,shop_title,shop_address,shop_phone,shop_introduction,shop_lon,shop_lat, shop_katalk_url, shop_insta_url)
+		value(#{ownerIdx},#{categoryIdx},#{shopThumbnail},#{shopTitle},#{shopAddress},#{shopPhone},#{shopIntroduction},#{shopLon},#{shopLat},#{shopKatalkUrl},#{shopInstaUrl})
 	</insert>
 
-	<!-- select shop idx -->
+	<!-- 사장님 idx로 등록된 비즈니스 idx 찾기 -->
 	<select id="selectShopIdx" resultType="Integer">
-		select idx from shop where user_idx=#{user_idx};
+		select shop_idx from shop where owner_idx=#{ownerIdx};
 	</select>
 	
-	<!-- check shop -->
+	<!-- 사장님이 등록한 비즈니스가 있으면 1을 없으면 0을 반환한다 -->
 	<select id="checkShop" resultType="Integer">
-		select count(*) from shop where user_idx=#{user_idx}
+		select count(*) from shop where owner_idx=#{ownerIdx}
 	</select>
 	
-	<!-- select shop all info -->
-	<select id="selectShopAllinfo" resultType="com.grabme.vo.ShopAllVO">
-		select shop.idx, shop.owner_idx, shop.category_idx, shop.thumbnail, shop.title, shop.address, shop.introduction, 
-		shop.phone, externalChannel.openkatalkURL, externalChannel.instaURL from shop 
-		left join externalChannel on shop.idx = externalChannel.shop_idx 
-		where shop.idx = #{idx}
+	<!-- 비즈니스 정보 모두 보기 -->
+	<select id="selectShopAllInfo" resultType="com.grabme.vo.ShopVO">
+		select 
+		shop_idx as shopIdx,
+		owner_idx as ownerIdx,
+		category_idx as categoryIdx,
+		shop_thumbnail as shopThumbnail,
+		shop_title as shopTitle,
+		shop_address as shopAddress,
+		shop_phone as shopPhone,
+		shop_introduction as shopIntroduction,
+		shop_lon as shopLon,
+		shop_lat as shopLat,
+		shop_katalk_url as shopKatalkUrl,
+		shop_insta_url as shopInstaUrl
+		from shop where shop_idx=#{shopIdx}
 	</select>
 
-	<!-- update shop -->
+	<!-- 비즈니스 정보 업데이트 -->
 	<update id="updateShopAllInfo">
-		update shop INNER JOIN externalChannel
-		on shop.idx = externalChannel.shop_idx
-		set shop.title=#{title},
-		shop.category_idx=#{category_idx}, shop.thumbnail=#{thumbnail}, shop.title=#{title},
-		shop.address=#{address}, shop.introduction=#{introduction},
-		externalChannel.openkatalkURL=#{openkatalkURL},
-		externalChannel.instaURL=#{instaURL}
-		WHERE shop.idx=#{idx}
+		update shop set shop_title=#{shopTitle},
+		category_idx=#{categoryIdx}, shop_thumbnail=#{shopThumbnail}, shop_title=#{shopTitle},
+		shop_address=#{shopAddress},shop_phone=#{shopPhone},shop_introduction=#{shopIntroduction},
+		shop_lon=#{shopLon}, shop_lat=#{shopLat}, shop_katalk_url=#{shopKatalkUrl}, shop_insta_url=#{shopInstaUrl}
+		WHERE shop_idx=#{shopIdx}
 	</update>
 
-	<!-- delete shop -->
+	<!-- 비즈니스 삭제 -->
 	<delete id="deleteShop">
-		delete from shop where idx=#{idx}
+		delete from shop where shop_idx=#{shopIdx}
 	</delete>
-	
-	<!-- delete time & reservation -->
+
+	<!-- 비즈니스에 등록된 예약 시각들, 예약 내역들 모두 삭제 -->
 	<delete id="deleteTimeReservation">
 		delete time, reservation
-		from time  left join reservation on time.idx = reservation.time_idx 
-		where time.shop_idx = #{shop_idx}
+		from time left join reservation on time.time_idx = reservation.time_idx
+		where time.shop_idx = #{shopIdx}
 	</delete>
 
 </mapper>

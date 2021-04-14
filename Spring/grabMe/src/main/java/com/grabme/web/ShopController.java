@@ -1,15 +1,12 @@
 package com.grabme.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -17,110 +14,90 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.grabme.response.DefaultRes;
 import com.grabme.response.ResponseMessage;
 import com.grabme.response.StatusCode;
-import com.grabme.service.CategoryService;
-import com.grabme.service.ExternalChannelService;
 import com.grabme.service.S3Service;
 import com.grabme.service.ShopService;
-import com.grabme.vo.CategoryVO;
-import com.grabme.vo.ExternalChannelVO;
-import com.grabme.vo.ShopAllVO;
 import com.grabme.vo.ShopVO;
-import com.grabme.vo.TimeVO;
+import com.grabme.vo.SignResVO;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 
-@Api(tags = { "2. Shop" })
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/shop")
 public class ShopController {
 
 	@Autowired
-	private S3Service s3_service;
+	private S3Service s3Service;
 
 	@Autowired
-	private ShopService shop_service;
-
-	@Autowired
-	private ExternalChannelService exchannel_service;
+	private ShopService shopService;
 
 	
 	// 가게 정보를 가져온다
-	@ApiOperation(value = "가게 정보", notes = "가게 정보를 가져온다.")
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity shopInfoGet(@ApiParam(value = "가게 번호", required = true) @RequestParam int shopIdx) {
+	public ResponseEntity shopInfoGet(@RequestParam int shopIdx) {
 
-		ShopAllVO savo = shop_service.selectShopAllinfo(shopIdx);
+		ShopVO svo = shopService.selectShopAllInfo(shopIdx);
 
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST,savo),HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_SHOP_INFO,svo),HttpStatus.OK);
 	}
 
 	
 	// 가게 정보를 등록한다
-	@ApiOperation(value = "가게 등록", notes = "가게 정보를 등록한다.")
 	@PostMapping
 	@ResponseBody
-	public String shopInfoPost(
-			@ApiParam(value = "가게 사진", required = true) @RequestPart MultipartFile file,
-			@ApiParam(value = "가게 정보", required = true) ShopAllVO savoPre) throws IOException {
+	public ResponseEntity shopInfoPost(@RequestPart MultipartFile file,ShopVO svoPre) throws IOException {
 		
-		String filePath = s3_service.upload(file);
+		String filePath = s3Service.upload(file);
 		System.out.println("s3에 저장되는 경로 : " + filePath);
 		
 		// 빈 칸 체크
-		ShopAllVO savo = shop_service.checkEmpty(savoPre);
+		ShopVO svo = shopService.checkEmpty(svoPre);
 		
 		// 가게 등록
-		shop_service.insertShop(savo.getOwner_idx(), savo.getCategory_idx(), filePath, savo.getTitle(),
-				savo.getAddress(), savo.getIntroduction());
+		shopService.insertShop(svo.getOwnerIdx(), svo.getCategoryIdx(), filePath, svo.getShopTitle(),
+				svo.getShopAddress(), svo.getShopPhone(), svo.getShopIntroduction(),
+				svo.getShopLon(), svo.getShopLat(), svo.getShopKatalkUrl(), svo.getShopInstaUrl());
 
-		// 가게 url 등록
-		exchannel_service.insertURL(shop_service.selectShopIdx(savo.getOwner_idx()), savo.getOpenkatalkURL(),
-				savo.getInstaURL());
+		SignResVO srvo = SignResVO.getSignResVOObject();
+		srvo.setResult("ok");
+		srvo.setCode("");
 
-		JsonObject obj = new JsonObject();
-		obj.addProperty("result", "ok");
-
-		return obj.toString();
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATE_SHOP,srvo),HttpStatus.OK);
 	}
 
 	
 	// 가게 업데이트 
 	// multipart 때문에 PutMapping X
-	@ApiOperation(value = "가게 업데이트", notes = "가게 정보를 업데이트한다.")
 	@PostMapping("/2")
 	@ResponseBody
-	public String shopInfoPut(@ApiParam(value = "가게 사진", required = true) @RequestPart MultipartFile file,
-			@ApiParam(value = "가게 정보", required = true) ShopAllVO savoPre) throws IOException {
+	public ResponseEntity shopInfoPut(@RequestPart MultipartFile file,ShopVO svoPre) throws IOException {
 		
-		String filePath = savoPre.getThumbnail();
+		String filePath = svoPre.getShopThumbnail();
 		
 		// file 변경이 감지된다면
 		if(!file.getOriginalFilename().equals("")) {
-			filePath = s3_service.upload(file);
+			filePath = s3Service.upload(file);
 			System.out.println("s3에 저장되는 경로 : " + filePath);
 		}
 		
-		savoPre.setThumbnail(filePath);
+		svoPre.setShopThumbnail(filePath);
 	
 		// 빈 칸 체크
-		ShopAllVO savo = shop_service.checkEmpty(savoPre);
+		ShopVO svo = shopService.checkEmpty(svoPre);
 		
 		// 가게 정보를 업데이트 한다
-		shop_service.updateShopAllinfo(savo);
+		shopService.updateShopAllInfo(svo);
 
-		JsonObject obj = new JsonObject();
-		obj.addProperty("result", "ok");
+		SignResVO srvo = SignResVO.getSignResVOObject();
+		srvo.setResult("ok");
+		srvo.setCode("");
 
-		return obj.toString();
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.UPDATE_SHOP,srvo),HttpStatus.OK);
+
 	}
 }

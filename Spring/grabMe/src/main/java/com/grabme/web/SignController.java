@@ -18,12 +18,8 @@ import com.grabme.service.MessageService;
 import com.grabme.service.UserService;
 import com.grabme.vo.SignResVO;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 
-@Api(tags = { "1. Sign" })
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/sign")
@@ -38,15 +34,13 @@ public class SignController {
 	@Autowired
 	private JsonEcDcService jsonService;
 
-
-	@ApiOperation(value = "유저 번호 확인", notes = "유저 번호와 상태를 입력받아 중복 확인 후 인증번호를 발송한다.")
 	@PostMapping(value = "/check")
 	@ResponseBody
-	public ResponseEntity checkUser(@ApiParam(value = "유저 정보 체크", required = true) @RequestBody String str) {
+	public ResponseEntity checkUser(@RequestBody String str) {
 
 		System.out.println("클라이언트 요청 : " + str);
 		
-		SignResVO svo = SignResVO.getSignResVOObject();
+		SignResVO srvo = SignResVO.getSignResVOObject();
 
 		// json 파싱 후 반환
 		JSONObject obj = jsonService.jsonDc(str);
@@ -60,26 +54,25 @@ public class SignController {
 		// cn = 인증번호
 		String cn = userService.randomNumber();
 		
-		svo.setCode(cn); // 클라이언트단에도 인증번호 전송
+		srvo.setCode(cn); // 클라이언트단에도 인증번호 전송
 		
 		// 인증번호가 담긴 메세지를 보낸다
 		// message_service.sendMessage(user_phone, cn);
 
 		if (result == 0) {
 			// 데이터베이스에 존재하지 않음, 가입 가능
-			svo.setResult("ok");
+			srvo.setResult("ok");
 		} else {
 			// 데이터베이스에 이미 존재함, 가입 불가능
-			svo.setResult("no");
+			srvo.setResult("no");
 		}
 		
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_CODE,svo),HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_CODE,srvo),HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "회원가입", notes = "유저 정보를 입력받아 데이터베이스에 저장한다.")
 	@PostMapping(value = "/up")
 	@ResponseBody
-	public ResponseEntity signUp(@ApiParam(value = "유저 정보", required = true) @RequestBody String str) {
+	public ResponseEntity signUp(@RequestBody String str) {
 
 		System.out.println("클라이언트 요청 : " + str);
 
@@ -93,11 +86,11 @@ public class SignController {
 		// 데이터베이스에 저장
 		userService.insertUser(userName, userPhone, userStatus);
 		
-		SignResVO svo = SignResVO.getSignResVOObject();
-		svo.setResult("ok");
-		svo.setCode("");
+		SignResVO srvo = SignResVO.getSignResVOObject();
+		srvo.setResult("ok");
+		srvo.setCode("");
 		
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATED_USER,svo),HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATED_USER,srvo),HttpStatus.OK);
 
 	}
 

@@ -3,9 +3,9 @@
 
 <mapper namespace="com.grabme.mappers.ExternalChannelMapper">
 	
-	<!-- insert shop url -->
+	<!-- 가게 채널 등록 -->
 	<insert id="insertURL">
-		insert into externalChannel(shop_idx,openkatalkURL,instaURL) value(#{shop_idx},#{openkatalkURL},#{instaURL});
+		insert into externalChannel(shop_idx,katalk_url,insta_url) value(#{shopIdx},#{katalkURL},#{instaURL});
 	</insert>
 	
 </mapper>

@@ -15,7 +15,7 @@ import com.grabme.response.DefaultRes;
 import com.grabme.response.ResponseMessage;
 import com.grabme.response.StatusCode;
 import com.grabme.service.CategoryService;
-import com.grabme.vo.ShopResVO;
+import com.grabme.vo.ShopListResVO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +39,7 @@ public class CategoryController {
 			@ApiParam(value = "카테고리 번호", required = true) @RequestParam int categoryIdx,
 			@ApiParam(value = "시작 번호", required = true) @RequestParam int startNum) {
 
-		List<ShopResVO> list = category_service.selectCategoryWithXY(x, y, categoryIdx, startNum);
+		List<ShopListResVO> list = category_service.selectCategoryWithXY(x, y, categoryIdx, startNum);
 
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
@@ -58,7 +58,7 @@ public class CategoryController {
 			@ApiParam(value = "시작 번호", required = true) @RequestParam int startNum,
 			@ApiParam(value = "검색 단어", required = true) @RequestParam String word) {
 
-		List<ShopResVO> list = category_service.searchTitle(x, y, categoryIdx, startNum, word);
+		List<ShopListResVO> list = category_service.searchTitle(x, y, categoryIdx, startNum, word);
 
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리

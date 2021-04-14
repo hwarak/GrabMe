@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.grabme.dao.ReservationDAO;
 import com.grabme.dao.TimeDAO;
-import com.grabme.vo.ShopResVO;
+import com.grabme.vo.ShopListResVO;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -54,7 +54,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 	// select reservation list
 	@Override
-	public List<ShopResVO> selectReservationList(int user_idx) {
+	public List<ShopListResVO> selectReservationList(int user_idx) {
 		return dao.selectReservationList(user_idx);
 	}
 

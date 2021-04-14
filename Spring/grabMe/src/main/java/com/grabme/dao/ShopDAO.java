@@ -1,29 +1,30 @@
 package com.grabme.dao;
 
-import com.grabme.vo.ShopAllVO;
+import com.grabme.vo.ShopVO;
 
 public interface ShopDAO {
 
-	// insert shop
-	public void insertShop(int user_idx, int category_idx, String thumbnail, String title, String address,
-			String introduction);
+	// 비즈니스 등록
+	public void insertShop(int ownerIdx, int categoryIdx, String shopThumbnail, String shopTitle, String shopAddress,
+			String shopPhone, String shopIntroduction, double shopLon, double shopLat, String shopKatalkUrl,
+			String shopInstaUrl);
 
-	// select shop idx
-	public int selectShopIdx(int user_idx);
+	// 사장님 idx로 등록된 비즈니스 idx 찾기
+	public int selectShopIdx(int ownerIdx);
 
-	// check Shop
-	public int checkShop(int user_idx);
+	// 사장님이 등록한 비즈니스가 있으면 1을 없으면 0을 반환한다
+	public int checkShop(int ownerIdx);
 
-	// select Shop All Info
-	public ShopAllVO selectShopAllinfo(int idx);
+	// 비즈니스 정보 모두 보기
+	public ShopVO selectShopAllInfo(int shopIdx);
 
-	// update Shop All Info
-	public void updateShopAllinfo(ShopAllVO savo);
-	
-	// delete shop
-	public void deleteShop(int idx);
-	
-	// delete time & reservation
-	public void deleteTimeReservation(int shop_idx);
+	// 비즈니스 정보 업데이트
+	public void updateShopAllInfo(ShopVO svo);
+
+	// 비즈니스 삭제
+	public void deleteShop(int shopIdx);
+
+	// 비즈니스에 등록된 예약 시각들, 예약 내역들 모두 삭제
+	public void deleteTimeReservation(int shopIdx);
 
 }

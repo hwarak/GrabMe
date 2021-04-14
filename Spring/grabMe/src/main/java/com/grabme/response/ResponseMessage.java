@@ -15,6 +15,10 @@ public class ResponseMessage {
 	public static final String CREATE_TIME = "타임 생성 성공";
 	public static final String DELETE_TIME = "타임 삭제 성공";
 	
+	public static final String CREATE_SHOP = "비즈니스 생성 성공";
+	public static final String UPDATE_SHOP = "비즈니스 업데이트 성공";
+	public static final String SEND_SHOP_INFO = "비즈니스 정보 전송 성공";
+	
 	public static final String LOGIN_SUCCESS = "로그인 성공";
 	public static final String LOGIN_FAIL = "로그인 실패";
 	public static final String READ_USER = "회원 정보 조회 성공";

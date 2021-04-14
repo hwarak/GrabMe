@@ -4,13 +4,16 @@ import lombok.Data;
 
 @Data
 public class ShopVO {
-
-	private int idx;
-	private int user_idx;
-	private int category_idx;
-	private String thumbnail;
-	private String title;
-	private String address;
-	private String introduction;
-
+	private int shopIdx;
+	private int ownerIdx;
+	private int categoryIdx;
+	private String shopThumbnail;
+	private String shopTitle;
+	private String shopAddress;
+	private String shopPhone;
+	private String shopIntroduction;
+	private double shopLon;
+	private double shopLat;
+	private String shopKatalkUrl;
+	private String shopInstaUrl;
 }

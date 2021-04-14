@@ -20,7 +20,7 @@ import com.grabme.response.StatusCode;
 import com.grabme.service.JsonEcDcService;
 import com.grabme.service.ReservationService;
 import com.grabme.service.UserService;
-import com.grabme.vo.ShopResVO;
+import com.grabme.vo.ShopListResVO;
 import com.grabme.vo.SignResVO;
 
 import io.swagger.annotations.Api;
@@ -75,7 +75,7 @@ public class ReservationController {
 	public ResponseEntity reservationGet(@ApiParam(value = "유저번호", required = true) @RequestParam int userIdx) {
 
 		// 앞으로 예약된 예약리스트를 가져온다.(과거는 가져오지 않음)
-		List<ShopResVO> list = reservation_service.selectReservationList(userIdx);
+		List<ShopListResVO> list = reservation_service.selectReservationList(userIdx);
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
 			return new ResponseEntity(DefaultRes.res(StatusCode.NO_CONTENT, ResponseMessage.NO_CONTENT, list), HttpStatus.OK);

@@ -11,10 +11,10 @@ public class ExternalChannelSeviceImpl implements ExternalChannelService {
 	@Autowired
 	private ExternalChannelDAO dao;
 
-	// insert shop url
+	// 가게 채널 등록
 	@Override
-	public void insertURL(int shop_idx, String openkatalkURL, String instaURL) {
-		dao.insertURL(shop_idx, openkatalkURL, instaURL);
+	public void insertURL(int shopIdx, String katalkURL, String instaURL) {
+		dao.insertURL(shopIdx, katalkURL, instaURL);
 
 	}
 

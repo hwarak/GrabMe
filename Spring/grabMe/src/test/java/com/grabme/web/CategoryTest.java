@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.grabme.dao.CategoryDAO;
-import com.grabme.vo.ShopResVO;
+import com.grabme.vo.ShopListResVO;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,7 +25,7 @@ public class CategoryTest {
 		// 위도,경도 값 받아서 거리순으로 정렬후 원하는 만큼 보여주기
 		
 		//List<ReservationListVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 3,0);
-		List<ShopResVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 5,0);
+		List<ShopListResVO> list = dao.selectCategoryWithXY(126.93677023776556, 37.55522238374985, 5,0);
 		if(list.isEmpty()) {
 			// 리스트가 비어있을때 처리
 			System.out.println("List is empty");
@@ -38,7 +38,7 @@ public class CategoryTest {
 	@Test
 	public void testSearchTitle() throws Exception{
 		// 가게 검색
-		List<ShopResVO> list = dao.searchTitle(126.93677023776556, 37.55522238374985, 3,0,"민희");
+		List<ShopListResVO> list = dao.searchTitle(126.93677023776556, 37.55522238374985, 3,0,"민희");
 		
 		if(list.isEmpty()) {
 			// 리스트가 비어있을때 처리
