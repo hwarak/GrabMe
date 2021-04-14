@@ -6,35 +6,35 @@
 
 	<!-- Check user in database -->
 	<select id="checkUser" resultType="Integer">
-		select count(*) from user where phone=#{phone} and status=#{status}
+		select count(*) from user where user_phone=#{user_phone} and user_status=#{user_status}
 	</select>
 	
 	<!-- insert user -->
 	<insert id="insertUser">
-		insert into user(name,phone,status) value(#{name},#{phone},#{status})
+		insert into user(user_name,user_phone,user_status) value(#{user_name},#{user_phone},#{user_status})
 	</insert>
 
 	<!-- select user idx -->
 	<select id="selectUserIdx" resultType="Integer">
-		select idx from user where phone=#{phone} and status=#{status}
+		select idx from user where user_phone=#{user_phone} and user_status=#{user_status}
 	</select>
 	
 	<!-- select user by time -->
 	<select id="selectUserByTime" resultType="com.grabme.vo.UserVO">
 		select user.* from reservation 
-		left join user on user.idx = reservation.user_idx
+		left join user on user.user_idx = reservation.user_idx
 		where reservation.time_idx = #{time_idx};
 	</select>
 	
 	<!-- delete user -->
 	<delete id="deleteUser">
-		delete from user where idx=#{idx}
+		delete from user where user_idx=#{user_idx}
 	</delete>
 
 	<!-- return shop_idx or 0 -->
 	<select id="selectReturnIdx" resultType="Integer">
-		select if(status, 0, (if((select count(*) from shop where shop.owner_idx=#{idx} ) ,
-		(select idx from shop where shop.owner_idx=#{idx}),0))) as "상태" FROM user where idx=#{idx}
+		select if(user_status, 0, (if((select count(*) from shop where shop.owner_idx=#{user_idx} ) ,
+		(select user_idx from shop where shop.owner_idx=#{user_idx}),0))) as "상태" FROM user where user_idx=#{user_idx}
 	</select>
 
 </mapper>

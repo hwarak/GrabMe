@@ -51,11 +51,11 @@ public class SignController {
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
 
-		String phone = (String) obj.get("phone");
-		int status = (int) (long) obj.get("status");
+		String user_phone = (String) obj.get("user_phone");
+		int user_status = (int) (long) obj.get("user_status");
 
 		// 데이터베이스에 번호/상태 체크 후 존재하는 유저(1), 존재하지 않는 유저(0) 반환
-		int result = user_service.checkUser(phone, status);
+		int result = user_service.checkUser(user_phone, user_status);
 		
 		// cn = 인증번호
 		String cn = user_service.randomNumber();
@@ -63,7 +63,7 @@ public class SignController {
 		svo.setCode(cn); // 클라이언트단에도 인증번호 전송
 		
 		// 인증번호가 담긴 메세지를 보낸다
-		// message_service.sendMessage(phone, cn);
+		// message_service.sendMessage(user_phone, cn);
 
 		if (result == 0) {
 			// 데이터베이스에 존재하지 않음, 가입 가능
@@ -86,12 +86,12 @@ public class SignController {
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
 
-		String name = (String) obj.get("name");
-		String phone = (String) obj.get("phone");
-		int status = (int) (long) obj.get("status");
+		String user_name = (String) obj.get("user_name");
+		String user_phone = (String) obj.get("user_phone");
+		int user_status = (int) (long) obj.get("user_status");
 
 		// 데이터베이스에 저장
-		user_service.insertUser(name, phone, status);
+		user_service.insertUser(user_name, user_phone, user_status);
 		
 		SignResVO svo = SignResVO.getSignResVOObject();
 		svo.setResult("ok");

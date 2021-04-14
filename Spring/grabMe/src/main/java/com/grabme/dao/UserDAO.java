@@ -7,20 +7,20 @@ import com.grabme.vo.UserVO;
 public interface UserDAO {
 
 	// Check user in database
-	public int checkUser(String phone, int status);
+	public int checkUser(String user_phone, int user_status);
 
 	// insert user
-	public void insertUser(String name, String phone, int status);
+	public void insertUser(String user_name, String user_phone, int user_status);
 
 	// select user idx
-	public int selectUserIdx(String phone, int status);
+	public int selectUserIdx(String user_phone, int user_status);
 	
 	// select User By Time
 	public List<UserVO> selectUserByTime(int time_idx);
 	
 	// delete user
-	public void deleteUser(int idx);
+	public void deleteUser(int user_idx);
 	
 	// select return idx (사장님 : 가게 번호 / 개인 : 0)
-	public int selectReturnIdx(int idx);
+	public int selectReturnIdx(int user_idx);
 }

@@ -46,12 +46,12 @@ public class UserTest {
 	@Test
 	public void testInsertUser() throws Exception {
 
-		String name = "김병수";
-		String phone = "01045692565";
-		int status = 1;
+		String user_name = "김병수";
+		String user_phone = "01045692565";
+		int user_status = 1;
 
-		dao.insertUser(name, phone, status); // 데이터베이스 등록
-		System.out.println(dao.selectUserIdx(phone, status));// 등록한 유저 idx 반환
+		dao.insertUser(user_name, user_phone, user_status); // 데이터베이스 등록
+		System.out.println(dao.selectUserIdx(user_phone, user_status));// 등록한 유저 idx 반환
 	}
 
 	@Test

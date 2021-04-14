@@ -12,6 +12,7 @@ public class ShopResVO {
 	private String thumbnail;
 	private String title;
 	private String address;
+	private String phone;
 
 	private ShopResVO() {}
 	

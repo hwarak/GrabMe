@@ -16,30 +16,30 @@ public class UserDAOImpl implements UserDAO {
 
 	// Check user in database
 	@Override
-	public int checkUser(String phone, int status) {
+	public int checkUser(String user_phone, int user_status) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("phone", phone);
-		map.put("status", status);
+		map.put("user_phone", user_phone);
+		map.put("user_status", user_status);
 		return sqlSession.selectOne("com.grabme.mappers.UserMapper.checkUser", map);
 	}
 
 	// insert user
 	@Override
-	public void insertUser(String name, String phone, int status) {
+	public void insertUser(String user_name, String user_phone, int user_status) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("name", name);
-		map.put("phone", phone);
-		map.put("status", status);
+		map.put("user_name", user_name);
+		map.put("user_phone", user_phone);
+		map.put("user_status", user_status);
 
 		sqlSession.insert("com.grabme.mappers.UserMapper.insertUser", map);
 	}
 
 	// select user idx
 	@Override
-	public int selectUserIdx(String phone, int status) {
+	public int selectUserIdx(String user_phone, int user_status) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("phone", phone);
-		map.put("status", status);
+		map.put("user_phone", user_phone);
+		map.put("user_status", user_status);
 		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectUserIdx", map);
 	}
 
@@ -51,14 +51,14 @@ public class UserDAOImpl implements UserDAO {
 
 	// delete user
 	@Override
-	public void deleteUser(int idx) {
-		sqlSession.delete("com.grabme.mappers.UserMapper.deleteUser",idx);
+	public void deleteUser(int user_idx) {
+		sqlSession.delete("com.grabme.mappers.UserMapper.deleteUser",user_idx);
 	}
 
 	// select return idx (사장님 : 가게 번호 / 개인 : 0)
 	@Override
-	public int selectReturnIdx(int idx) {
-		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectReturnIdx",idx);
+	public int selectReturnIdx(int user_idx) {
+		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectReturnIdx",user_idx);
 	}
 	
 	

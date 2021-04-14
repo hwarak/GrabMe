@@ -4,10 +4,9 @@ import lombok.Data;
 
 @Data
 public class UserVO {
-
-	private int idx;
-	private String name;
-	private String phone;
-	private String profile_img;
-	private int status;	
+	private int user_idx;
+	private String user_name;
+	private String user_phone;
+	private String user_profile_img;
+	private int user_status;	
 }
