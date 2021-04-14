@@ -30,13 +30,13 @@ import lombok.RequiredArgsConstructor;
 public class SignController {
 
 	@Autowired
-	private UserService user_service;
+	private UserService userService;
 
 	@Autowired
-	private MessageService message_service;
+	private MessageService messageService;
 
 	@Autowired
-	private JsonEcDcService json_service;
+	private JsonEcDcService jsonService;
 
 
 	@ApiOperation(value = "유저 번호 확인", notes = "유저 번호와 상태를 입력받아 중복 확인 후 인증번호를 발송한다.")
@@ -49,16 +49,16 @@ public class SignController {
 		SignResVO svo = SignResVO.getSignResVOObject();
 
 		// json 파싱 후 반환
-		JSONObject obj = json_service.jsonDc(str);
+		JSONObject obj = jsonService.jsonDc(str);
 
-		String user_phone = (String) obj.get("user_phone");
-		int user_status = (int) (long) obj.get("user_status");
+		String userPhone = (String) obj.get("userPhone");
+		int userStatus = (int) (long) obj.get("userStatus");
 
 		// 데이터베이스에 번호/상태 체크 후 존재하는 유저(1), 존재하지 않는 유저(0) 반환
-		int result = user_service.checkUser(user_phone, user_status);
+		int result = userService.checkUser(userPhone, userStatus);
 		
 		// cn = 인증번호
-		String cn = user_service.randomNumber();
+		String cn = userService.randomNumber();
 		
 		svo.setCode(cn); // 클라이언트단에도 인증번호 전송
 		
@@ -84,14 +84,14 @@ public class SignController {
 		System.out.println("클라이언트 요청 : " + str);
 
 		// json 파싱 후 반환
-		JSONObject obj = json_service.jsonDc(str);
+		JSONObject obj = jsonService.jsonDc(str);
 
-		String user_name = (String) obj.get("user_name");
-		String user_phone = (String) obj.get("user_phone");
-		int user_status = (int) (long) obj.get("user_status");
+		String userName = (String) obj.get("userName");
+		String userPhone = (String) obj.get("userPhone");
+		int userStatus = (int) (long) obj.get("userStatus");
 
 		// 데이터베이스에 저장
-		user_service.insertUser(user_name, user_phone, user_status);
+		userService.insertUser(userName, userPhone, userStatus);
 		
 		SignResVO svo = SignResVO.getSignResVOObject();
 		svo.setResult("ok");

@@ -48,14 +48,14 @@ public class UserController {
 
 		// json 파싱 후 반환
 		JSONObject obj = json_service.jsonDc(str);
-		int user_idx = (int) (long) obj.get("user_idx");
+		int userIdx = (int) (long) obj.get("userIdx");
 		
-		int result = user_service.selectReturnIdx(user_idx);
+		int result = user_service.selectReturnIdx(userIdx);
 		
 		if(result == 0) {
-			user_service.deleteUser(user_idx);			
+			user_service.deleteUser(userIdx);			
 		}else {
-			shop_service.deleteShop(result,user_idx);
+			shop_service.deleteShop(result,userIdx);
 		}
 
 		svo.setResult("ok");

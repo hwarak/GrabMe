@@ -3,15 +3,14 @@
 
 <mapper namespace="com.grabme.mappers.UserMapper">
 
-
-	<!-- Check user in database -->
+	<!-- 유저 번호와 상태(사장님/개인)를 받아 데이터베이스 존재여부 확인 -->
 	<select id="checkUser" resultType="Integer">
-		select count(*) from user where user_phone=#{user_phone} and user_status=#{user_status}
+		select count(*) from user where user_phone=#{userPhone} and user_status=#{userStatus}
 	</select>
 	
-	<!-- insert user -->
-	<insert id="insertUser">
-		insert into user(user_name,user_phone,user_status) value(#{user_name},#{user_phone},#{user_status})
+	<!-- 회원가입 -->
+	<insert id="insertUser" >
+		insert into user(user_name,user_phone,user_status) value(#{userName},#{userPhone},#{userStatus})
 	</insert>
 
 	<!-- select user idx -->
@@ -26,15 +25,15 @@
 		where reservation.time_idx = #{time_idx};
 	</select>
 	
-	<!-- delete user -->
+	<!-- 유저 탈퇴 -->
 	<delete id="deleteUser">
-		delete from user where user_idx=#{user_idx}
+		delete from user where user_idx=#{userIdx}
 	</delete>
 
-	<!-- return shop_idx or 0 -->
+	<!-- 유저가 사장님이면 가게 번호를, 개인고객이면 0을 반환 -->
 	<select id="selectReturnIdx" resultType="Integer">
-		select if(user_status, 0, (if((select count(*) from shop where shop.owner_idx=#{user_idx} ) ,
-		(select user_idx from shop where shop.owner_idx=#{user_idx}),0))) as "상태" FROM user where user_idx=#{user_idx}
+		select if(user_status, 0, (if((select count(*) from shop where shop.owner_idx=#{userIdx} ) ,
+		(select user_idx from shop where shop.owner_idx=#{userIdx}),0))) as "상태" FROM user where user_idx=#{userIdx}
 	</select>
 
 </mapper>

@@ -23,10 +23,10 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private TimeDAO tdao;
 
-	// Check user in database
+	// 유저 번호와 상태(사장님/개인)를 받아 데이터베이스 존재여부 확인
 	@Override
-	public int checkUser(String user_phone, int user_status) {
-		return dao.checkUser(user_phone, user_status);
+	public int checkUser(String userPhone, int userStatus) {
+		return dao.checkUser(userPhone, userStatus);
 	}
 
 	// 인증번호 생성
@@ -49,10 +49,10 @@ public class UserServiceImpl implements UserService {
 		return dao.selectUserIdx(user_phone, user_status);
 	}
 
-	// insert user
+	// 회원가입
 	@Override
-	public void insertUser(String user_name, String user_phone, int user_status) {
-		dao.insertUser(user_name, user_phone, user_status);
+	public void insertUser(String userName, String userPhone, int userStatus) {
+		dao.insertUser(userName, userPhone, userStatus);
 
 	}
 
@@ -62,13 +62,13 @@ public class UserServiceImpl implements UserService {
 		return dao.selectUserByTime(time_idx);
 	}
 
-	// delete user
+	// 유저 탈퇴
 	@Override
-	public void deleteUser(int user_idx) {
+	public void deleteUser(int userIdx) {
 		// 유저 탈퇴시 예약 내역 전부 삭제하기
 		
 		// 유저의 모든 예약내역 가져오기
-		List<Integer> list = rdao.selectReservationByUser(user_idx);
+		List<Integer> list = rdao.selectReservationByUser(userIdx);
 		int time_idx = 0;
 		
 		for (Integer tmp : list) {
@@ -87,13 +87,13 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		// 유저 삭제
-		dao.deleteUser(user_idx);
+		dao.deleteUser(userIdx);
 	}
 
-	// select return idx (사장님 : 가게 번호 / 개인 : 0)
+	// 유저가 사장님이면 가게 번호를, 개인고객이면 0을 반환
 	@Override
-	public int selectReturnIdx(int user_idx) {
-		return dao.selectReturnIdx(user_idx);
+	public int selectReturnIdx(int userIdx) {
+		return dao.selectReturnIdx(userIdx);
 	}
 	
 	
