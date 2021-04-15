@@ -12,18 +12,6 @@
 	<insert id="insertUser" >
 		insert into user(user_name,user_phone,user_status) value(#{userName},#{userPhone},#{userStatus})
 	</insert>
-
-	<!-- select user idx -->
-	<select id="selectUserIdx" resultType="Integer">
-		select idx from user where user_phone=#{user_phone} and user_status=#{user_status}
-	</select>
-	
-	<!-- select user by time -->
-	<select id="selectUserByTime" resultType="com.grabme.vo.UserVO">
-		select user.* from reservation 
-		left join user on user.user_idx = reservation.user_idx
-		where reservation.time_idx = #{time_idx};
-	</select>
 	
 	<!-- 유저 탈퇴 -->
 	<delete id="deleteUser">

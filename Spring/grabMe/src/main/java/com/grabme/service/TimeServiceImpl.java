@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.grabme.dao.TimeDAO;
 import com.grabme.vo.TimeVO;
+import com.grabme.vo.UserVO;
 
 @Service
 public class TimeServiceImpl implements TimeService {
@@ -14,28 +15,28 @@ public class TimeServiceImpl implements TimeService {
 	@Autowired
 	private TimeDAO dao;
 
-	// insert time
+	// 타임 등록
 	@Override
-	public void insertTime(int shop_idx, String time_date, String time_time, int time_people) {
-		dao.insertTime(shop_idx, time_date, time_time, time_people);
+	public void insertTime(int shopIdx, String timeDate, String timeTime, int timePeople) {
+		dao.insertTime(shopIdx, timeDate, timeTime, timePeople);
 	}
 
-	// update time
+	// 타임 삭제
 	@Override
-	public void updateTime(String time_time, int time_idx) {
-		dao.updateTime(time_time, time_idx);
+	public void deleteTime(int timeIdx) {
+		dao.deleteTime(timeIdx);
 	}
 
-	// delete time
+	// 비즈니즈스의 해당 날짜에 등록된 타임 리스트
 	@Override
-	public void deleteTime(int time_idx) {
-		dao.deleteTime(time_idx);
+	public List<TimeVO> selectDate(int shopIdx, String timeDate) {
+		return dao.selectDate(shopIdx, timeDate);
 	}
-
-	// select date -> list
+	
+	// 선택된 타임에 예약된 개인 고객들 리스트를 출력한다
 	@Override
-	public List<TimeVO> selectDate(int shop_idx, String time_date) {
-		return dao.selectDate(shop_idx, time_date);
+	public List<UserVO> selectUserByTime(int timeIdx) {
+		return dao.selectUserByTime(timeIdx);
 	}
 
 }

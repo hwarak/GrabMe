@@ -3,42 +3,61 @@
 
 <mapper namespace="com.grabme.mappers.TimeMapper">
 
-	<!-- insert time -->
+	<!-- 타임 등록 -->
 	<insert id="insertTime">
 		insert into time(shop_idx,time_date,time_time,time_people,time_max_people) 
-		value(#{shop_idx},#{time_date},#{time_time},#{time_people},#{time_max_people})
+		value(#{shopIdx},#{timeDate},#{timeTime},#{timePeople},#{timeMaxPeople})
 	</insert>
 	
-	<!-- update time -->
-	<update id="updateTime">
-		update time set time_time=#{time_time} where time_idx=#{time_idx} 
-	</update>
-	
-	<!-- delete time -->
+	<!-- 타임 삭제 -->
 	<delete id="deleteTime">
-		delete from time where time_idx=#{time_idx}
+		delete from time where time_idx=#{timeIdx}
 	</delete>
 
-	<!-- update time people Minus -->
+	<!-- 예약 가능한 인원수 -1 -->
 	<update id="updateTimePeopleMinus">
-		update time set time_people = time_people-1 where time_idx=#{time_idx}
+		update time set time_people = time_people-1 where time_idx=#{timeIdx}
 	</update>
 	
-	<!-- update time people Plus -->
+	<!-- 예약 가능한 인원수 +1 -->
 	<update id="updateTimePeoplePlus">
-		update time set time_people = time_people+1 where time_idx=#{time_idx}
+		update time set time_people = time_people+1 where time_idx=#{timeIdx}
 	</update>
 	
-	<!-- update time status -->
+	<!-- time_max_people(예약 가능한 최대 인원)과 time_people(현재 에약 가능한 인원수) 비교 후 -->
+	<!-- time_del_status : 사장님이 선택한 타임을 삭제할 수 있으면 1, 없으면 0  -->
+	<!-- time_status :  선택한 타임에 예약 가능한 인원수가 0이면 0을 , 0보다 크면 1 -->
 	<update id="updateTimeStatus">
 		update time set time_status = if (time_people > 0, 1, 0), time_del_status = if (time_people != time_max_people, 0, 1) 
-		where time_idx=#{time_idx}
+		where time_idx=#{timeIdx}
 	</update>
 	
-	<!-- select date > list -->
+	<!-- 비즈니즈스의 해당 날짜에 등록된 타임 리스트 -->
 	<select id="selectDate" resultType="com.grabme.vo.TimeVO">
-		select *, if(time_status , 'true', 'false') as time_status, if (time_del_status , 'true', 'false') as time_del_status 
-		from time where shop_idx=#{shop_idx} and time_date=#{time_date} order by time_time asc;
+		select 
+		time_idx as timeIdx,
+		shop_idx as shopIdx,
+		time_date as timeDate,
+		time_time as timeTime,
+		time_status as timeStatus,
+		time_people as timePeople,
+		time_max_people as timeMaxPeople,
+		time_del_status as timeDelStatus,
+		if(time_status , 'true', 'false') as time_status, if (time_del_status , 'true', 'false') as time_del_status 
+		from time where shop_idx=#{shopIdx} and time_date=#{timeDate} order by time_time asc;
+	</select>
+	
+	<!-- 선택된 타임에 예약된 개인 고객들 리스트를 출력한다-->
+	<select id="selectUserByTime" resultType="com.grabme.vo.UserVO">
+		select 
+		user.user_idx as userIdx,
+		user.user_name as userName,
+		user.user_phone as userPhone,
+		user.user_profile_img as userProfileImg,
+		user.user_status as userStatus
+		from reservation
+		left join user on user.user_idx = reservation.user_idx
+		where reservation.time_idx = #{timeIdx};
 	</select>
 
 

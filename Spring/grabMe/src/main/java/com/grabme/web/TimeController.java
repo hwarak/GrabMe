@@ -25,84 +25,75 @@ import com.grabme.vo.SignResVO;
 import com.grabme.vo.TimeVO;
 import com.grabme.vo.UserVO;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 
-@Api(tags = { "3. Time" })
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/time")
 public class TimeController {
 
 	@Autowired
-	private TimeService time_service;
+	private TimeService timeService;
 	
 	@Autowired
-	private UserService user_service;
-
-	@Autowired
-	private JsonEcDcService json_service;
+	private JsonEcDcService jsonService;
 
 	// 시간 테이블 업데이트 하기
 
-	// (1) 시간 추가
-	@ApiOperation(value = "타임 추가", notes = "타임을 추가한다.")
+	// 타임 등록
 	@PostMapping
 	@ResponseBody
-	public ResponseEntity timeInfoPost(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
+	public ResponseEntity timeInfoPost(@RequestBody String str) {
 
 		System.out.println("클라이언트 요청 : " + str);
 
-		SignResVO svo = SignResVO.getSignResVOObject();
+		SignResVO srvo = SignResVO.getSignResVOObject();
 
 		// json 파싱 후 반환
-		JSONObject obj = json_service.jsonDc(str);
+		JSONObject obj = jsonService.jsonDc(str);
 
-		String time_date = (String) obj.get("time_date");
-		String time_time = (String) obj.get("time_time");
-		int shop_idx = (int) (long) obj.get("shop_idx");
-		int time_people = (int) (long) obj.get("time_people");
+		int shopIdx = (int) (long) obj.get("shopIdx");
+		String timeDate = (String) obj.get("timeDate");
+		String timeTime = (String) obj.get("timeTime");
+		int timePeople = (int) (long) obj.get("timePeople");
 
-		time_service.insertTime(shop_idx, time_date, time_time, time_people);
+		// 타임 등록
+		timeService.insertTime(shopIdx, timeDate, timeTime, timePeople);
 
-		svo.setResult("ok");
-		svo.setCode("");
+		srvo.setResult("ok");
+		srvo.setCode("");
 
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATE_TIME, svo), HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATE_TIME, srvo), HttpStatus.OK);
 	}
 
-	// (2) 시간 삭제
-	@ApiOperation(value = "타임 삭제", notes = "해당 타임을 삭제한다.")
+	// 타임 삭제
 	@DeleteMapping
 	@ResponseBody
-	public ResponseEntity timeInfoDelete(@ApiParam(value = "시간 정보", required = true) @RequestBody String str) {
+	public ResponseEntity timeInfoDelete(@RequestBody String str) {
 
 		System.out.println("클라이언트 요청 : " + str);
 
-		SignResVO svo = SignResVO.getSignResVOObject();
+		SignResVO srvo = SignResVO.getSignResVOObject();
 
 		// json 파싱 후 반환
-		JSONObject obj = json_service.jsonDc(str);
-		int time_idx = (int) (long) obj.get("time_idx");
+		JSONObject obj = jsonService.jsonDc(str);
+		int timeIdx = (int) (long) obj.get("timeIdx");
 
-		time_service.deleteTime(time_idx);
+		// 타임 삭제
+		timeService.deleteTime(timeIdx);
 
-		svo.setResult("ok");
-		svo.setCode("");
+		srvo.setResult("ok");
+		srvo.setCode("");
 
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.DELETE_TIME, svo), HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.DELETE_TIME, srvo), HttpStatus.OK);
 	}
 
-	// (3) 시간 리스트 가져오기
-	@ApiOperation(value = "날짜별 타임 리스트 보기", notes = "날짜를 받으면 예약타임들을 보여준다.")
+	// 비즈니즈스의 해당 날짜에 등록된 타임 리스트
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity timeInfoGet(@ApiParam(value = "가게 번호", required = true) @RequestParam int shopIdx,
-			@ApiParam(value = "날짜", required = true) @RequestParam String date) {
+	public ResponseEntity timeInfoGet( @RequestParam int shopIdx,@RequestParam String date) {
 
-		List<TimeVO> list = time_service.selectDate(shopIdx, date);
+		List<TimeVO> list = timeService.selectDate(shopIdx, date);
 		
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
@@ -112,13 +103,12 @@ public class TimeController {
 		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.SEND_LIST, list), HttpStatus.OK);
 	}
 
-	// (4) 예약된 유저 리스트 가져오기
-	@ApiOperation(value = "예약한 유저 리스트 보기", notes = "타임을 선택하면 예약된 유저 리스트를 보여준다.")
+	// 선택된 타임에 예약된 개인 고객들 리스트를 출력한다
 	@GetMapping("/2")
 	@ResponseBody
-	public ResponseEntity userInfoGet(@ApiParam(value = "타임 번호", required = true) @RequestParam int timeIdx) {
+	public ResponseEntity userInfoGet(@RequestParam int timeIdx) {
 
-		List<UserVO> list = user_service.selectUserByTime(timeIdx);
+		List<UserVO> list = timeService.selectUserByTime(timeIdx);
 		
 		if (list.isEmpty()) {
 			// 리스트가 비어있을 때 에외처리
