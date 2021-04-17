@@ -17,3 +17,33 @@
 * 그랩미에 서비스를 등록하고싶으면 사장님으로 가입한 후 비지니스 정보를 등록하고 예약을 받고싶은 날짜와 시간을 입력하면 사용자들의 예약을 받을 준비가 완료됩니다. 
 
 ## APIs
+### Sign API
+* **POST** /sign/check
+  - request
+   ```json
+    {
+      "userStatus": 1,
+      "userPhone": "01012341234"
+    }
+    ```
+  - response 1 : 데이터베이스에 없는 경우 -> 회원가입
+     ```json
+    {
+        "statusCode": 200,
+        "responseMessage": "인증번호 전송 성공",
+        "data": {
+            "result": "ok",
+            "code": "2631"
+        }
+    }
+    ```
+  - response 2 : 데이터베이스에 있는 경우 -> 로그인
+   ```json
+    {
+        "statusCode": 200,
+        "responseMessage": "인증번호 전송 성공",
+        "data": {
+            "result": "no",
+            "code": "8868"
+        }
+    }
