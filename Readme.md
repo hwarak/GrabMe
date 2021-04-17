@@ -27,7 +27,7 @@
     }
     ```
   - response 1 : 데이터베이스에 없는 경우 -> 회원가입
-     ```json
+   ```json
     {
         "statusCode": 200,
         "responseMessage": "인증번호 전송 성공",
@@ -47,3 +47,79 @@
             "code": "8868"
         }
     }
+    
+* **POST** /sign/up
+  - request
+   ```json
+    {
+        "userStatus":1,
+        "userPhone":"01012341234",
+        "userName":"서민희"
+    }
+    ```
+  - response
+   ```json
+    {
+        "statusCode": 201,
+        "responseMessage": "계정 생성 성공",
+        "data": {
+            "result": "ok",
+            "code": ""
+        }
+    }
+    ```
+### Category API
+* **GET** /category
+  - request
+   ```json
+    http://localhost:8080/web/category?shopLon=126.936897574428&shopLat=37.555202179427276&categoryIdx=3&startNum=0
+    ```
+  - response 1 : 데이터 존재할때
+   ```json
+    {
+        "statusCode": 200,
+        "responseMessage": "리스트 전송 성공",
+        "data": [
+            {
+                "reservationIdx": 0,
+                "shopIdx": 61,
+                "shopThumbnail": "https://grabmebucket.s3.ap-northeast-2.amazonaws.com/61.jfif",
+                "shopTitle": "투썸플레이스 신촌점",
+                "shopAddress": "서울 서대문구 신촌로 93",
+                "shopPhone": "02-3142-5995",
+                "timeDate": null,
+                "timeAvailable": null
+            },
+            {
+                "reservationIdx": 0,
+                "shopIdx": 71,
+                "shopThumbnail": "https://grabmebucket.s3.ap-northeast-2.amazonaws.com/71.jfif",
+                "shopTitle": "타르타르 신촌점",
+                "shopAddress": "서울 서대문구 연세로2길 3",
+                "shopPhone": "1800-1778",
+                "timeDate": null,
+                "timeAvailable": null
+            },
+            {
+                "reservationIdx": 0,
+                "shopIdx": 53,
+                "shopThumbnail": "https://grabmebucket.s3.ap-northeast-2.amazonaws.com/53.jfif",
+                "shopTitle": "레드버튼 신촌점",
+                "shopAddress": "서울 서대문구 연세로 8",
+                "shopPhone": "02-363-3799",
+                "timeDate": null,
+                "timeAvailable": null
+            },
+            . . .
+
+        ]
+    }
+    ```
+   - response 2 : 데이터 않을때
+    ```json
+    {
+        "statusCode": 204,
+        "responseMessage": "보내줄 데이터 없음",
+        "data": []
+    }
+    ```
