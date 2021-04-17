@@ -122,4 +122,5 @@
     }
     ```
 **더 보기** <https://www.notion.so/GrabMe-API-Notion-04b81d02e2cb49a991034374dce22881>
-**더 보기** [GrabMe API 명세서][https://www.notion.so/GrabMe-API-Notion-04b81d02e2cb49a991034374dce22881]
+**더 보기** [GrabMe API 명세서][notionlink]
+[notionlink]: https://www.notion.so/GrabMe-API-Notion-04b81d02e2cb49a991034374dce22881
