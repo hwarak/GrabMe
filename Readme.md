@@ -111,7 +111,7 @@
                 "timeAvailable": null
             },
   
-            중략
+            // 코드 중략
         ]
     }
     ```
