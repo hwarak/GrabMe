@@ -110,7 +110,9 @@
                 "timeDate": null,
                 "timeAvailable": null
             },
-            ...중략...
+            .
+            .
+            .
 
         ]
     }
