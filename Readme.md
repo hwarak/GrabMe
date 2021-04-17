@@ -74,7 +74,7 @@
    ```json
     http://localhost:8080/web/category?shopLon=126.936897574428&shopLat=37.555202179427276&categoryIdx=3&startNum=0
     ```
-  - response 1 : 데이터 존재할때 (코드 중략)
+  - response 1 : 보내줄 데이터가 존재할때 (코드 중략)
    ```json
     {
         "statusCode": 200,
@@ -113,7 +113,7 @@
         ]
     }
     ```
-   - response 2 : 데이터 않을때
+   - response 2 : 보내줄 데이터가  않을때
     ```json
     {
         "statusCode": 204,
