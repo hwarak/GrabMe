@@ -124,7 +124,8 @@
         "responseMessage": "보내줄 데이터 없음",
         "data": []
     }
-    ```
+    ```   
+
 ## GrabMe Demo
 * SMS 인증을 통한 회원가입 및 로그인   
 [CoolSMS](https://coolsms.co.kr/) : 문자 인증을 위한 API   
