@@ -1,6 +1,6 @@
 # GrabMe
 
-
+![Alt text](/etc/images/GrabMeNew.png)
 
 ## 프로젝트 개요
 
