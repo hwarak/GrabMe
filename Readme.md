@@ -125,8 +125,21 @@
         "data": []
     }
     ```
-## Demo
+## GrabMe Demo
+* SMS 인증을 통한 회원가입 및 로그인   
+[CoolSMS](https://coolsms.co.kr/) : 문자 인증을 위한 API
+[atalk](http://atalk.co.kr/) : 대표번호 생성을 위한 사이트
 
 ![Alt text](/etc/gif/KakaoTalk_20210417_194135445_06.gif)![Alt text](/etc/gif/KakaoTalk_20210417_194135445.gif)
+
+* 메인페이지
+사용자의 취향에 맞게 카테고리를 선택하면 현재 위치와 가장 가까운 장소부터 순차적으로 예약이 가능한 비지니스들을 보여줍니다.   
+원하는 비지니스를 선택한 후 원하는 날짜와 시간을 선택해 예약을 완료합니다. 
+
 ![Alt text](/etc/gif/KakaoTalk_20210417_194135445_02.gif)![Alt text](/etc/gif/KakaoTalk_20210417_194135445_03.gif)
+
+* 예약페이지 & 마이페이지
+예약페이지 : 해당 비즈니스의 정보를 보여주고 사용자가 원하는 날짜와 시간대를 선택하여 예약을 할 수 있다.
+마이페이지 : 프로필 수정 및 예약 목록을 볼 수 있다.
+
 ![Alt text](/etc/gif/KakaoTalk_20210417_194135445_04.gif)![Alt text](/etc/gif/KakaoTalk_20210417_194135445_05.gif)
