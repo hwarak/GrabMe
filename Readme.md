@@ -1,9 +1,4 @@
 # GrabMe
-### 멤버
-```
-프론트엔드 - 김도연
-백엔드 - 서민희
-```
 ### 프로젝트 개요
 
 그랩미는 사용자가 예약하고싶은 카테고리를 선택해서 주변에 있는 장소를 쉽고 빠르게 예약을 할수 있습니다.
@@ -21,6 +16,6 @@
 
 ### 프로젝트 설계
 * User Flow
-![Alt text](/etc/images/userFlow.png)
+![Alt text](/etc/images/GrabMe.png)
 
 
