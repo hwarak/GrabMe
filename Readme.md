@@ -127,7 +127,7 @@
     ```
 ## GrabMe Demo
 * SMS 인증을 통한 회원가입 및 로그인   
-[CoolSMS](https://coolsms.co.kr/) : 문자 인증을 위한 API
+[CoolSMS](https://coolsms.co.kr/) : 문자 인증을 위한 API   
 [atalk](http://atalk.co.kr/) : 대표번호 생성을 위한 사이트
 
 ![Alt text](/etc/gif/KakaoTalk_20210417_194135445_06.gif)![Alt text](/etc/gif/KakaoTalk_20210417_194135445.gif)
