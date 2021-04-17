@@ -6,18 +6,18 @@ import com.grabme.vo.ShopListResVO;
 
 public interface ReservationDAO {
 
-	// insert reservation
-	public void insertReservation(int user_idx, int time_idx);
+	// 예약 등록
+	public void insertReservation(int userIdx, int timeIdx);
 
-	// select reservation list
-	public List<ShopListResVO> selectReservationList(int user_idx);
+	// 예약 삭제
+	public void deleteReservation(int reservationIdx);
 
-	// delete reservation
-	public void deleteReservation(int reservation_idx);
+	// 예약리스트 뿌려줄 객체 리스트 , 날짜순으로 정렬
+	public List<ShopListResVO> selectReservationList(int userIdx);
 	
-	// select time idx by reservation_idx
-	public int selectTimeIdx(int reservation_idx);
+	// 선택된 예약의 타임 idx
+	public int selectTimeIdx(int reservationIdx);
 	
-	// select reservation by user
-	public List<Integer> selectReservationByUser(int user_idx);
+	// 선택된 유저의 예약 번호들
+	public List<Integer> selectReservationByUser(int userIdx);
 }

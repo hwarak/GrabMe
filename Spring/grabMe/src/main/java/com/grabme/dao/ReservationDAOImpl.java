@@ -14,38 +14,38 @@ public class ReservationDAOImpl implements ReservationDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	// insert reservation
+	// 예약 등록
 	@Override
-	public void insertReservation(int user_idx, int time_idx) {
+	public void insertReservation(int userIdx, int timeIdx) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("user_idx", user_idx);
-		map.put("time_idx", time_idx);
+		map.put("userIdx", userIdx);
+		map.put("timeIdx", timeIdx);
 		sqlSession.insert("com.grabme.mappers.ReservationMapper.insertReservation", map);
 	}
-
-	// select reservation list
+	
+	// 예약 삭제
 	@Override
-	public List<ShopListResVO> selectReservationList(int user_idx) {
-		return sqlSession.selectList("com.grabme.mappers.ReservationMapper.selectReservationList", user_idx);
+	public void deleteReservation(int reservationIdx) {
+		sqlSession.delete("com.grabme.mappers.ReservationMapper.deleteReservation", reservationIdx);
 	}
 
-	// delete reservation
+	// 예약리스트 뿌려줄 객체 리스트 , 날짜순으로 정렬
 	@Override
-	public void deleteReservation(int reservation_idx) {
-		sqlSession.delete("com.grabme.mappers.ReservationMapper.deleteReservation", reservation_idx);
+	public List<ShopListResVO> selectReservationList(int userIdx) {
+		return sqlSession.selectList("com.grabme.mappers.ReservationMapper.selectReservationList", userIdx);
 	}
 
-	// select time idx by reservation_idx
+	// 선택된 예약의 타임 idx
 	@Override
-	public int selectTimeIdx(int reservation_idx) {
-		return sqlSession.selectOne("com.grabme.mappers.ReservationMapper.selectTimeIdx", reservation_idx);
+	public int selectTimeIdx(int reservationIdx) {
+		return sqlSession.selectOne("com.grabme.mappers.ReservationMapper.selectTimeIdx", reservationIdx);
 		
 	}
 
-	// select reservation by user
+	// 선택된 유저의 예약 번호들
 	@Override
-	public List<Integer> selectReservationByUser(int user_idx) {
-		return sqlSession.selectList("com.grabme.mappers.ReservationMapper.selectReservationByUser",user_idx);
+	public List<Integer> selectReservationByUser(int userIdx) {
+		return sqlSession.selectList("com.grabme.mappers.ReservationMapper.selectReservationByUser",userIdx);
 	}
 
 	

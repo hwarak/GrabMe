@@ -5,8 +5,8 @@
 
 	<!-- 타임 등록 -->
 	<insert id="insertTime">
-		insert into time(shop_idx,time_date,time_time,time_people,time_max_people) 
-		value(#{shopIdx},#{timeDate},#{timeTime},#{timePeople},#{timeMaxPeople})
+		insert into time(shop_idx,time_date,time_available,time_people,time_max_people) 
+		value(#{shopIdx},#{timeDate},#{timeAvailable},#{timePeople},#{timeMaxPeople})
 	</insert>
 	
 	<!-- 타임 삭제 -->
@@ -38,7 +38,7 @@
 		time_idx as timeIdx,
 		shop_idx as shopIdx,
 		time_date as timeDate,
-		time_time as timeTime,
+		time_available as timeAvailable,
 		time_status as timeStatus,
 		time_people as timePeople,
 		time_max_people as timeMaxPeople,

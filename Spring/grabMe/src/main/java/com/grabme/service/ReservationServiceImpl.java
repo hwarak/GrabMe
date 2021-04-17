@@ -18,44 +18,44 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	private TimeDAO tdao;
 
-	// insert reservation
+	// 예약 등록
 	@Override
-	public void insertReservation(int user_idx, int time_idx) {
+	public void insertReservation(int userIdx, int timeIdx) {
 
 		// 예약 가능 인원 -1
-		tdao.updateTimePeopleMinus(time_idx);
+		tdao.updateTimePeopleMinus(timeIdx);
 
 		// 상태 체크 후 예약 가능 인원수가 1 이상이면 T로 전환
 		// 상태 체크 후 최대 인원수와 예약가능한 인원수가 같지 않으면 0 같으면 1
-		tdao.updateTimeStatus(time_idx);
+		tdao.updateTimeStatus(timeIdx);
 
 		// time 테이블 업데이트 후에 reservation 테이블 추가 !
-		dao.insertReservation(user_idx, time_idx);
+		dao.insertReservation(userIdx, timeIdx);
 	}
 
-	// delete reservation
+	// 예약 삭제
 	@Override
-	public void deleteReservation(int reservation_idx) {
+	public void deleteReservation(int reservationIdx) {
 
 		// 업데이트 할 시간 idx 가져오기
-		int time_idx = dao.selectTimeIdx(reservation_idx);
+		int timeIdx = dao.selectTimeIdx(reservationIdx);
 
 		// 예약 가능 인원 +1
-		tdao.updateTimePeoplePlus(time_idx);
+		tdao.updateTimePeoplePlus(timeIdx);
 
 		// 상태 체크 후 예약 가능 인원수가 1 이상이면 T로 전환
 		// 상태 체크 후 최대 인원수와 예약가능한 인원수가 같지 않으면 0 같으면 1
-		tdao.updateTimeStatus(time_idx);
+		tdao.updateTimeStatus(timeIdx);
 
 		// time 테이블 업데이트 후에 reservation 테이블 삭제 !
-		dao.deleteReservation(reservation_idx);
+		dao.deleteReservation(reservationIdx);
 
 	}
 
-	// select reservation list
+	// 예약리스트 뿌려줄 객체 리스트 , 날짜순으로 정렬
 	@Override
-	public List<ShopListResVO> selectReservationList(int user_idx) {
-		return dao.selectReservationList(user_idx);
+	public List<ShopListResVO> selectReservationList(int userIdx) {
+		return dao.selectReservationList(userIdx);
 	}
 
 }

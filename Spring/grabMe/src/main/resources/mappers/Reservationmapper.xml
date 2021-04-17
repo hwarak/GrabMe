@@ -3,33 +3,40 @@
 
 <mapper namespace="com.grabme.mappers.ReservationMapper">
 
-	<!-- insert reservation -->
+	<!-- 예약 등록 -->
 	<insert id="insertReservation">
-		insert into reservation(user_idx,time_idx) value(#{user_idx},#{time_idx})
+		insert into reservation(user_idx,time_idx) value(#{userIdx},#{timeIdx})
 	</insert>
 
-	<!-- select reservation list -->
+	<!-- 예약리스트와 카테고리리스트로 뿌려줄 객체 리스트 , 날짜순으로 정렬-->
 	<select id="selectReservationList" resultType="com.grabme.vo.ShopListResVO">
-		select reservation.reservation_idx, 
-		shop.idx , shop.thumbnail, shop.title, shop.address, shop.phone,
-		time.time_date, time.time_time from reservation 
+		select
+		reservation.reservation_idx as reservationIdx,
+		shop.shop_idx as shopIdx,
+		shop.shop_thumbnail as shopThumbnail,
+		shop.shop_title as shopTitle,
+		shop.shop_address as shopAddress,
+		shop.shop_phone as shopPhone,
+		time.time_date as timeDate,
+		time.time_available as timeAvailable
+		from reservation
 		left join time on reservation.time_idx = time.time_idx
-		left join shop on time.shop_idx = shop.idx
-		where reservation.user_idx=#{user_idx} and DATE(NOW()) <![CDATA[<=]]> time_date
+		left join shop on time.shop_idx = shop.shop_idx
+		where reservation.user_idx=#{userIdx} and DATE(NOW()) <![CDATA[<=]]> time_date
 		order by time_date asc;
 	</select>
 	
-	<!-- delete reservation -->
+	<!-- 예약 삭제 -->
 	<delete id="deleteReservation">
 		delete from reservation where reservation_idx=#{reservation_idx};
 	</delete>
 	
-	<!-- select time idx -->
+	<!-- 선택된 예약의 타임 idx -->
 	<select id="selectTimeIdx" resultType="Integer">
 		select time_idx from reservation where reservation_idx=#{reservation_idx}
 	</select>
 	
-	<!-- select reservation_idx by user -->
+	<!-- 선택된 유저의 예약 번호들 -->
 	<select id="selectReservationByUser" resultType="Integer">
 		select reservation_idx from reservation where user_idx=#{user_idx}
 	</select>

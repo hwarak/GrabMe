@@ -7,7 +7,7 @@ public class TimeVO {
 	private int timeIdx;
 	private int shopIdx;
 	private String timeDate;
-	private String timeTime;
+	private String timeAvailable;
 	private boolean timeStatus;
 	private int timePeople;
 	private int timeMaxPeople;

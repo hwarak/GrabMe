@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ReservationVO {
-	private int reservaton_idx;
-	private int user_idx;
-	private int time_idx;
+	private int reservatonIdx;
+	private int userIdx;
+	private int timeIdx;
 }

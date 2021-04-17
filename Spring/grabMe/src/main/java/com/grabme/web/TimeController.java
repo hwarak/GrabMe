@@ -54,11 +54,11 @@ public class TimeController {
 
 		int shopIdx = (int) (long) obj.get("shopIdx");
 		String timeDate = (String) obj.get("timeDate");
-		String timeTime = (String) obj.get("timeTime");
+		String timeAvailable = (String) obj.get("timeAvailable");
 		int timePeople = (int) (long) obj.get("timePeople");
 
 		// 타임 등록
-		timeService.insertTime(shopIdx, timeDate, timeTime, timePeople);
+		timeService.insertTime(shopIdx, timeDate, timeAvailable, timePeople);
 
 		srvo.setResult("ok");
 		srvo.setCode("");

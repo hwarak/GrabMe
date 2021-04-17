@@ -90,7 +90,7 @@ public class SignController {
 		srvo.setResult("ok");
 		srvo.setCode("");
 		
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATED_USER,srvo),HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.CREATED, ResponseMessage.CREATED_USER,srvo),HttpStatus.OK);
 
 	}
 

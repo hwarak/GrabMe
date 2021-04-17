@@ -16,24 +16,24 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	// 위도,경도 값 받아서 거리순으로 정렬후 원하는 만큼 보여주기
 	@Override
-	public List<ShopListResVO> selectCategoryWithXY(double x, double y, int category_idx, int startNum) {
+	public List<ShopListResVO> selectCategoryWithXY(double shopLon, double shopLat, int categoryIdx, int startNum) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("x", x);
-		map.put("y", y);
-		map.put("category_idx", category_idx);
+		map.put("shopLon", shopLon);
+		map.put("shopLat", shopLat);
+		map.put("categoryIdx", categoryIdx);
 		map.put("startNum", startNum);
 		
 		return sqlSession.selectList("com.grabme.mappers.CategoryMapper.selectCategoryWithXY", map);
 	}
 
-	// search Title
+	// 원하는 비즈니스 검색
 	@Override
-	public List<ShopListResVO> searchTitle(double x, double y, int category_idx, int startNum, String word) {
+	public List<ShopListResVO> searchTitle(double shopLon, double shopLat, int categoryIdx, int startNum, String word) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("x", x);
-		map.put("y", y);
-		map.put("category_idx", category_idx);
+		map.put("shopLon", shopLon);
+		map.put("shopLat", shopLat);
+		map.put("categoryIdx", categoryIdx);
 		map.put("startNum", startNum);
 		map.put("word", "%"+word+"%");
 		return sqlSession.selectList("com.grabme.mappers.CategoryMapper.searchTitle", map);

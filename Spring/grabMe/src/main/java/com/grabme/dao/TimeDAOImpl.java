@@ -17,11 +17,11 @@ public class TimeDAOImpl implements TimeDAO {
 
 	// 타임 등록
 	@Override
-	public void insertTime(int shopIdx, String timeDate, String timeTime, int timePeople) {
+	public void insertTime(int shopIdx, String timeDate, String timeAvailable, int timePeople) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("shopIdx", shopIdx);
 		map.put("timeDate", timeDate);
-		map.put("timeTime", timeTime);
+		map.put("timeAvailable", timeAvailable);
 		map.put("timePeople", timePeople);
 		map.put("timeMaxPeople", timePeople);
 		sqlSession.insert("com.grabme.mappers.TimeMapper.insertTime", map);

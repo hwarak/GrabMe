@@ -5,14 +5,14 @@ import lombok.Data;
 @Data
 public class ShopListResVO {
 
-	private int reservation_idx;
-	private int idx;
-	private String thumbnail;
-	private String title;
-	private String address;
-	private String phone;
-	private String time_date;
-	private String time_time;
+	private int reservationIdx;
+	private int shopIdx;
+	private String shopThumbnail;
+	private String shopTitle;
+	private String shopAddress;
+	private String shopPhone;
+	private String timeDate;
+	private String timeAvailable;
 
 	private ShopListResVO() {}
 	

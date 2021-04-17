@@ -8,7 +8,7 @@ import com.grabme.vo.UserVO;
 public interface TimeService {
 
 	// 타임 등록
-	public void insertTime(int shopIdx, String timeDate, String timeTime, int timePeople);
+	public void insertTime(int shopIdx, String timeDate, String timeAvailable, int timePeople);
 
 	// 타임 삭제
 	public void deleteTime(int timeIdx);

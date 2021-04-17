@@ -4,8 +4,6 @@ import lombok.Data;
 
 @Data
 public class CategoryVO {
-
-	private int idx;
-	private String category;
-	
+	private int categoryIdx;
+	private String categoryName;
 }

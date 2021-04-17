@@ -17,8 +17,8 @@ public class TimeServiceImpl implements TimeService {
 
 	// 타임 등록
 	@Override
-	public void insertTime(int shopIdx, String timeDate, String timeTime, int timePeople) {
-		dao.insertTime(shopIdx, timeDate, timeTime, timePeople);
+	public void insertTime(int shopIdx, String timeDate, String timeAvailable, int timePeople) {
+		dao.insertTime(shopIdx, timeDate, timeAvailable, timePeople);
 	}
 
 	// 타임 삭제
