@@ -74,7 +74,7 @@
    ```json
     http://localhost:8080/web/category?shopLon=126.936897574428&shopLat=37.555202179427276&categoryIdx=3&startNum=0
     ```
-  - response 1 : 데이터 존재할때
+  - response 1 : 데이터 존재할때 (코드 중략)
    ```json
     {
         "statusCode": 200,
@@ -109,9 +109,7 @@
                 "shopPhone": "02-363-3799",
                 "timeDate": null,
                 "timeAvailable": null
-            },
-  
-            // 코드 중략
+            }
         ]
     }
     ```
