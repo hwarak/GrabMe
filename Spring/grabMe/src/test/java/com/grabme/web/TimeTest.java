@@ -11,6 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.grabme.dao.TimeDAO;
 import com.grabme.vo.TimeVO;
+import com.grabme.vo.UserVO;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,31 +21,34 @@ public class TimeTest {
 	@Autowired
 	private TimeDAO dao;
 
+	// 타임 등록
 	@Test
 	public void testIsertTime() throws Exception {
-		// 예약 날짜/시각 등록하기
 		dao.insertTime(28, "2021-05-19", "10:30",5);
 	}
 
-	@Test
-	public void testUpdateTime() throws Exception {
-		// 시간 업데이트하기
-		dao.updateTime("9:00", 6);
-	}
-
+	// 타임 삭제
 	@Test
 	public void testDeleteTime() throws Exception {
-		// 시간 삭제하기
 		dao.deleteTime(7);
 	}
 
+	// 해당 날짜, 해당 가게의 예약 가능한 타임 리스트를 보여준다
 	@Test
 	public void testSelectDate() throws Exception {
-		// 해당 날짜, 해당 가게의 예약 시간들을 보여준다
 		List<TimeVO> list = dao.selectDate(4, "2021-05-11");
 		for (TimeVO tmp : list) {
 			// boolean 사용할때는 getStatus() X isStatus O
-			System.out.println(tmp.isTime_status());
+			System.out.println(tmp.isTimeStatus());
+		}
+	}
+	
+	// 선택된 타임에 예약된 개인 고객들 리스트를 출력한다
+	@Test
+	public void testSelectUserByTime() throws Exception {
+		List<UserVO> list = dao.selectUserByTime(4);
+		for (UserVO tmp : list) {
+			System.out.println(tmp.getUserName());
 		}
 	}
 

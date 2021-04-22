@@ -33,7 +33,6 @@
 	<bean id="TimeBean" class="com.grabme.dao.TimeDAOImpl"/>
 	<bean id="CategoryBean" class="com.grabme.dao.CategoryDAOImpl"/>
 	<bean id="ReservationBean" class="com.grabme.dao.ReservationDAOImpl"/>
-	<bean id="ExternalChannelBean" class="com.grabme.dao.ExternalChannelDAOImpl"/>
 	
 	<bean name="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
