@@ -83,4 +83,17 @@ public class UserServiceImpl implements UserService {
 		return dao.selectReturnIdx(userIdx);
 	}
 
+	// 유저 업데이트
+	@Override
+	public void updateUser(String userProfileImg,int userIdx) {
+		dao.updateUser(userProfileImg, userIdx);
+
+	}
+
+	// 유저 프로필 주소
+	@Override
+	public String selectUserProfile(int userIdx) {
+		return dao.selectUserProfile(userIdx);
+	}
+
 }

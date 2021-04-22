@@ -43,4 +43,23 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectReturnIdx", userIdx);
 	}
 
+	// 유저 정보 업데이트
+	@Override
+	public void updateUser(String userProfileImg, int userIdx) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userProfileImg", userProfileImg);
+		map.put("userIdx", userIdx);
+		sqlSession.update("com.grabme.mappers.UserMapper.updateUser",map);
+		
+	}
+
+	// 유저 프로필 주소
+	@Override
+	public String selectUserProfile(int userIdx) {
+		return sqlSession.selectOne("com.grabme.mappers.UserMapper.selectUserProfile",userIdx);
+	}
+	
+	
+	
+
 }

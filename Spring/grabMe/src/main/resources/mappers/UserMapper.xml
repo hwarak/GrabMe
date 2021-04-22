@@ -23,5 +23,15 @@
 		select if(user_status, 0, (if((select count(*) from shop where shop.owner_idx=#{userIdx} ) ,
 		(select user_idx from shop where shop.owner_idx=#{userIdx}),0))) as "상태" FROM user where user_idx=#{userIdx}
 	</select>
+	
+	<!-- 유저 정보 업데이트 -->
+	<update id="updateUser">
+		update user set user_profile_img=#{userProfileImg} where user_idx=#{userIdx}
+	</update>
+	
+	<!-- 유저 프로필 주소 -->
+	<select id="selectUserProfile" resultType="String">
+		select user_profile_img from user where user_idx=#{userIdx}
+	</select>
 
 </mapper>

@@ -13,4 +13,10 @@ public interface UserDAO {
 	
 	// 유저가 사장님이면 가게 번호를, 개인고객이면 0을 반환
 	public int selectReturnIdx(int userIdx);
+	
+	// 유저 정보 업데이트
+	public void updateUser(String userProfileImg, int userIdx);
+	
+	// 유저 프로필 주소
+	public String selectUserProfile(int userIdx);
 }
