@@ -151,4 +151,5 @@
 ![Alt text](/etc/gif/KakaoTalk_20210417_194135445_04.gif)![Alt text](/etc/gif/KakaoTalk_20210417_194135445_05.gif)
 
 
-[자세히 보기](https://www.notion.so/GRABME-a367f0a958cf440fb710bbf56a2c0172)
+
+[더 보기](https://www.notion.so/GRABME-a367f0a958cf440fb710bbf56a2c0172)
