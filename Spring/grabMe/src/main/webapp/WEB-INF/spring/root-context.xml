@@ -39,7 +39,7 @@
 		<property name="defaultEncoding" value="utf-8" />
 		<property name="maxUploadSize" value="30485760" />
 	</bean>
-	
+
 
 	
 	<context:component-scan base-package="com.grabme.service" />

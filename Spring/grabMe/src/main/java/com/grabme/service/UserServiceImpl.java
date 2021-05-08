@@ -4,11 +4,16 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.grabme.dao.ReservationDAO;
 import com.grabme.dao.TimeDAO;
 import com.grabme.dao.UserDAO;
+import com.grabme.response.DefaultRes;
+import com.grabme.response.ResponseMessage;
+import com.grabme.response.StatusCode;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -95,5 +100,7 @@ public class UserServiceImpl implements UserService {
 	public String selectUserProfile(int userIdx) {
 		return dao.selectUserProfile(userIdx);
 	}
+
+	
 
 }

@@ -12,21 +12,21 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 public class MessageService {
 
 	@Value("${coolsms.devHee.apikey}")
-	private String api_key;
+	private String apiKey;
 
 	@Value("${coolsms.devHee.apisecret}")
-	private String api_secret;
+	private String apiSecret;
 
 	@Value("${coolsms.devHee.fromnumber}")
-	private String from_number;
+	private String fromNumber;
 
 	public void sendMessage(String toNumber, String randomNumber) {
 
-		Message coolsms = new Message(api_key, api_secret);
+		Message coolsms = new Message(apiKey, apiSecret);
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("to", toNumber);
-		params.put("from", from_number);
+		params.put("from", fromNumber);
 		params.put("type", "SMS");
 		params.put("text", "[grabMe] 인증번호 "+randomNumber+" 를 입력하세요.");
 		params.put("app_version", "test app 1.2"); // application name and version

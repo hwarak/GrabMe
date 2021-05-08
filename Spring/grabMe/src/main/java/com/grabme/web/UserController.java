@@ -24,10 +24,6 @@ import com.grabme.service.S3Service;
 import com.grabme.service.ShopService;
 import com.grabme.service.UserService;
 import com.grabme.vo.SignResVO;
-import com.grabme.vo.UserVO;
-
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -47,10 +43,9 @@ public class UserController {
 	@Autowired
 	private S3Service s3Service;
 
-	@ApiOperation(value = "유저 삭제", notes = "해당 유저와 예약 내역을 삭제한다.")
 	@DeleteMapping
 	@ResponseBody
-	public ResponseEntity userDelete(@ApiParam(value = "유저 번호", required = true) @RequestBody String str) {
+	public ResponseEntity userDelete(@RequestBody String str) {
 
 		System.out.println("클라이언트 요청 : " + str);
 

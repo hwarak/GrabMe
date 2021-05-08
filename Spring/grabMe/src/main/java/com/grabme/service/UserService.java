@@ -1,5 +1,7 @@
 package com.grabme.service;
 
+import org.springframework.http.ResponseEntity;
+
 public interface UserService {
 
 	// 유저 번호와 상태(사장님/개인)를 받아 데이터베이스 존재여부 확인
@@ -22,5 +24,6 @@ public interface UserService {
 
 	// 유저 프로필 주소
 	public String selectUserProfile(int userIdx);
+
 
 }

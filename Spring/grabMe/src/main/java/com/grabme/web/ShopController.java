@@ -67,7 +67,7 @@ public class ShopController {
 		srvo.setResult("ok");
 		srvo.setCode("");
 
-		return new ResponseEntity(DefaultRes.res(StatusCode.OK, ResponseMessage.CREATE_SHOP,srvo),HttpStatus.OK);
+		return new ResponseEntity(DefaultRes.res(StatusCode.CREATED, ResponseMessage.CREATE_SHOP,srvo),HttpStatus.OK);
 	}
 
 	
